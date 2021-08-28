@@ -23,5 +23,15 @@ namespace LPOO2_GRUPO_08
         {
             InitializeComponent();
         }
+
+        private void btn_ingresar_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btn_cancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
