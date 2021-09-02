@@ -32,6 +32,7 @@ namespace LPOO2_GRUPO_08
             Rol oRol2 = new Rol(2, "Mozo");
             Rol oRol3 = new Rol(3, "Vendedor");
             Usuario oUser1 = new Usuario(1, "Grafion Atilio", "atillgn", "123", 1);
+            Usuario oUser4 = new Usuario(1, "Marcia Velarde", "admin", "123", 1);
             Usuario oUser2 = new Usuario(2, "Oviedo Ignacio", "gekaidas", "123", 2);
             Usuario oUser3 = new Usuario(3, "Cruz Pablo", "joacru", "123", 3);
             bool login = false;
@@ -50,6 +51,11 @@ namespace LPOO2_GRUPO_08
             {
                 login = true;
                 aux = oUser3.Rol_Id;
+            }
+            else if (oUser4.Usu_NombreUsuario == txtUser.Text && oUser4.Usu_Contrasenia == txtPass.Password)
+            {
+                login = true;
+                aux = oUser4.Rol_Id;
             }
             if (login)
             {

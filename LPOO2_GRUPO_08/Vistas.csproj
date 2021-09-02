@@ -55,12 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WinABMArticulo.xaml.cs">
+      <DependentUpon>WinABMArticulo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinABMUsuario.xaml.cs">
+      <DependentUpon>WinABMUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinMenuAdmin.xaml.cs">
       <DependentUpon>WinMenuAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinMenuMozo.xaml.cs">
       <DependentUpon>WinMenuMozo.xaml</DependentUpon>
     </Compile>
+    <Page Include="WinABMArticulo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinABMUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinLogin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

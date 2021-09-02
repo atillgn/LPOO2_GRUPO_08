@@ -51,5 +51,9 @@ namespace ClasesBase
             usu_Contrasenia = contrasenia;
             rol_Id = rolId;
         }
+
+        public Usuario()
+        {
+        }
     }
 }
