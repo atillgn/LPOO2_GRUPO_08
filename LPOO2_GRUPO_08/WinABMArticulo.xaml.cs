@@ -38,7 +38,7 @@ namespace LPOO2_GRUPO_08
             oArticulo.Art_ManejaStock = (bool)chkStock.IsChecked;
             oArticulo.Art_Precio = Convert.ToDecimal(txtPrecio.Text) ;
             oArticulo.Fam_Id = determinarFamilia(cmbFamilia.Text);
-            oArticulo.Um_Id = Convert.ToInt32(txtUM.Text);
+            oArticulo.Um_Id = determinarUnidad(cmbUM.Text);
             return oArticulo;
         }
 
@@ -70,13 +70,31 @@ namespace LPOO2_GRUPO_08
             return iId;
         }
 
+        private int determinarUnidad(string sUnidad)
+        {
+            int iId = 0;
+            switch (sUnidad)
+            {
+                case "Litros":
+                    iId = 1;
+                    break;
+                case "Kilos":
+                    iId = 2;
+                    break;
+                case "Unidades":
+                    iId = 3;
+                    break;
+            }
+            return iId;
+        }
+
         private string encadenarDatosArticulo(Articulo oArticulo)
         {
             string sCadenaDatosArticulo = "DATOS A GUARDAR: \n" +
                                               "\n" +
                                               "Descripcion:  " + oArticulo.Art_Descripcion + "\n" +
                                               "Familia:  " + oArticulo.Fam_Id + ": " + cmbFamilia.Text + "\n" +
-                                              "UM:  " + oArticulo.Um_Id + "\n" +
+                                              "UM:  " + oArticulo.Um_Id + ": " + cmbUM.Text + "\n" +
                                               "Precio:  " + oArticulo.Art_Precio + "\n" +
                                               "Maneja Stock:  " + oArticulo.Art_ManejaStock + "\n";
             return sCadenaDatosArticulo;
@@ -86,7 +104,7 @@ namespace LPOO2_GRUPO_08
         {
             txtDescrip.Clear();
             txtPrecio.Clear();
-            txtUM.Clear();
+            cmbUM.Text = "";
             cmbFamilia.Text = "";
             chkStock.IsChecked = false;
         }

@@ -4,11 +4,11 @@
         Title="Administrador" Height="300" Width="456" WindowStartupLocation="CenterScreen">
     <Grid>
         <Menu Height="23" HorizontalAlignment="Left" x:Name="menu1" VerticalAlignment="Top" Width="434">
-            <MenuItem Header="_Usuarios" x:Name="menuUsuarios" Click="menuUsuarios_Click"></MenuItem>
-            <MenuItem Header="_Artículos" x:Name="menuArticulos" Click="menuArticulos_Click"></MenuItem>
-            <MenuItem Header="_Familia" x:Name="menuFamilia"></MenuItem>
-            <MenuItem Header="_Categoría" x:Name="menuCategoria"></MenuItem>
-            <MenuItem Header="_Unidades de medida" x:Name="menuUnidades"></MenuItem>
+            <MenuItem Header="_Usuarios" x:Name="menuUsuarios" Click="menuUsuarios_Click" TabIndex="1"></MenuItem>
+            <MenuItem Header="_Artículos" x:Name="menuArticulos" Click="menuArticulos_Click" TabIndex="2"></MenuItem>
+            <MenuItem Header="_Familia" x:Name="menuFamilia" TabIndex="3"></MenuItem>
+            <MenuItem Header="_Categoría" x:Name="menuCategoria" TabIndex="4"></MenuItem>
+            <MenuItem Header="_Unidades de medida" x:Name="menuUnidades" TabIndex="5"></MenuItem>
         </Menu>
     </Grid>
 </Window>
