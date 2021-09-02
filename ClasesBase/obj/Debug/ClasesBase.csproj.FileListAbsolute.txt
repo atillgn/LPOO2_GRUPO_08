@@ -3,3 +3,8 @@ C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\ClasesBase\b
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.dll
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.pdb
+D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\ClasesBase\bin\Debug\ClasesBase.dll
+D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\ClasesBase\bin\Debug\ClasesBase.pdb
+D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.csprojResolveAssemblyReference.cache
+D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.dll
+D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.pdb

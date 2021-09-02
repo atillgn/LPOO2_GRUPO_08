@@ -22,5 +22,21 @@ namespace LPOO2_GRUPO_08
         {
             InitializeComponent();
         }
+
+        private void menuUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinUsuario = new WinABMUsuario();
+            wWinUsuario.Show();
+            this.Close();
+        }
+
+        private void menuArticulos_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinArticulo = new WinABMArticulo();
+            wWinArticulo.Show();
+            this.Close();
+        }
+
+
     }
 }

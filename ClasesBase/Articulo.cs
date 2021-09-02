@@ -35,9 +35,9 @@ namespace ClasesBase
             get { return um_Id; }
             set { um_Id = value; }
         }
-        private float art_Precio;
+        private decimal art_Precio;
 
-        public float Art_Precio
+        public decimal Art_Precio
         {
             get { return art_Precio; }
             set { art_Precio = value; }
@@ -50,7 +50,7 @@ namespace ClasesBase
             set { art_ManejaStock = value; }
         }
 
-        public Articulo(int id, string descripcion, int idFam, int idUM, float precio, bool manejaStock) 
+        public Articulo(int id, string descripcion, int idFam, int idUM, decimal precio, bool manejaStock) 
         {
             art_Id = id;
             art_Descripcion = descripcion;
@@ -58,6 +58,10 @@ namespace ClasesBase
             um_Id = idUM;
             art_Precio = precio;
             art_ManejaStock = manejaStock;
+        }
+
+        public Articulo()
+        {
         }
     }
 }
