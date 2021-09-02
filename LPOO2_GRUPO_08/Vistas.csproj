@@ -58,6 +58,9 @@
     <Compile Include="WinABMArticulo.xaml.cs">
       <DependentUpon>WinABMArticulo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinABMCliente.xaml.cs">
+      <DependentUpon>WinABMCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinABMUsuario.xaml.cs">
       <DependentUpon>WinABMUsuario.xaml</DependentUpon>
     </Compile>
@@ -67,7 +70,14 @@
     <Compile Include="WinMenuMozo.xaml.cs">
       <DependentUpon>WinMenuMozo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinMesas.xaml.cs">
+      <DependentUpon>WinMesas.xaml</DependentUpon>
+    </Compile>
     <Page Include="WinABMArticulo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinABMCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -92,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinMenuMozo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinMesas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

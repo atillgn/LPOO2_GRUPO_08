@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\
 LPOO2_GRUPO_08
 none
 false
 DEBUG;TRACE
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\App.xaml
-5-1855326707
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\App.xaml
+71255016864
 
-9559164341
-131075550352
-WinABMArticulo.xaml;WinABMUsuario.xaml;WinLogin.xaml;WinMenuAdmin.xaml;WinMenuMozo.xaml;
+11220207110
+13315579949
+WinABMArticulo.xaml;WinABMCliente.xaml;WinABMUsuario.xaml;WinLogin.xaml;WinMenuAdmin.xaml;WinMenuMozo.xaml;WinMesas.xaml;
 
 False
 

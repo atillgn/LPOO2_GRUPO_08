@@ -57,3 +57,11 @@ D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.baml
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.g.cs
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.g.cs

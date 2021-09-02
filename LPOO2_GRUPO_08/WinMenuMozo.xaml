@@ -3,6 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Mozo / Vendedor" Height="300" Width="423" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Menu Height="23" HorizontalAlignment="Left" x:Name="menu1" VerticalAlignment="Top" Width="434">
+            <MenuItem Header="_Cliente" x:Name="menuCliente" TabIndex="1" Click="menuCliente_Click"></MenuItem>
+            <MenuItem Header="_Mesas" x:Name="menuMesas" TabIndex="2" Click="menuMesas_Click"></MenuItem>
+            <MenuItem Header="_Pedido" x:Name="menuPedidos" TabIndex="3"></MenuItem>
+        </Menu>
     </Grid>
 </Window>

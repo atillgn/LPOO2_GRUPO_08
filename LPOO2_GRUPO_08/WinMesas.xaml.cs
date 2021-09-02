@@ -14,26 +14,19 @@ using System.Windows.Shapes;
 namespace LPOO2_GRUPO_08
 {
     /// <summary>
-    /// Interaction logic for WinMenuMozo.xaml
+    /// Interaction logic for WinMesas.xaml
     /// </summary>
-    public partial class WinMenuMozo : Window
+    public partial class WinMesas : Window
     {
-        public WinMenuMozo()
+        public WinMesas()
         {
             InitializeComponent();
         }
 
-        private void menuCliente_Click(object sender, RoutedEventArgs e)
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinCliente = new WinABMCliente();
-            wWinCliente.Show();
-            this.Close();
-        }
-
-        private void menuMesas_Click(object sender, RoutedEventArgs e)
-        {
-            Window wWinMesas = new WinMesas();
-            wWinMesas.Show();
+            Window wWinMenuMozo = new WinMenuMozo();
+            wWinMenuMozo.Show();
             this.Close();
         }
     }

@@ -59,5 +59,7 @@ namespace ClasesBase
             cli_Telefono = telefono;
             cli_Email = email;
         }
+
+        public Cliente() { }
     }
 }
