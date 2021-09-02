@@ -1,7 +1,7 @@
 ﻿<Window x:Class="LPOO2_GRUPO_08.WinMenuMozo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Mozo / Vendedor" Height="300" Width="423" Name="WinMenuMozo">
+        Title="Mozo / Vendedor" Height="300" Width="423" >
     <Grid>
         
     </Grid>
