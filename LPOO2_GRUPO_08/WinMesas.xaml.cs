@@ -29,5 +29,11 @@ namespace LPOO2_GRUPO_08
             wWinMenuMozo.Show();
             this.Close();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            button11.Background = Brushes.Red;
+            button17.Background = Brushes.Red;
+        }
     }
 }
