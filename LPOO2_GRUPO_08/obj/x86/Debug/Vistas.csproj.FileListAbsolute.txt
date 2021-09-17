@@ -91,3 +91,11 @@ D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.g.resources
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.Properties.Resources.resources
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.GenerateResource.Cache
+D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.baml
+D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.baml
+D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.baml
+D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.baml
+D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.g.cs
+D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.g.cs
+D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.g.cs
+D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.g.cs

@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -139,6 +140,15 @@
       <Project>{E3D1B029-5484-4B2E-86CA-AC3737C5A0C7}</Project>
       <Name>ClasesBase</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Capa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
