@@ -8,3 +8,8 @@ D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.csprojResolveAssemblyReference.cache
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.dll
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.pdb
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\ClasesBase\bin\Debug\ClasesBase.dll
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\ClasesBase\bin\Debug\ClasesBase.pdb
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.csproj.CoreCompileInputs.cache
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.dll
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\ClasesBase\obj\Debug\ClasesBase.pdb
