@@ -3,160 +3,38 @@ C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\ClasesBase.dll
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\ClasesBase.pdb
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\DiccionarioRecursos\ButtonDictionary.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\DiccionarioRecursos\InputDictionary.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ControlUsuario\Login.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCategoria.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\App.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ControlUsuario\Login.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCategoria.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.g.cs
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.g.cs
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\App.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08_MarkupCompile.cache
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08_MarkupCompile.lref
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.baml
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.g.resources
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.Properties.Resources.resources
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.exe
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.pdb
-C:\Users\admin\documents\visual studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.baml
-C:\Users\admin\documents\visual studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.baml
-C:\Users\admin\documents\visual studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.g.cs
-C:\Users\admin\documents\visual studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.g.cs
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.exe
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.pdb
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csprojResolveAssemblyReference.cache
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.baml
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.baml
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.baml
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.g.cs
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.g.cs
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.g.cs
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\App.g.cs
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08_MarkupCompile.cache
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.g.resources
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.Properties.Resources.resources
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.GenerateResource.Cache
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\LPOO2_GRUPO_08.exe
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\LPOO2_GRUPO_08.pdb
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\ClasesBase.dll
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\ClasesBase.pdb
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\LPOO2_GRUPO_08.exe
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\LPOO2_GRUPO_08.pdb
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\ClasesBase.dll
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\ClasesBase.pdb
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csprojResolveAssemblyReference.cache
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\App.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08_MarkupCompile.cache
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.g.resources
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.Properties.Resources.resources
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.GenerateResource.Cache
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.exe
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.pdb
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.g.cs
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.baml
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.baml
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.g.cs
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.g.cs
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.baml
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.g.cs
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.baml
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.exe
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.pdb
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\LPOO2_GRUPO_08.exe
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\LPOO2_GRUPO_08.pdb
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\ClasesBase.dll
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\ClasesBase.pdb
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csprojResolveAssemblyReference.cache
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\App.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08_MarkupCompile.cache
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.g.resources
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.Properties.Resources.resources
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.GenerateResource.Cache
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.baml
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.baml
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.baml
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.baml
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.g.cs
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.g.cs
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.g.cs
-D:\Documentos de George\Documents\Visual Studio 2010\Projects\ProyectoLPOOII\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.baml
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.g.cs
-D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.g.cs
-<<<<<<< HEAD
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\DiccionarioRecursos\ButtonDictionary.baml
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\App.baml
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\DiccionarioRecursos\InputDictionary.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.AssemblyReference.cache
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.exe
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.pdb
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\LPOO2_GRUPO_08.exe
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\LPOO2_GRUPO_08.pdb
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\ClasesBase.dll
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\bin\Debug\ClasesBase.pdb
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\DiccionarioRecursos\ButtonDictionary.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\DiccionarioRecursos\InputDictionary.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\App.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMArticulo.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUsuario.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinLogin.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuAdmin.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMenuMozo.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\App.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08_MarkupCompile.cache
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.g.resources
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08.Properties.Resources.resources
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.GenerateResource.cache
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.CoreCompileInputs.cache
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.CopyComplete
-=======
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ControlUsuario\Login.baml
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ControlUsuario\Login.g.cs
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08_MarkupCompile.lref
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCategoria.baml
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.baml
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.baml
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCategoria.g.cs
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.g.cs
-C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.g.cs
->>>>>>> 08a88520d5b9dbe8d9de57a1c4666f0eebbfdf82
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ControlUsuario\Login.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCategoria.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.baml
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ControlUsuario\Login.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCategoria.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08_MarkupCompile.lref

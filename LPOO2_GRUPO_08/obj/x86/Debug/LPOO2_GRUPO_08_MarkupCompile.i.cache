@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\
 LPOO2_GRUPO_08
 none
 false
 DEBUG;TRACE
-D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\App.xaml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\App.xaml
 131442137900
 
-16675667546
-14-1849601330
+161812251892
+14-901068697
 DiccionarioRecursos\ButtonDictionary.xaml;DiccionarioRecursos\InputDictionary.xaml;ControlUsuario\Login.xaml;WinABMArticulo.xaml;WinABMCategoria.xaml;WinABMCliente.xaml;WinABMFamilia.xaml;WinABMUnidadDeMedida.xaml;WinABMUsuario.xaml;WinLogin.xaml;WinMenuAdmin.xaml;WinMenuMozo.xaml;WinMesas.xaml;
 
-False
+True
 
