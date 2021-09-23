@@ -6,9 +6,9 @@
         <Menu Height="23" HorizontalAlignment="Left" x:Name="menu1" VerticalAlignment="Top" Width="434">
             <MenuItem Header="_Usuarios" x:Name="menuUsuarios" Click="menuUsuarios_Click" TabIndex="1"></MenuItem>
             <MenuItem Header="_Artículos" x:Name="menuArticulos" Click="menuArticulos_Click" TabIndex="2"></MenuItem>
-            <MenuItem Header="_Familia" x:Name="menuFamilia" TabIndex="3"></MenuItem>
-            <MenuItem Header="_Categoría" x:Name="menuCategoria" TabIndex="4"></MenuItem>
-            <MenuItem Header="_Unidades de medida" x:Name="menuUnidades" TabIndex="5"></MenuItem>
+            <MenuItem Header="_Familia" x:Name="menuFamilia" TabIndex="3" Click="menuFamilia_Click"></MenuItem>
+            <MenuItem Header="_Categoría" x:Name="menuCategoria" TabIndex="4" Click="menuCategoria_Click"></MenuItem>
+            <MenuItem Header="_Unidades de medida" x:Name="menuUnidades" TabIndex="5" Click="menuUnidades_Click"></MenuItem>
         </Menu>
     </Grid>
 </Window>

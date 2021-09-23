@@ -37,6 +37,25 @@ namespace LPOO2_GRUPO_08
             this.Close();
         }
 
+        private void menuFamilia_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinFamilia = new WinABMFamilia();
+            wWinFamilia.Show();
+            this.Close();
+        }
 
+        private void menuCategoria_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinCategoria = new WinABMCategoria();
+            wWinCategoria.Show();
+            this.Close();
+        }
+
+        private void menuUnidades_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinUnidades = new WinABMUnidadDeMedida();
+            wWinUnidades.Show();
+            this.Close();
+        }
     }
 }

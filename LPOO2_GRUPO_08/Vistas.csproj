@@ -62,8 +62,17 @@
     <Compile Include="WinABMArticulo.xaml.cs">
       <DependentUpon>WinABMArticulo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinABMCategoria.xaml.cs">
+      <DependentUpon>WinABMCategoria.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinABMCliente.xaml.cs">
       <DependentUpon>WinABMCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinABMFamilia.xaml.cs">
+      <DependentUpon>WinABMFamilia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinABMUnidadDeMedida.xaml.cs">
+      <DependentUpon>WinABMUnidadDeMedida.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinABMUsuario.xaml.cs">
       <DependentUpon>WinABMUsuario.xaml</DependentUpon>
@@ -85,7 +94,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinABMCategoria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinABMCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinABMFamilia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinABMUnidadDeMedida.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

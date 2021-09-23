@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\App.xaml
-8408573150
+11476430481
 
-13-1468598505
+161812251892
 14-901068697
-ControlUsuario\Login.xaml;WinABMArticulo.xaml;WinABMCliente.xaml;WinABMUsuario.xaml;WinLogin.xaml;WinMenuAdmin.xaml;WinMenuMozo.xaml;WinMesas.xaml;
+ControlUsuario\Login.xaml;WinABMArticulo.xaml;WinABMCategoria.xaml;WinABMCliente.xaml;WinABMFamilia.xaml;WinABMUnidadDeMedida.xaml;WinABMUsuario.xaml;WinLogin.xaml;WinMenuAdmin.xaml;WinMenuMozo.xaml;WinMesas.xaml;
 
 True
 
