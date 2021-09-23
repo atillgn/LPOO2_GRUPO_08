@@ -1,0 +1,160 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--TP2_Punto1-->
+    <Style TargetType="{x:Type Button}" x:Key="BtnWinArticulos">
+        <Setter Property="Foreground" Value="white" />
+        <Setter Property="Background" Value="#2A324F" />
+        <Setter Property="BorderBrush" Value="#1cbfff" />
+        <Setter Property="FontFamily" Value="arial" />
+        
+        <Style.Triggers>
+            
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="Blue" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+            
+            <!--<EventTrigger RoutedEvent="Mouse.MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" To="Blue"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Background.Color" To="#1cbfff"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Height" To="33" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                    
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Width" To="90" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+
+            
+            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                <EventTrigger.Actions>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.5" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.5" Storyboard.TargetProperty="Background.Color"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.5" Storyboard.TargetProperty="Height"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.5" Storyboard.TargetProperty="Width"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                   
+                </EventTrigger.Actions>
+            </EventTrigger> -->
+        </Style.Triggers>
+    </Style>
+
+    <!--TP2_Punto2-->
+    <ControlTemplate TargetType="{x:Type Button}" x:Key="CrtlBtnCliente">
+        <Border Name="Borde" BorderBrush="#1cbfff" BorderThickness="1" CornerRadius="3" Background="#2A324F" 
+        TextBlock.Foreground="White" TextBlock.FontFamily="Arial">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+        
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Borde" Property="TextBlock.Foreground" Value="Blue" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter TargetName="Borde" Property="Background" Value="#1cbfff" />
+            </Trigger>
+    
+            <!--
+            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="Borde" Duration="0:0:0.2" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" To="Blue"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="Borde" Duration="0:0:0.2" Storyboard.TargetProperty="Background.Color" To="#1cbfff"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                    
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Height" To="33" />
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Width" To="90" />
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                </EventTrigger.Actions>
+            </EventTrigger>
+
+
+            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                <EventTrigger.Actions>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation  Storyboard.TargetName="Borde" Duration="0:0:0.5" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="Borde" Duration="0:0:0.5" Storyboard.TargetProperty="Background.Color"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Height" />
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Width" />
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                </EventTrigger.Actions>
+            </EventTrigger>-->
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type Button}" x:Key="BtnWinCliente">
+        <Setter Property="Template" Value="{StaticResource CrtlBtnCliente}" />
+    </Style>
+</ResourceDictionary>
