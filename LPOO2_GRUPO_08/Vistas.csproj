@@ -74,6 +74,14 @@
     <Compile Include="WinMesas.xaml.cs">
       <DependentUpon>WinMesas.xaml</DependentUpon>
     </Compile>
+    <Page Include="DiccionarioRecursos\ButtonDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DiccionarioRecursos\InputDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinABMArticulo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

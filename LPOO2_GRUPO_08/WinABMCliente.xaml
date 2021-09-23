@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Cliente" Height="329" Width="456" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Volver" Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="btnVolver" VerticalAlignment="Top" Width="49" Click="btnVolver_Click" TabIndex="6" />
+        <Button Style="{StaticResource BtnWinCliente}" Content="Volver" Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="btnVolver" VerticalAlignment="Top" Width="49" Click="btnVolver_Click" TabIndex="6" />
         <Label Content="Alta Cliente" Height="28" HorizontalAlignment="Left" Margin="173,12,0,0" Name="lblTitulo" VerticalAlignment="Top" FontSize="16" />
         <Label Content="Apellido" Height="28" HorizontalAlignment="Left" Margin="136,71,0,0" Name="lblApellido" VerticalAlignment="Top" />
         <Label Content="Nombre" Height="28" HorizontalAlignment="Left" Margin="136,105,0,0" Name="lblNombre" VerticalAlignment="Top" />
@@ -15,6 +15,6 @@
         <TextBox Height="23" HorizontalAlignment="Left" Margin="196,141,0,0" Name="txtTelefono" VerticalAlignment="Top" Width="120" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="196,175,0,0" Name="txtDomicilio" VerticalAlignment="Top" Width="120" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="196,209,0,0" Name="txtEmail" VerticalAlignment="Top" Width="120" />
-        <Button Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="189,255,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" />
+        <Button Style="{StaticResource BtnWinCliente}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="189,255,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" />
     </Grid>
 </Window>

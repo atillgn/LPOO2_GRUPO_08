@@ -8,10 +8,10 @@
         <Label Content="Familia" Height="28" HorizontalAlignment="Left" Margin="140,82,0,0" Name="lblFamilia" VerticalAlignment="Top" />
         <Label Content="Unidad de medida" Height="28" HorizontalAlignment="Left" Margin="79,119,0,0" Name="lblUM" VerticalAlignment="Top" />
         <Label Content="Precio" Height="28" HorizontalAlignment="Left" Margin="144,153,0,0" Name="lblPrecio" VerticalAlignment="Top" />
-        <Button Content="Volver" Height="23" HorizontalAlignment="Left" Name="btnVolver" VerticalAlignment="Top" Width="50" Margin="12,12,0,0" Click="btnVolver_Click" TabIndex="7" />
-        <Button Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="179,227,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="6" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="193,52,0,0" Name="txtDescrip" VerticalAlignment="Top" Width="120" TabIndex="1" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="193,157,0,0" Name="txtPrecio" VerticalAlignment="Top" Width="120" TabIndex="4" />
+        <Button Style="{StaticResource BtnWinArticulos}" Content="Volver" Height="23" HorizontalAlignment="Left" Name="btnVolver" VerticalAlignment="Top" Width="50" Margin="12,12,0,0" Click="btnVolver_Click" TabIndex="7"  />
+        <Button Style="{StaticResource BtnWinArticulos}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="179,227,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="6" />
+        <TextBox Style="{StaticResource InpWinArticulos}" Height="23" HorizontalAlignment="Left" Margin="193,52,0,0" Name="txtDescrip" VerticalAlignment="Top" Width="120" TabIndex="1" />
+        <TextBox Style="{StaticResource InpWinArticulos}" Height="23" HorizontalAlignment="Left" Margin="193,157,0,0" Name="txtPrecio" VerticalAlignment="Top" Width="120" TabIndex="4" />
         <ComboBox Height="23" HorizontalAlignment="Left" Margin="193,87,0,0" Name="cmbFamilia" VerticalAlignment="Top" Width="120" TabIndex="2">
             <ComboBoxItem Content="Bebidas" />
             <ComboBoxItem Content="Producto terminado" />
