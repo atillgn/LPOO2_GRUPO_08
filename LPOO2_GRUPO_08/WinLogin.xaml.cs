@@ -40,7 +40,7 @@ namespace LPOO2_GRUPO_08
             int aux = 0;
             foreach (Usuario oUsu in usuarios)
             {
-                if (oUsu.Usu_NombreUsuario == txtUser.Text && oUsu.Usu_Contrasenia == txtPass.Password)
+                if (oUsu.Usu_NombreUsuario == clogin.txtUser.Text && oUsu.Usu_Contrasenia == clogin.txtPass.Password)
                 {
                     login = true;
                     aux = oUsu.Rol_Id;
@@ -53,13 +53,13 @@ namespace LPOO2_GRUPO_08
             else
             {
                 MessageBox.Show("Datos incorrectos");
-                txtUser.Focus();
+                clogin.txtUser.Focus();
             }
         }
 
         private void abrirMenu(int aux)
         {
-            MessageBox.Show("Bienvenido: " + txtUser.Text);
+            MessageBox.Show("Bienvenido: " + clogin.txtUser.Text);
             Window wMenu;
             if (aux == 2 || aux == 3)
             {

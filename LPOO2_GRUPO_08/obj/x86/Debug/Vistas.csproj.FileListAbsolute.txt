@@ -103,6 +103,7 @@ D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.baml
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCliente.g.cs
 D:\FACULTAD\TERCER AÑO\2do CUATRIMESTRE\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\PROYECTOS\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinMesas.g.cs
+<<<<<<< HEAD
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\DiccionarioRecursos\ButtonDictionary.baml
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\App.baml
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\DiccionarioRecursos\InputDictionary.baml
@@ -137,3 +138,15 @@ D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_
 D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.GenerateResource.cache
 D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.CoreCompileInputs.cache
 D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\Vistas.csproj.CopyComplete
+=======
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ControlUsuario\Login.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ControlUsuario\Login.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08_MarkupCompile.lref
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCategoria.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.baml
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCategoria.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.g.cs
+C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.g.cs
+>>>>>>> 08a88520d5b9dbe8d9de57a1c4666f0eebbfdf82
