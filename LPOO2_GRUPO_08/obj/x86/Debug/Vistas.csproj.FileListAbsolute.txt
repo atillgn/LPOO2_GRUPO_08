@@ -150,3 +150,13 @@ C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.g.cs
 C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.g.cs
 >>>>>>> 08a88520d5b9dbe8d9de57a1c4666f0eebbfdf82
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ControlUsuario\Login.baml
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCategoria.baml
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.baml
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.baml
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\ControlUsuario\Login.g.cs
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMCategoria.g.cs
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMFamilia.g.cs
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\WinABMUnidadDeMedida.g.cs
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Repositorios\Escuela\LPOO2_GRUPO_08\LPOO2_GRUPO_08\obj\x86\Debug\LPOO2_GRUPO_08_MarkupCompile.lref
