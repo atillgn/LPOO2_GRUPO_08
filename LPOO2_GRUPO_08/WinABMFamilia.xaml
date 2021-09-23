@@ -5,8 +5,8 @@
     <Grid>
         <Label Content="Alta Familia" Height="34" HorizontalAlignment="Left" Name="lblTitulo" VerticalAlignment="Top" FontSize="16" Margin="179,47,0,0" />
         <Label Content="Descripción" Height="28" HorizontalAlignment="Left" Margin="106,133,0,0" Name="lblDescrip" VerticalAlignment="Top" />
-        <Button Content="Volver" Height="23" HorizontalAlignment="Left" Name="btnVolver" VerticalAlignment="Top" Width="50" Margin="12,12,0,0" Click="btnVolver_Click" TabIndex="7" />
-        <Button Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="187,210,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" TabIndex="6" />
+        <Button Style="{StaticResource BtnWinCliente}" Content="Volver" Height="23" HorizontalAlignment="Left" Name="btnVolver" VerticalAlignment="Top" Width="50" Margin="12,12,0,0" Click="btnVolver_Click" TabIndex="7" />
+        <Button Style="{StaticResource BtnWinCliente}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="187,210,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" TabIndex="6" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="229,138,0,0" Name="txtDescrip" VerticalAlignment="Top" Width="120" TabIndex="1" />
     </Grid>
 </Window>
