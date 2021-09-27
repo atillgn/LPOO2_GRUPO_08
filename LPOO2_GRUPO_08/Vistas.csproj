@@ -77,11 +77,8 @@
     <Compile Include="WinABMUsuario.xaml.cs">
       <DependentUpon>WinABMUsuario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WinMenuAdmin.xaml.cs">
-      <DependentUpon>WinMenuAdmin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WinMenuMozo.xaml.cs">
-      <DependentUpon>WinMenuMozo.xaml</DependentUpon>
+    <Compile Include="WinMenu.xaml.cs">
+      <DependentUpon>WinMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinMesas.xaml.cs">
       <DependentUpon>WinMesas.xaml</DependentUpon>
@@ -134,11 +131,7 @@
       <DependentUpon>WinLogin.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="WinMenuAdmin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WinMenuMozo.xaml">
+    <Page Include="WinMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

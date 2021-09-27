@@ -26,7 +26,7 @@ namespace LPOO2_GRUPO_08
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinMenuAdmin = new WinMenuAdmin();
+            Window wWinMenuAdmin = new WinMenuAdmin(1);
             wWinMenuAdmin.Show();
             this.Close();
         }

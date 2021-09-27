@@ -18,9 +18,10 @@ namespace LPOO2_GRUPO_08
     /// </summary>
     public partial class WinMenuAdmin : Window
     {
-        public WinMenuAdmin()
+        public WinMenuAdmin(int a)
         {
             InitializeComponent();
+            carga(a);
         }
 
         private void menuUsuarios_Click(object sender, RoutedEventArgs e)
@@ -55,6 +56,38 @@ namespace LPOO2_GRUPO_08
         {
             Window wWinUnidades = new WinABMUnidadDeMedida();
             wWinUnidades.Show();
+            this.Close();
+        }
+
+        private void carga(int a)
+        {
+            if (a == 1)
+            {
+                menuCliente.Visibility = Visibility.Collapsed;
+                menuMesas.Visibility = Visibility.Collapsed;
+                menuPedido.Visibility = Visibility.Collapsed;
+            }
+            else 
+            {
+                menuUsuarios.Visibility = Visibility.Collapsed;
+                menuUnidades.Visibility = Visibility.Collapsed;
+                menuFamilia.Visibility = Visibility.Collapsed;
+                menuCategoria.Visibility = Visibility.Collapsed;
+                menuArticulos.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void menuCliente_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinCliente = new WinABMCliente();
+            wWinCliente.Show();
+            this.Close();
+        }
+
+        private void menuMesas_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinMesas = new WinMesas();
+            wWinMesas.Show();
             this.Close();
         }
     }

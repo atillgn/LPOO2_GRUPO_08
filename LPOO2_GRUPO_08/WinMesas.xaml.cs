@@ -97,8 +97,8 @@ namespace LPOO2_GRUPO_08
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinMenuMozo = new WinMenuMozo();
-            wWinMenuMozo.Show();
+            Window wWinMenuAdmin = new WinMenuAdmin(2);
+            wWinMenuAdmin.Show();
             this.Close();
         }
 

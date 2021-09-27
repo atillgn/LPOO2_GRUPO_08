@@ -61,16 +61,8 @@ namespace LPOO2_GRUPO_08
         {
             MessageBox.Show("Bienvenido: " + clogin.txtUser.Text);
             Window wMenu;
-            if (aux == 2 || aux == 3)
-            {
-                wMenu = new WinMenuMozo();
-                wMenu.Show();
-            }
-            else
-            {
-                wMenu = new WinMenuAdmin();
-                wMenu.Show();
-            }
+            wMenu = new WinMenuAdmin(aux);
+            wMenu.Show();
             this.Close();
         }
 

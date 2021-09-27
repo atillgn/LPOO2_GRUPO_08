@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Name="Mesas" Title="Mesas" Height="500" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Volver" Height="25" HorizontalAlignment="Left" Margin="21,12,0,0" Name="btnVolver" VerticalAlignment="Top" Width="66" FlowDirection="LeftToRight" Click="btnVolver_Click" FontSize="15" Style="{StaticResource StlBtnGuardar}"/>
+        <Button Content="Volver" Height="25" HorizontalAlignment="Left" Margin="21,12,0,0" Name="btnVolver" VerticalAlignment="Top" Width="66" FlowDirection="LeftToRight" Click="btnVolver_Click" FontSize="15"/>
         <WrapPanel Name="mesas" Width="760" Height="370" HorizontalAlignment="Center" VerticalAlignment="Center"></WrapPanel>
         <Rectangle Name="libre" Stroke="Green" Margin="20,429,730,12" Fill="Green" Height="20" Width="28" />
         <Rectangle Name="ocupada" Stroke="Red" Margin="117,429,633,12" Fill="Red" Width="28" Height="20" />
