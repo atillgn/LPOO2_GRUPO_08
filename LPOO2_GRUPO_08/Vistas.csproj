@@ -59,6 +59,7 @@
     <Compile Include="ControlUsuario\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\ConversorDeEstados.cs" />
     <Compile Include="WinABMArticulo.xaml.cs">
       <DependentUpon>WinABMArticulo.xaml</DependentUpon>
     </Compile>
@@ -82,6 +83,9 @@
     </Compile>
     <Compile Include="WinMesas.xaml.cs">
       <DependentUpon>WinMesas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinTablaArticulos.xaml.cs">
+      <DependentUpon>WinTablaArticulos.xaml</DependentUpon>
     </Compile>
     <Page Include="DiccionarioRecursos\ButtonDictionary.xaml">
       <SubType>Designer</SubType>
@@ -139,6 +143,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinTablaArticulos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -179,7 +187,9 @@
   <ItemGroup>
     <Resource Include="Resources\usuario.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="EstadosMesa.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

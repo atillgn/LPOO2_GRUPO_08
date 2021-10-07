@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<estados>
+  <tipo name="Libre"/>
+  <tipo name="Reservada"/>
+  <tipo name="Ocupada"/>
+  <tipo name="Pidiendo"/>
+  <tipo name="En espera de comida"/>
+  <tipo name="Servidos"/>
+  <tipo name="Esperando cuenta"/>
+  <tipo name="Pagando"/>
+</estados>

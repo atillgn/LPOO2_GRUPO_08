@@ -1,13 +1,42 @@
 ﻿<Window x:Class="LPOO2_GRUPO_08.WinMesas"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:LPOO2_GRUPO_08.Converters"
         Name="Mesas" Title="Mesas" Height="500" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.Resources>
+            <XmlDataProvider x:Key="estado_mesa" Source="EstadosMesa.xml" XPath="/estados"/>
+            <svc:ConversorDeEstados x:Key="conversorDeEstados"/>
+        </Grid.Resources>
+        
         <Button Content="Volver" Height="25" HorizontalAlignment="Left" Margin="21,12,0,0" Name="btnVolver" VerticalAlignment="Top" Width="66" FlowDirection="LeftToRight" Click="btnVolver_Click" FontSize="15"/>
         <WrapPanel Name="mesas" Width="760" Height="370" HorizontalAlignment="Center" VerticalAlignment="Center"></WrapPanel>
         <Rectangle Name="libre" Stroke="Green" Margin="20,429,730,12" Fill="Green" Height="20" Width="28" />
         <Rectangle Name="ocupada" Stroke="Red" Margin="117,429,633,12" Fill="Red" Width="28" Height="20" />
         <Label Content="Libre" Height="28" Margin="54,426,682,7" Name="lblLibre" FontSize="15" Width="45" />
         <Label Content="Ocupada" Margin="152,426,554,8" Name="lblOcupada" FontSize="15" Width="72" Height="28" />
+        
+        <Label Content="Estado mesa" 
+               Height="28" 
+               HorizontalAlignment="Left" 
+               Margin="107,9,0,0" 
+               Name="lblEstado" 
+               VerticalAlignment="Top" />
+        
+        <ComboBox ItemsSource="{Binding Source={StaticResource estado_mesa},XPath=tipo/@name}" 
+                  Height="23" 
+                  HorizontalAlignment="Right" 
+                  Margin="0,12,434,0" 
+                  x:Name="cmbEstado" 
+                  VerticalAlignment="Top" 
+                  Width="154" />
+        
+        <StackPanel x:Name="spCombo"
+                    Height="33" 
+                    HorizontalAlignment="Left" 
+                    Margin="364,9,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="200" 
+                    Background="{Binding ElementName=cmbEstado, Path=SelectedValue, Converter={StaticResource conversorDeEstados}}"/>
     </Grid>
 </Window>

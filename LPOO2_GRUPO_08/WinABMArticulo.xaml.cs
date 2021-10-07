@@ -109,5 +109,12 @@ namespace LPOO2_GRUPO_08
             chkStock.IsChecked = false;
         }
 
+        private void btnTablaArticulos_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinTablaArticulos = new WinTablaArticulos();
+            wWinTablaArticulos.Show();
+            this.Close();
+        }
+
     }
 }

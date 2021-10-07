@@ -24,5 +24,6 @@
             <ComboBoxItem Content="Litros" />
             <ComboBoxItem Content="Unidades" />
         </ComboBox>
+        <Button Style="{StaticResource BtnWinArticulos}" Content="Artículos" Height="23" HorizontalAlignment="Left" Margin="347,12,0,0" Name="btnTablaArticulos" VerticalAlignment="Top" Width="75" Click="btnTablaArticulos_Click" />
     </Grid>
 </Window>

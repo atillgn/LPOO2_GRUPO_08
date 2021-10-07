@@ -1,0 +1,29 @@
+﻿<Window x:Class="LPOO2_GRUPO_08.WinTablaArticulos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+        Title="WinTablaArticulos" Height="300" Width="456" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ObjectDataProvider
+            ObjectType="{x:Type svc:TrabajarArticulo}"
+            MethodName="traerArticulos"
+            x:Key="list_articulos"
+            />
+    </Window.Resources>
+    <Grid>
+        <Button Style="{StaticResource BtnWinArticulos}" Content="Volver" Height="23" HorizontalAlignment="Left" Name="btnVolver" VerticalAlignment="Top" Width="50" Margin="12,12,0,0" Click="btnVolver_Click" TabIndex="7"  />
+        <ListView Name="lvArticulos" Height="150" Margin="12,54,12,57"
+                  ItemsSource="{Binding Source={StaticResource list_articulos}}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="50" Header="ID" DisplayMemberBinding="{Binding Path=art_Id}"/>
+                    <GridViewColumn Width="100" Header="Descripción" DisplayMemberBinding="{Binding Path=art_Descripcion}"/>
+                    <GridViewColumn Width="65" Header="Precio" DisplayMemberBinding="{Binding Path=art_Precio}"/>
+                    <GridViewColumn Width="50" Header="Stock?" DisplayMemberBinding="{Binding Path=art_ManejaStock}"/>
+                    <GridViewColumn Width="63" Header="Familia" DisplayMemberBinding="{Binding Path=fam_Id}"/>
+                    <GridViewColumn Width="75" Header="U. de Medida" DisplayMemberBinding="{Binding Path=um_Id}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
