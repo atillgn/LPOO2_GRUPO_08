@@ -83,15 +83,15 @@
             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
         
-        <ControlTemplate.Triggers>
+        <ControlTemplate.Triggers><!--
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter TargetName="Borde" Property="TextBlock.Foreground" Value="Blue" />
                 <Setter Property="FontSize" Value="15" />
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter TargetName="Borde" Property="Background" Value="#1cbfff" />
-            </Trigger>
+            </Trigger>-->
     
-            <!--
+           
             <EventTrigger RoutedEvent="Mouse.MouseEnter">
                 <EventTrigger.Actions>
                     <BeginStoryboard>
@@ -150,7 +150,7 @@
                     </BeginStoryboard>
 
                 </EventTrigger.Actions>
-            </EventTrigger>-->
+            </EventTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
-namespace ClasesBase
+namespace ClasesBase 
 {
-    public class Cliente
+    public class Cliente : IDataErrorInfo
     {
         private int cli_Id;
 
@@ -61,5 +62,59 @@ namespace ClasesBase
         }
 
         public Cliente() { }
+
+        public string Error
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string msg_error = null;
+
+                switch (columnName)
+                {
+                    case "Cli_Apellido":
+                        msg_error = validar_apellido();
+                        break;
+                    case "Cli_Nombre":
+                        msg_error = validar_nombre();
+                        break;
+                    case "Cli_Telefono":
+                        msg_error = validar_Telefono();
+                        break;
+                }
+                return msg_error;
+            }
+        }
+
+        private string validar_apellido()
+        {
+            if (String.IsNullOrEmpty(cli_Apellido))
+            {
+                return "El valor del campo es obligatorio";
+            }
+            return null;
+        }
+
+        private string validar_nombre()
+        {
+            if (String.IsNullOrEmpty(cli_Nombre))
+            {
+                return "El valor del campo es obligatorio";
+            }
+            return null;
+        }
+
+        private string validar_Telefono()
+        {
+            if (String.IsNullOrEmpty(cli_Telefono))
+            {
+                return "El valor del campo es obligatorio";
+            }
+            return null;
+        }
     }
 }

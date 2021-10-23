@@ -15,13 +15,33 @@ using ClasesBase;
 namespace LPOO2_GRUPO_08
 {
     /// <summary>
-    /// Lógica de interacción para WinABMArticulo.xaml
+    /// Interaction logic for WinEditArticulo.xaml
     /// </summary>
-    public partial class WinABMArticulo : Window
+    public partial class WinEditArticulo : Window
     {
-        public WinABMArticulo()
+        public Articulo oArticulo = new Articulo();
+        public WinEditArticulo()
         {
             InitializeComponent();
+        }
+
+        public WinEditArticulo(Articulo art)
+        {
+            InitializeComponent();
+            oArticulo = art;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtDescrip.Text = oArticulo.Art_Descripcion;
+            txtPrecio.Text = Convert.ToString(oArticulo.Art_Precio);
+            cmbCategoria.SelectedValue = oArticulo.Cat_Id;
+            cmbFamilia.SelectedValue = oArticulo.Fam_Id;
+            cmbUM.SelectedValue = oArticulo.Um_Id;
+            cmbCategoria.Text = oArticulo.ACategoria.Cat_Descripcion;
+            cmbFamilia.Text = oArticulo.AFamilia.Fam_Descripcion;
+            cmbUM.Text = oArticulo.AUnidadMedida.Um_Descripcion;
+            chkStock.IsChecked = oArticulo.Art_ManejaStock;
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -33,11 +53,10 @@ namespace LPOO2_GRUPO_08
 
         private Articulo cargarDatos()
         {
-            Articulo oArticulo = new Articulo();
-            oArticulo.Art_Descripcion = txtDescrip.Text;          
-            oArticulo.Art_Precio = Convert.ToDecimal(txtPrecio.Text) ;
+            oArticulo.Art_Descripcion = txtDescrip.Text;
+            oArticulo.Art_Precio = Convert.ToDecimal(txtPrecio.Text);
             oArticulo.Cat_Id = (int)cmbCategoria.SelectedValue;
-            oArticulo.Fam_Id = (int)cmbFamilia.SelectedValue;  
+            oArticulo.Fam_Id = (int)cmbFamilia.SelectedValue;
             oArticulo.Um_Id = (int)cmbUM.SelectedValue;
             oArticulo.Art_ManejaStock = (bool)chkStock.IsChecked;
 
@@ -46,14 +65,14 @@ namespace LPOO2_GRUPO_08
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            
+
             Articulo oArticulo = cargarDatos();
             MessageBoxResult result = MessageBox.Show(encadenarDatosArticulo(oArticulo) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
                 try
                 {
-                    TrabajarArticulos.agregarArticulo(oArticulo);
+                    TrabajarArticulos.editarArticulo(oArticulo);
                 }
                 catch (Exception a)
                 {
@@ -65,41 +84,6 @@ namespace LPOO2_GRUPO_08
                 this.Close();
                 limpiarCampos();
             }
-        }
-
-        private int determinarFamilia(string sFamilia)
-        {
-            int iId = 0;
-            switch (sFamilia){
-                case "Bebidas":
-                    iId = 1;
-                    break;
-                case "Producto terminado":
-                    iId = 2;
-                    break;
-                case "Materia prima":
-                    iId = 3;
-                    break;
-            }
-            return iId;
-        }
-
-        private int determinarUnidad(string sUnidad)
-        {
-            int iId = 0;
-            switch (sUnidad)
-            {
-                case "Litros":
-                    iId = 1;
-                    break;
-                case "Kilos":
-                    iId = 2;
-                    break;
-                case "Unidades":
-                    iId = 3;
-                    break;
-            }
-            return iId;
         }
 
         private string encadenarDatosArticulo(Articulo oArticulo)
@@ -122,6 +106,13 @@ namespace LPOO2_GRUPO_08
             cmbUM.SelectedValue = 1;
             cmbFamilia.SelectedValue = 1;
             chkStock.IsChecked = false;
+        }
+
+        private void verArticulos_Click(object sender, RoutedEventArgs e)
+        {
+            Window wABMArticulos = new WinABMArticulos();
+            wABMArticulos.Show();
+            this.Close();
         }
     }
 }

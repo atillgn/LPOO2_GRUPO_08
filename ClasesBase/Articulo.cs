@@ -2,66 +2,193 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace ClasesBase
 {
-    public class Articulo
+    public class Articulo : INotifyPropertyChanged
     {
-        private int art_Id;
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        private int art_Id;
         public int Art_Id
         {
             get { return art_Id; }
-            set { art_Id = value; }
+            set { 
+                art_Id = value;
+                OnPropertyChanged("Art_Id");
+            }
         }
-        private string art_Descripcion;
 
+        private string art_Descripcion;
         public string Art_Descripcion
         {
             get { return art_Descripcion; }
-            set { art_Descripcion = value; }
+            set { 
+                art_Descripcion = value;
+                OnPropertyChanged("Art_Descripcion");
+            }
         }
+        
         private int fam_Id;
-
         public int Fam_Id
         {
             get { return fam_Id; }
-            set { fam_Id = value; }
+            set { 
+                fam_Id = value;
+                OnPropertyChanged("Fam_Id");
+            }
         }
+        
         private int um_Id;
-
         public int Um_Id
         {
             get { return um_Id; }
-            set { um_Id = value; }
+            set { 
+                um_Id = value;
+                OnPropertyChanged("Um_Id");
+            }
         }
-        private decimal art_Precio;
 
+        private int cat_Id;
+        public int Cat_Id
+        {
+            get { return cat_Id; }
+            set
+            {
+                cat_Id = value;
+                OnPropertyChanged("Cat_Id");
+            }
+        }
+        
+        private decimal art_Precio;
         public decimal Art_Precio
         {
             get { return art_Precio; }
-            set { art_Precio = value; }
+            set { 
+                art_Precio = value;
+                OnPropertyChanged("Art_Precio");
+            }
         }
+        
         private Boolean art_ManejaStock;
-
         public Boolean Art_ManejaStock
         {
             get { return art_ManejaStock; }
-            set { art_ManejaStock = value; }
+            set { 
+                art_ManejaStock = value;
+                OnPropertyChanged("Art_ManejaStock");
+            }
         }
 
-        public Articulo(int id, string descripcion, int idFam, int idUM, decimal precio, bool manejaStock) 
+        private Familia aFamilia;
+        public Familia AFamilia
+        {
+            get { return aFamilia; }
+            set {
+                aFamilia = value;
+                OnPropertyChanged("AFamilia");
+            }
+
+        }
+
+        private Categoria aCategoria;
+        public Categoria ACategoria
+        {
+            get { return aCategoria; }
+            set
+            {
+                aCategoria = value;
+                OnPropertyChanged("ACategoria");
+            }   
+
+        }
+
+        private UnidadMedida aUnidadMedida;
+        public UnidadMedida AUnidadMedida
+        {
+            get { return aUnidadMedida; }
+            set
+            {
+                aUnidadMedida = value;
+                OnPropertyChanged("AUnidadMedida");
+            }
+        }
+
+        public Articulo(int id, string descripcion, int idFam, int idUM, int idCat, decimal precio, bool manejaStock) 
         {
             art_Id = id;
             art_Descripcion = descripcion;
             fam_Id = idFam;
             um_Id = idUM;
+            cat_Id = idCat;
             art_Precio = precio;
             art_ManejaStock = manejaStock;
         }
 
         public Articulo()
         {
+        }
+
+
+        //Constructor con familia, categoria y unidad de medida
+
+        public Articulo(int id, string descripcion, decimal precio, bool manejaStock, Familia familia, Categoria categoria, UnidadMedida unidadMedida)
+        {
+            art_Id = id;
+            art_Descripcion = descripcion;
+            art_Precio = precio;
+            art_ManejaStock = manejaStock;
+            aFamilia = familia;
+            aCategoria = categoria;
+            aUnidadMedida = unidadMedida;
+        }
+
+        protected void OnPropertyChanged(string info)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(info));
+            }
+        }
+
+        public override string ToString()
+        {
+            return Art_Descripcion.ToString() + ", " + Art_Precio.ToString() + ", " + Art_Descripcion.ToString();
+        }
+
+        public Familia Familia
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Categoria Categoria
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public UnidadMedida UnidadMedida
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
         }
     }
 }

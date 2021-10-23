@@ -23,10 +23,30 @@
   </Class>
   <Class Name="ClasesBase.Articulo">
     <Position X="6" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Categoria" Type="ClasesBase.Categoria" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="5.08" />
+        <Point X="9.719" Y="5.08" />
+        <Point X="9.719" Y="2.891" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="UnidadMedida" Type="ClasesBase.UnidadMedida" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="5.856" />
+        <Point X="11.188" Y="5.856" />
+        <Point X="11.188" Y="3.276" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAgEAAAoDACAICgAgAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAACCAAAAgkMACoDhCAoCgAgAAAAAAIAAAAAAA=</HashCode>
       <FileName>Articulo.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Familia" />
+      <Property Name="Categoria" />
+      <Property Name="UnidadMedida" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClasesBase.Familia">
     <Position X="7.5" Y="0.5" Width="1.5" />
@@ -52,9 +72,10 @@
   <Class Name="ClasesBase.Cliente">
     <Position X="13.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAACAAAAAgQAAAAEAAAAAAABAAAAAQAwAAIAMAAA=</HashCode>
+      <HashCode>gAAAAACBAQAAgQAASAEAAAAAAABAAAAAQAwAAIAMAAA=</HashCode>
       <FileName>Cliente.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ClasesBase.Mesa">
     <Position X="14.75" Y="0.5" Width="1.5" />

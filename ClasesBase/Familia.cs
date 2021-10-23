@@ -8,14 +8,13 @@ namespace ClasesBase
     public class Familia
     {
         private int fam_Id;
-
         public int Fam_Id
         {
             get { return fam_Id; }
             set { fam_Id = value; }
         }
-        private string fam_Descripcion;
 
+        private string fam_Descripcion;
         public string Fam_Descripcion
         {
             get { return fam_Descripcion; }

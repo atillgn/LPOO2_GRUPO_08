@@ -32,8 +32,8 @@ namespace LPOO2_GRUPO_08
 
         private void menuArticulos_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinArticulo = new WinABMArticulo();
-            wWinArticulo.Show();
+            Window wWinArticulos = new WinABMArticulos();
+            wWinArticulos.Show();
             this.Close();
         }
 

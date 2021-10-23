@@ -5,6 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!--Icons-->
                 <ResourceDictionary Source="DiccionarioRecursos/ButtonDictionary.xaml" />
                 <ResourceDictionary Source="DiccionarioRecursos/InputDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>

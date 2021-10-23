@@ -49,12 +49,27 @@
     <Compile Include="Mesa.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Rol.cs" />
+    <Compile Include="TrabajarArticulos.cs" />
+    <Compile Include="TrabajarCategoria.cs" />
+    <Compile Include="TrabajarCliente.cs" />
+    <Compile Include="TrabajarFamilia.cs" />
+    <Compile Include="TrabajarUnidadMedida.cs" />
     <Compile Include="UnidadMedida.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Diagrama de clases.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="WinABMUnidadDeMedida" Height="300" Width="456" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Alta Categoria" Height="34" HorizontalAlignment="Left" Name="lblTitulo" VerticalAlignment="Top" FontSize="16" Margin="179,47,0,0" />
+        <Label Content="Alta Unidad de Medida" Height="34" HorizontalAlignment="Left" Name="lblTitulo" VerticalAlignment="Top" FontSize="16" Margin="119,47,0,0" />
         <Label Content="Descripción" Height="28" HorizontalAlignment="Left" Margin="106,109,0,0" Name="lblDescrip" VerticalAlignment="Top" />
         <Label Content="Abreviacion" Height="28" HorizontalAlignment="Left" Margin="106,156,0,0" Name="lblAbrev" VerticalAlignment="Top" />
         <Button Style="{StaticResource BtnWinCliente}" Content="Volver" Height="23" HorizontalAlignment="Left" Name="btnVolver" VerticalAlignment="Top" Width="50" Margin="12,12,0,0" Click="btnVolver_Click" TabIndex="7" />
