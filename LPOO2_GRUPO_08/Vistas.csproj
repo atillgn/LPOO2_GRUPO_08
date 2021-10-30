@@ -249,6 +249,19 @@
   <ItemGroup>
     <Resource Include="EstadosMesa.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Exit.png" />
+    <Resource Include="Resources\ExitOff.png" />
+    <Resource Include="Resources\Imglogin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\max.png" />
+    <Resource Include="Resources\maxOff.png" />
+    <Resource Include="Resources\min.png" />
+    <Resource Include="Resources\minOff.png" />
+    <Resource Include="Resources\res.png" />
+    <Resource Include="Resources\resOff.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

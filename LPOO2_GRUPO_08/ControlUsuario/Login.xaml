@@ -4,22 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="182" d:DesignWidth="373">
-    <StackPanel DockPanel.Dock="Right">
-        <StackPanel  Margin="40 20 0 0 " Height="65" Orientation="Horizontal">
+             d:DesignHeight="182" d:DesignWidth="262">
+    
+    <StackPanel  DockPanel.Dock="Right">
+        
+        <StackPanel  Margin="5 20 5 0 " Height="65" Orientation="Horizontal">
             <Image Height="32" Source="/Resources/usuario.png"></Image>
-            <StackPanel Margin="20 0 0 0" >
-                <Label FontSize="14">Nombre de Usuario</Label>
-                <TextBox Name="txtUser" FontSize="18" Width="242" BorderBrush="#00000000" SelectionBrush="#AD44B3FF"></TextBox>
-                <TextBox Height="2" Width="240" BorderBrush="#FF69F030" Background="#FF69F030" />
+            <StackPanel Margin="20 0 0 0" Width="200">
+                <Label Name="lblUser" FontSize="14" Foreground="White">Nombre de Usuario</Label>
+                <TextBox Name="txtUser" Foreground="White" FontSize="18" Width="200" BorderThickness="0" SelectionBrush="#6F6C7A" Background="Transparent" CaretBrush="#6F6C7A" IsKeyboardFocusedChanged="txtUser_IsKeyboardFocusedChanged" LostFocus="txtUser_LostFocus" />
+                <Rectangle Name="rUser" Height="2" Width="200" />
             </StackPanel>
         </StackPanel>
-        <StackPanel  Margin="40 10 0 0 " Height="65" Orientation="Horizontal">
+        
+        <StackPanel  Margin="5 10 5 0 " Height="65" Orientation="Horizontal">
             <Image Height="32" Source="/Resources/padlock.png"></Image>
-            <StackPanel Margin="20 0 0 0" >
-                <Label FontSize="14">Password</Label>
-                <PasswordBox Name="txtPass" FontSize="18" Width="242" BorderBrush="#00000000" SelectionBrush="#AD44B3FF"></PasswordBox>
-                <TextBox Height="2" Width="240" BorderBrush="#FF69F030" Background="#FF69F030" />
+            <StackPanel Margin="20 0 0 0" Width="200">
+                <Label Name="lblPass" FontSize="14" Foreground="White">Password</Label>
+                <PasswordBox Foreground="White" Name="txtPass" FontSize="18" Width="200" BorderThickness="0" SelectionBrush="#6F6C7A" Background="Transparent" CaretBrush="#6F6C7A" IsKeyboardFocusedChanged="txtPass_IsKeyboardFocusedChanged" LostFocus="txtPass_LostFocus"></PasswordBox>
+                <Rectangle Name="rPass" Height="2" Width="200" />
             </StackPanel>
         </StackPanel>
     </StackPanel>

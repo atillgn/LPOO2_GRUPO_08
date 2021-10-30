@@ -157,4 +157,135 @@
     <Style TargetType="{x:Type Button}" x:Key="BtnWinCliente">
         <Setter Property="Template" Value="{StaticResource CrtlBtnCliente}" />
     </Style>
+
+    <!--Boton de escape-->
+    <ControlTemplate TargetType="{x:Type Button}" x:Key="TemBtnEsc">
+
+        <Ellipse Name="Elipse" Width="35" Height="35" StrokeThickness="2">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="../Resources/Exit.png"  Stretch="Uniform" />
+            </Ellipse.Fill>
+            <Ellipse.Stroke>
+                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                    <GradientStop Color="#FFE63070" Offset="2" />
+                    <GradientStop Color="#FFFE8704" Offset="0" />
+                </LinearGradientBrush>
+            </Ellipse.Stroke>
+        </Ellipse>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Elipse" Property="Stroke" Value="#1cbfff" />
+                <Setter TargetName="Elipse" Property="Fill">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="../Resources/ExitOff.png" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type Button}" x:Key="BtnEsc">
+        <Setter Property="Template" Value="{StaticResource TemBtnEsc}" />
+    </Style>
+
+    <!--BtnLogin-->
+    <ControlTemplate TargetType="{x:Type Button}" x:Key="TemBtnLogin">
+        <Border Name="Borde" BorderThickness="2" CornerRadius="3" TextBlock.Foreground="White" 
+        Background="Transparent"  TextBlock.FontFamily="Arial">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                    <GradientStop Color="#FFE63070" Offset="2" />
+                    <GradientStop Color="#FFFE8704" Offset="0" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+        </Border>
+
+        <ControlTemplate.Triggers>
+
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Borde" Property="BorderBrush" Value="#1cbfff" />
+            </Trigger>
+
+
+            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="Borde" Duration="0:0:0.2" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" To="#1cbfff"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="Borde" Duration="0:0:0.2" Storyboard.TargetProperty="Background.Color" To="#403B51"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                </EventTrigger.Actions>
+            </EventTrigger>
+
+            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                <EventTrigger.Actions>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="Borde" Duration="0:0:0.3" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="Borde" Duration="0:0:0.3" Storyboard.TargetProperty="Background.Color"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+
+
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type Button}" x:Key="BtnLogin">
+        <Setter Property="Template" Value="{StaticResource TemBtnLogin}" />
+    </Style>
+    
+    <!--BtnMenu-->
+    <ControlTemplate TargetType="{x:Type Button}" x:Key="TemBtnMenu">
+        <Border BorderBrush="Transparent" Name="Borde"  BorderThickness="10 0 0 0" Background="Transparent" TextBlock.Foreground="LightGray" TextBlock.FontSize="18" Padding="10 0">
+            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </Border>
+        
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Borde" Property="Background" Value="#403B51"/>
+                <Setter TargetName="Borde" Property="BorderBrush" Value="#1A7B9D"/>
+                <Setter TargetName="Borde" Property="TextBlock.Foreground" Value="#1cbfff"/>
+            </Trigger>
+            
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type Button}" x:Key="BtnMenu">
+        <Setter Property="Template" Value="{StaticResource TemBtnMenu}" />
+    </Style>
+    
+    <!--BtnWin-->
+    <ControlTemplate TargetType="{x:Type Button}" x:Key="TemBtnWin">
+        <Border BorderBrush="Transparent" Name="Borde"  BorderThickness="0" Background="Transparent" >
+            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Borde" Property="Background" Value="#403B51"/>
+            </Trigger>
+
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type Button}" x:Key="BtnWin">
+        <Setter Property="Template" Value="{StaticResource TemBtnWin}" />
+    </Style>
 </ResourceDictionary>

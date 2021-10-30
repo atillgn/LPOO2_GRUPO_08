@@ -74,9 +74,25 @@ namespace LPOO2_GRUPO_08
             this.Close();
         }
 
-        private void btn_cancelar_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+        /*
+        private void color_Changed()
+        {
+            if (clogin.txtUser.IsFocused == true)
+            {
+                clogin.rUser.Fill = new SolidColorBrush(Color.FromRgb(28, 191, 255));
+            }
+        }*/
     }
 }

@@ -53,7 +53,49 @@ namespace LPOO2_GRUPO_08
             {
                 ArtFilter.Filter += new FilterEventHandler(FiltroArticulo);
             }
-        } 
+        }
+
+        private void bntMinimizedScreen_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnMaximizeScreen_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState != WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+            }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinLogin = new MainWindow();
+            wWinLogin.Show();
+            this.Close();
+        }
+
+        private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void Label_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            lblBuscar.Foreground = new SolidColorBrush(Color.FromRgb(28, 191, 255));
+        }
+
+        private void txtFilter_LostFocus(object sender, RoutedEventArgs e)
+        {
+            lblBuscar.Foreground = Brushes.White;
+        }
 
     }
 }
