@@ -43,5 +43,7 @@ namespace ClasesBase
             log_FechaHora = fechaHora;
             log_Descripcion = descripcion;
         }
+
+        public HistorialLogin() { }
     }
 }

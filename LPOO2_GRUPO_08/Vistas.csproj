@@ -96,8 +96,11 @@
     <Compile Include="WinABMUsuario.xaml.cs">
       <DependentUpon>WinABMUsuario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WinEditArticulo.xaml.cs">
-      <DependentUpon>WinEditArticulo.xaml</DependentUpon>
+    <Compile Include="WinComprobantePedido.xaml.cs">
+      <DependentUpon>WinComprobantePedido.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinItemPedido.xaml.cs">
+      <DependentUpon>WinItemPedido.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinMenuAdmin.xaml.cs">
       <DependentUpon>WinMenuAdmin.xaml</DependentUpon>
@@ -108,8 +111,14 @@
     <Compile Include="WinMesas.xaml.cs">
       <DependentUpon>WinMesas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinPedidos.xaml.cs">
+      <DependentUpon>WinPedidos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinTablaArticulos.xaml.cs">
       <DependentUpon>WinTablaArticulos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinVistaPreviaImpresion.xaml.cs">
+      <DependentUpon>WinVistaPreviaImpresion.xaml</DependentUpon>
     </Compile>
     <Page Include="DiccionarioRecursos\ButtonDictionary.xaml">
       <SubType>Designer</SubType>
@@ -151,7 +160,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WinEditArticulo.xaml">
+    <Page Include="WinComprobantePedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinItemPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,7 +192,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinPedidos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinTablaArticulos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinVistaPreviaImpresion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

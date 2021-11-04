@@ -30,7 +30,7 @@
                     </StackPanel>
 
                     <StackPanel Margin="10" HorizontalAlignment="Center">
-                        <Button Width="100" Height="40" Style="{StaticResource BtnLogin}"  Click="btn_ingresar_Click" >INGRESAR</Button>
+                        <Button Width="100" Height="40" Style="{StaticResource BtnLogin}"  Click="btn_ingresar_Click" TabIndex="3">INGRESAR</Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -38,7 +38,7 @@
             <StackPanel Width="260"></StackPanel>
             
             <StackPanel Width="60">
-                <Button Margin="10 20" Style="{StaticResource BtnEsc}" Click="Exit_Click" Width="42" />
+                <Button Margin="10 20" Style="{StaticResource BtnEsc}" Click="Exit_Click" Width="42" TabIndex="4" />
             </StackPanel>
         </StackPanel>
     </Grid>

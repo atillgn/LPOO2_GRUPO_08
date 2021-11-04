@@ -31,38 +31,47 @@ namespace ClasesBase
             da.Fill(dt);
 
             ObservableCollection<Articulo> listaArticulo = new ObservableCollection<Articulo>();
-
             foreach(DataRow r in dt.Rows)
             {
-                int Fam_Id = (int)r["Familia_Id"];
-                string Fam_Descripcion = (string)r["Familia"];
-                Familia oFamila = new Familia(Fam_Id, Fam_Descripcion);
-
-                int Cat_Id = (int)r["Categoria_Id"];
-                string Cat_Descripcion = (string)r["Categoria"];
-                Categoria oCategoria = new Categoria(Cat_Id, Cat_Descripcion);
-
-                int Unidad_Id = (int)r["Familia_Id"];
-                string Um_Abreviacion = (string)r["Abreviacion"];
-                string Um_Descripcion = (string)r["Unidad_Medida"];
-                UnidadMedida oUnidadMedida = new UnidadMedida(Unidad_Id,Um_Descripcion, Um_Abreviacion);
-                  
-                int Art_Id = (int)r["Id"];
-                string Art_Descripcion = (string)r["Descripcion"];
-                int AFam_Id = (int)r["Familia_Id"];
-                int Um_Id = (int)r["Unidad_Id"];
-                decimal Art_Precio = (decimal)r["Precio"];
-                bool Art_ManejaStock = (bool)r["Stock"];
-
-                listaArticulo.Add(new Articulo(Art_Id, Art_Descripcion, Art_Precio, Art_ManejaStock, oFamila, oCategoria, oUnidadMedida));
+                listaArticulo.Add(transformarArticulo(r));
             }
-            /*
-            ObservableCollection<Articulo> listaArticulo = new ObservableCollection<Articulo>();
-            Familia oFamilia = new Familia(1, "messi");
-            Categoria oCategoria = new Categoria(2, "adios");
-            UnidadMedida oUnidadMedida = new UnidadMedida(3, "maradona", "ms");
-            listaArticulo.Add(new Articulo(3, "hola", 5, false, oFamilia, oCategoria, oUnidadMedida));*/
+
             return listaArticulo;
+        }
+
+        public static DataTable traerArticulos2()
+        {
+            SqlConnection cn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "MostrarArticulos";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cn;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+
+        private static Articulo transformarArticulo(DataRow r)
+        {
+            var oNuevoArticulo = new Articulo();
+            oNuevoArticulo.Art_Id = (int)r["Id"];
+            oNuevoArticulo.Art_Codigo = (string)r["Codigo"];
+            oNuevoArticulo.Art_Descripcion = (string)r["Descripcion"];
+            oNuevoArticulo.Art_Precio = (decimal)r["Precio"];
+            oNuevoArticulo.Art_ManejaStock = (bool)r["Stock"];
+            Categoria cat = new Categoria((int)r["Categoria_Id"], (string)r["Categoria"]);
+            oNuevoArticulo.ACategoria = cat;
+            Familia fam = new Familia((int)r["Familia_Id"], (string)r["Familia"]);
+            oNuevoArticulo.AFamilia = fam;
+            UnidadMedida uniMed = new UnidadMedida((int)r["Unidad_Id"], (string)r["Unidad_Medida"], (string)r["Abreviacion"]);
+            oNuevoArticulo.AUnidadMedida = uniMed;
+
+            return oNuevoArticulo;
         }
 
         public static void agregarArticulo(Articulo art)
@@ -80,6 +89,7 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@familia", art.Fam_Id);
             cmd.Parameters.AddWithValue("@unidad", art.Um_Id);
             cmd.Parameters.AddWithValue("@categoria", art.Cat_Id);
+            cmd.Parameters.AddWithValue("@codigo", art.Art_Codigo);
 
             cn.Open();
             cmd.ExecuteNonQuery();
@@ -95,7 +105,7 @@ namespace ClasesBase
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cn;
 
-            cmd.Parameters.Add("@codigo", cod);
+            cmd.Parameters.AddWithValue("@id", cod);
 
             cn.Open();
             cmd.ExecuteNonQuery();
@@ -111,7 +121,8 @@ namespace ClasesBase
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cn;
 
-            cmd.Parameters.AddWithValue("@codigo", art.Art_Id);
+            cmd.Parameters.AddWithValue("@id", art.Art_Id);
+            cmd.Parameters.AddWithValue("@codigo", art.Art_Codigo);
             cmd.Parameters.AddWithValue("@descripcion", art.Art_Descripcion);
             cmd.Parameters.AddWithValue("@precio", art.Art_Precio);
             cmd.Parameters.AddWithValue("@stock", art.Art_ManejaStock);
@@ -122,6 +133,43 @@ namespace ClasesBase
             cn.Open();
             cmd.ExecuteNonQuery();
             cn.Close();
+        }
+
+        public static DataTable traerArticulosPedido()
+        {
+            SqlConnection cn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "ListarArticulosPedido";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cn;
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+
+            return (dt);
+        }
+
+        public static Articulo buscarArticuloById(int articuloId)
+        {
+            SqlConnection cn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "BuscarArticuloById";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", articuloId);
+            cmd.Connection = cn;
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+
+            var oArticulo = transformarArticulo(dt.Rows[0]);
+
+            return oArticulo;
         }
     }
 }

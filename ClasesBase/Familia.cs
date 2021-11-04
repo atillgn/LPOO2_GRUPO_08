@@ -26,5 +26,7 @@ namespace ClasesBase
             fam_Id = id;
             fam_Descripcion = descripcion;
         }
+
+        public Familia() { }
     }
 }

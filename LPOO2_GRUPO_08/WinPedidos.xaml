@@ -1,0 +1,69 @@
+﻿<Window x:Class="LPOO2_GRUPO_08.WinPedidos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+        WindowStyle="None" ResizeMode="NoResize"
+        Title="WinPedidos" Height="450" Width="600" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="white"/>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel Background="#272335">
+        <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
+            <TextBlock Name="txbNombreVentana" Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Alta Pedido</TextBlock>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <StackPanel Width="345"/>
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click" TabIndex="10">
+                    <Image Source="./Resources/min.png" Width="30" Height="15" />
+                </Button>
+
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click" TabIndex="11">
+                    <Image Source="./Resources/Exit.png" Width="30" Height="15" />
+                </Button>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
+            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="9" />
+            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA PEDIDO" Width="164" Height="28" Name="lblTitulo" FontSize="16"  />
+        </DockPanel>
+        <Grid>
+            <Grid.Resources>
+                <ObjectDataProvider x:Key="misMozos" ObjectType="{x:Type svc:TrabajarUsuario}" MethodName="traerMozos" />
+                <ObjectDataProvider x:Key="misClientes" ObjectType="{x:Type svc:TrabajarCliente}" MethodName="traerClientes" />
+            </Grid.Resources>
+
+            <Label Content="Fecha" Height="28" HorizontalAlignment="Left" Margin="83,27,0,0" Name="lblFechaEmision" VerticalAlignment="Top" />
+            <TextBox  Height="23" HorizontalAlignment="Left" Margin="130,29,0,0" Name="txtFechaEmision" VerticalAlignment="Top" Width="120" TabIndex="1" />
+            <Label Content="Fecha Entrega" Height="28" HorizontalAlignment="Left" Margin="40,181,0,0" Name="lblFechaEntrega" VerticalAlignment="Top" />
+            <Label Content="Mesa" Height="28" HorizontalAlignment="Left" Margin="86,103,0,0" Name="lblMesa" VerticalAlignment="Top" />
+            <Label Content="Cliente" Height="28" HorizontalAlignment="Left" Margin="77,147,0,0" Name="lblCliente" VerticalAlignment="Top" />
+            <Label Content="N° Comensales" Height="28" HorizontalAlignment="Left" Margin="34,220,0,0" Name="lblComensales" VerticalAlignment="Top" />
+            <Label Content="Mozo" Height="28" HorizontalAlignment="Left" Margin="84,63,0,0" Name="lblMozo" VerticalAlignment="Top" />
+            <Button Style="{StaticResource BtnLogin}" Content="Confirmar Pedido" Height="23" HorizontalAlignment="Left" Margin="232,318,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="107" Click="btnGuardar_Click" TabIndex="8" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="130,186,0,0" Name="txtFechaEntrega" VerticalAlignment="Top" Width="120" TabIndex="2" />
+            <TextBox  Height="23" HorizontalAlignment="Left" Margin="130,225,0,0" Name="txtComensales" VerticalAlignment="Top" Width="120" TabIndex="3" />
+            <ComboBox ItemsSource="{Binding Source={StaticResource misMozos}}" DisplayMemberPath="Usu_ApellidoNombre" SelectedValuePath="Usu_Id" Height="23" HorizontalAlignment="Left" Margin="130,68,0,0" Name="cmbMozo" VerticalAlignment="Top" Width="120" TabIndex="4"/>
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="130,108,0,0" Name="cmbMesa" VerticalAlignment="Top" Width="120" TabIndex="5" Loaded="cmbMesa_Loaded" />
+            <CheckBox Foreground="White" Content="?Facturado" Height="16" HorizontalAlignment="Left" Margin="58,260,0,0" Name="chkFacturado" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="13,-1,0,0" TabIndex="7" />
+            <ComboBox ItemsSource="{Binding Source={StaticResource misClientes}}" DisplayMemberPath="Cli_Apellido" SelectedValuePath="Cli_Id" Height="23" HorizontalAlignment="Left" Margin="130,147,0,0" Name="cmbCliente" VerticalAlignment="Top" Width="120" TabIndex="6" />
+
+            <Label Content="Items" Height="28" HorizontalAlignment="Left" Margin="347,29,0,0" Name="lblItems" VerticalAlignment="Top" />
+
+            <Button  Style="{StaticResource BtnLogin}" Content="Agregar" Height="23" HorizontalAlignment="Right" Margin="0,29,103,0" Name="btnAgregarItem" VerticalAlignment="Top" Width="73" Click="btnAgregarItem_Click" />
+            <Button  Style="{StaticResource BtnLogin}" Content="Eliminar" Height="23" Margin="0,29,12,0" Name="btnEliminarItem" VerticalAlignment="Top" Click="btnEliminarItem_Click" IsEnabled="False" HorizontalAlignment="Right" Width="73" />
+            <ListView Name="lvItems" Margin="0,63,12,99" HorizontalAlignment="Right" Width="300" SelectionChanged="lvItems_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="55" Header="Cantidad" DisplayMemberBinding="{Binding Cantidad}"/>
+                        <GridViewColumn Width="110" Header="Artículo" DisplayMemberBinding="{Binding Articulo.Art_Descripcion}"/>
+                        <GridViewColumn Width="65" Header="Precio" DisplayMemberBinding="{Binding Precio}"/>
+                        <GridViewColumn Width="62" Header="Total" DisplayMemberBinding="{Binding Importe}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
+    </DockPanel>
+</Window>

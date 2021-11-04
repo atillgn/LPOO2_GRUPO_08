@@ -21,7 +21,7 @@
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
             <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
-            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="DISPOSICION DE MESAS" Foreground="White" Width="205" Height="28" Name="lblTitulo" FontSize="16" />
+            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="DISPOSICION DE MESAS" Foreground="White" Width="262" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
         <Grid>
             <Grid.Resources>
@@ -34,7 +34,7 @@
                 
             </WrapPanel>
 
-            <ListBox Background="#1D1A27" Foreground="White" x:Name="lbEstados" Width="150" Height="300" Margin="773,46,55,115" ItemsSource="{Binding Source={StaticResource EstadosMesas}, XPath=estado/@name}" >
+            <ListBox Background="#1D1A27" Foreground="White" x:Name="lbEstados" Height="300" Margin="806,38,51,109" ItemsSource="{Binding Source={StaticResource EstadosMesas}, XPath=estado/@name}" >
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Template">
@@ -54,8 +54,30 @@
                     </Style>
                 </ListBox.ItemContainerStyle>
             </ListBox>
+            <Grid Height="162" Width="20" Margin="771,38,187,247">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
-
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Rectangle Grid.Row="0" Height="20" Name="rectangle1" Width="20" Stroke="Green" Fill="Green" />
+                <Rectangle Grid.Row="1" Height="20" Name="rectangle2" Width="20" Fill="Chocolate" Stroke="Chocolate" />
+                <Rectangle Grid.Row="2" Height="20" Name="rectangle3" Width="20" Fill="Red" Stroke="Red" />
+                <Rectangle Grid.Row="3" Height="20" Name="rectangle4" Width="20" Fill="DarkOrchid" Stroke="DarkOrchid" />
+                <Rectangle Grid.Row="4" Height="20" Name="rectangle5" Width="20" Fill="LightGreen" Stroke="LightGreen" />
+                <Rectangle Grid.Row="5" Height="20" Name="rectangle6" Width="20" Fill="Tomato" Stroke="Tomato" />
+                <Rectangle Grid.Row="6" Height="20" Name="rectangle7" Width="20" Fill="RoyalBlue" Stroke="RoyalBlue" />
+                <Rectangle Grid.Row="7" Height="20" Name="rectangle8" Width="20" Fill="#FF91AB5C" Stroke="#FF91AB5C" />
+            </Grid>
             <!--<Rectangle Name="libre" Stroke="Green" Margin="20,429,730,12" Fill="Green" Height="20" Width="28" />
         <Rectangle Name="ocupada" Stroke="Red" Margin="117,429,633,12" Fill="Red" Width="28" Height="20" />
         <Label Content="Libre" Height="28" Margin="54,426,682,7" Name="lblLibre" FontSize="15" Width="45" />

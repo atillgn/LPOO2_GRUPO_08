@@ -97,5 +97,12 @@ namespace LPOO2_GRUPO_08
             lblBuscar.Foreground = Brushes.White;
         }
 
+        private void btnVistaPrevia_Click(object sender, RoutedEventArgs e)
+        {
+            Window wVistaPrevia = new WinVistaPreviaImpresion(ArtFilter);
+            wVistaPrevia.Show();
+            this.Close();
+        }
+
     }
 }

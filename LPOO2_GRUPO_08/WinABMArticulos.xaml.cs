@@ -20,9 +20,17 @@ namespace LPOO2_GRUPO_08
     /// </summary>
     public partial class WinABMArticulos : Window
     {
+        private int posicion;
+
         public WinABMArticulos()
         {
             InitializeComponent();
+        }
+
+        public WinABMArticulos(int lugar)
+        {
+            InitializeComponent();
+            this.posicion = lugar;
         }
 
         CollectionView Vista;
@@ -33,6 +41,10 @@ namespace LPOO2_GRUPO_08
             ObjectDataProvider odp = (ObjectDataProvider)this.Resources["ListArt"];
             listaArticulos = odp.Data as ObservableCollection<Articulo>;
             Vista = (CollectionView)CollectionViewSource.GetDefaultView(stkp_Content.DataContext);
+            if (posicion == -1)
+                Vista.MoveCurrentToLast();
+            else
+                Vista.MoveCurrentToPosition(posicion);
         }
 
         private void btnFirst_Click(object sender, RoutedEventArgs e)
@@ -64,40 +76,39 @@ namespace LPOO2_GRUPO_08
             }
         }
 
-        private void btnAltaArticulo_Click(object sender, RoutedEventArgs e)
+        private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinArticulo = new WinABMArticulo();
+            Window wWinArticulo = new WinABMArticulo(null, Vista.CurrentPosition);
             wWinArticulo.Show();
             this.Close();
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Desea eliminar el articulo? \n", "", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("Desea eliminar el artículo \""+ txtDescrip.Text + "\" ? \n", "", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
                 try
                 {
-                    TrabajarArticulos.borrarArticulo(Convert.ToInt32(txtId.Text));
+                    TrabajarArticulos.borrarArticulo(Convert.ToInt32(txtIdArticulo.Text));
                     
                 }
                 catch (Exception a)
                 {
                     MessageBox.Show("La tabla esta vacia");
                 }
-                MessageBox.Show("ARTICULO ELIMINADO CON EXITO!");
-                ((ObjectDataProvider)FindResource("ListArt")).Refresh();
-                ObjectDataProvider odp = (ObjectDataProvider)this.Resources["ListArt"];
-                listaArticulos = odp.Data as ObservableCollection<Articulo>;
-                Vista = (CollectionView)CollectionViewSource.GetDefaultView(stkp_Content.DataContext);
+                MessageBox.Show("ARTÍCULO ELIMINADO CON EXITO!");
+                var articuloDelete = listaArticulos.Single(i => i.Art_Id == Convert.ToInt32(txtIdArticulo.Text));
+                listaArticulos.Remove(articuloDelete);
+                Vista.MoveCurrentToPosition(Vista.CurrentPosition - 1);
             }
         }
 
-        private void button3_Click(object sender, RoutedEventArgs e)
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             Articulo oArticulo = (Articulo) Vista.CurrentItem;
-            Window wWinEArticulo = new WinEditArticulo(oArticulo);
-            wWinEArticulo.Show();
+            Window wWinAMBArticulo = new WinABMArticulo(oArticulo, Vista.CurrentPosition);
+            wWinAMBArticulo.Show();
             this.Close();
         }
 

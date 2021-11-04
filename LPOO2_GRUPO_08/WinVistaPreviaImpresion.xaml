@@ -1,0 +1,58 @@
+﻿<Window x:Class="LPOO2_GRUPO_08.WinVistaPreviaImpresion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WinVistaPreviaImpresion" WindowStyle="None" ResizeMode="NoResize"
+        Height="450" Width="650" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="white"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel Name="gImprimir">
+        <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
+            <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Vista previa</TextBlock>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <StackPanel Width="345"/>
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click">
+                    <Image Source="./Resources/min.png" Width="30" Height="15" />
+                </Button>
+
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click">
+                    <Image Source="./Resources/Exit.png" Width="30" Height="15" />
+                </Button>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
+            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" TabIndex="6" Click="btnVolver_Click" />
+            <Label FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Vista Previa Impresión" Width="252" Height="28" Name="lblTitulo" FontSize="16" />
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="320">
+            <FlowDocumentReader>
+                <FlowDocument Name="DocMain">
+                    <Paragraph  FontFamily="Segoe UI" FontSize="15" Margin="210,0,0,15" FontWeight="Bold">Listado de Artículos</Paragraph>
+                    <BlockUIContainer>
+                        <ListView Name="lvArticulos"
+                                  Width="580"
+                                  IsSynchronizedWithCurrentItem="True"
+                                  FontFamily="Segoe UI" FontSize="12">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="50" Header="Código" DisplayMemberBinding="{Binding Art_Codigo}"/>
+                                    <GridViewColumn Width="100" Header="Descripción" DisplayMemberBinding="{Binding Art_Descripcion}"/>
+                                    <GridViewColumn Width="70" Header="Precio" DisplayMemberBinding="{Binding Art_Precio}"/>
+                                    <GridViewColumn Width="50" Header="Stock" DisplayMemberBinding="{Binding Art_ManejaStock}"/>
+                                    <GridViewColumn Width="90" Header="Familia" DisplayMemberBinding="{Binding AFamilia.Fam_Descripcion}"/>
+                                    <GridViewColumn Width="120" Header="Unidad Medida" DisplayMemberBinding="{Binding AUnidadMedida.Um_Abrev}"/>
+                                    <GridViewColumn Width="90" Header="Categoría" DisplayMemberBinding="{Binding ACategoria.Cat_Descripcion}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </BlockUIContainer>
+                </FlowDocument>
+            </FlowDocumentReader>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
+            <Button Style="{StaticResource BtnLogin}" HorizontalAlignment="Center" Content="Imprimir" Height="23" Margin="0 5 0 0" Name="btnImprimir" VerticalAlignment="Top" Width="75" Click="btnImprimir_Click" />
+        </DockPanel>
+</DockPanel>
+</Window>

@@ -10,6 +10,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ClasesBase;
+using System.Collections.ObjectModel;
 
 namespace LPOO2_GRUPO_08
 {
@@ -18,10 +20,10 @@ namespace LPOO2_GRUPO_08
     /// </summary>
     public partial class WinMesas : Window
     {
-        private int mesa = 0;
-        private int cantMesas = 20;
+        private int cantMesas = TrabajarMesa.contarMesas();
         private int cantColumnas = 0;
         private int cantFilas = 0;
+        private ObservableCollection<Mesa> listaMesas = TrabajarMesa.traerMesasObjetos();
 
         public WinMesas()
         {
@@ -31,31 +33,59 @@ namespace LPOO2_GRUPO_08
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             determinarOrden();
-            double anchoBoton = (mesas.Width - (10*cantColumnas)) / cantColumnas;
-            double altoBoton = (mesas.Height - (10*cantFilas)) / cantFilas;
+            double anchoBoton = (mesas.Width - (10 * cantColumnas)) / cantColumnas;
+            double altoBoton = (mesas.Height - (10 * cantFilas)) / cantFilas;
             for (int j = 0; j < cantMesas; j++)
             {
-                mesa = mesa + 1;
                 Button temp = new Button();
                 temp.Height = altoBoton;
                 temp.Width = anchoBoton;
-                modificarBoton(temp);
+                modificarBoton(temp, listaMesas[j]);
                 mesas.Children.Add(temp);
             }
         }
 
-        private Button modificarBoton(Button temp)
+        private Button modificarBoton(Button temp, Mesa mesaActual)
         {
             temp.Margin = new Thickness(10, 0, 0, 10);
-            temp.Name = "button" + (mesa);
-            temp.Content = "Mesa " + (mesa);
-            if (temp.Content.ToString() == "Mesa 11" || temp.Content.ToString() == "Mesa 17")
-                temp.Background = Brushes.Red;
-            else
-                temp.Background = Brushes.Green;
+            temp.Name = "button" + (mesaActual.Mesa_Posicion);
+            temp.Content = "Mesa " + (mesaActual.Mesa_Posicion);
+            asignarColorFondo(temp, mesaActual);
             temp.FontSize = 20;
             temp.Foreground = Brushes.White;
             temp.Click += new RoutedEventHandler(mesa_click);
+            return temp;
+        }
+
+        private Button asignarColorFondo(Button temp, Mesa mesaActual)
+        {
+            switch (mesaActual.Mesa_Estado)
+            {
+                case 1:
+                    temp.Background = Brushes.Green;
+                    break;
+                case 2:
+                    temp.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#d2691e");
+                    break;
+                case 3:
+                    temp.Background = Brushes.Red;
+                    break;
+                case 4:
+                    temp.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#9932cc");
+                    break;
+                case 5:
+                    temp.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#90ee90");
+                    break;
+                case 6:
+                    temp.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#ff6347");
+                    break;
+                case 7:
+                    temp.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#4169e1");
+                    break;
+                case 8:
+                    temp.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#91ab5c");
+                    break;
+            }
             return temp;
         }
 

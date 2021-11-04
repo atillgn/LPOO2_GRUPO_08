@@ -35,5 +35,7 @@ namespace ClasesBase
             mesa_Posicion = posicion;
             mesa_Estado = estado;
         }
+
+        public Mesa() { }
     }
 }

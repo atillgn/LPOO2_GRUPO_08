@@ -10,31 +10,27 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using ClasesBase;
 
 namespace LPOO2_GRUPO_08
 {
     /// <summary>
-    /// Interaction logic for WinMenuMozo.xaml
+    /// Lógica de interacción para WinVistaPreviaImpresion.xaml
     /// </summary>
-    public partial class WinMenuMozo : Window
+    public partial class WinVistaPreviaImpresion : Window
     {
-        public WinMenuMozo()
+        private CollectionViewSource vistaColection;
+
+        public WinVistaPreviaImpresion()
         {
             InitializeComponent();
         }
 
-        private void menuCliente_Click(object sender, RoutedEventArgs e)
+        public WinVistaPreviaImpresion(CollectionViewSource coleccion)
         {
-            Window wWinCliente = new WinABMCliente();
-            wWinCliente.Show();
-            this.Close();
-        }
-
-        private void menuMesas_Click(object sender, RoutedEventArgs e)
-        {
-            Window wWinMesas = new WinMesas();
-            wWinMesas.Show();
-            this.Close();
+            InitializeComponent();
+            vistaColection = coleccion;
         }
 
         private void bntMinimizedScreen_Click(object sender, RoutedEventArgs e)
@@ -69,10 +65,26 @@ namespace LPOO2_GRUPO_08
             }
         }
 
-        private void BtnPedido_Click(object sender, RoutedEventArgs e)
+        private void btnImprimir_Click(object sender, RoutedEventArgs e)
         {
-            Window winPedido = new WinPedidos();
-            winPedido.Show();
+            PrintDialog pdlg = new PrintDialog();
+            if (pdlg.ShowDialog() == true)
+            {
+                pdlg.PrintDocument(((IDocumentPaginatorSource)DocMain).DocumentPaginator, "Imprimir");
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var l = vistaColection.View.Cast<Articulo>().ToList();
+            var c = new ObservableCollection<Articulo>(l);
+            lvArticulos.ItemsSource = c;
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWindowABMArticulos = new WinABMArticulos();
+            wWindowABMArticulos.Show();
             this.Close();
         }
     }

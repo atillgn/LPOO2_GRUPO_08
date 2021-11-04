@@ -19,14 +19,39 @@ namespace LPOO2_GRUPO_08
     /// </summary>
     public partial class WinABMArticulo : Window
     {
+        private Articulo oArticuloModificado;
+        private int iPosicion;
+
         public WinABMArticulo()
         {
             InitializeComponent();
         }
 
+        public WinABMArticulo(Articulo oArticulo, int posicion)
+        {
+            InitializeComponent();
+            oArticuloModificado = oArticulo;
+            iPosicion = posicion;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (oArticuloModificado == null)
+            {
+                lblTitulo.Content = "ALTA ARTÍCULO";
+                txbNombreVentana.Text = "Alta Artículo";
+            }
+            else
+            {
+                lblTitulo.Content = "EDITAR ARTÍCULO";
+                txbNombreVentana.Text = "Editar Artículo";
+                cargarArticulo();
+            }
+        }
+
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinABMArticulos = new WinABMArticulos();
+            Window wWinABMArticulos = new WinABMArticulos(iPosicion);
             wWinABMArticulos.Show();
             this.Close();
         }
@@ -34,7 +59,8 @@ namespace LPOO2_GRUPO_08
         private Articulo cargarDatos()
         {
             Articulo oArticulo = new Articulo();
-            oArticulo.Art_Descripcion = txtDescrip.Text;          
+            oArticulo.Art_Codigo = txtCodigo.Text;
+            oArticulo.Art_Descripcion = (string)txtDescrip.Text;
             oArticulo.Art_Precio = Convert.ToDecimal(txtPrecio.Text);
             oArticulo.Cat_Id = (int)cmbCategoria.SelectedValue;
             oArticulo.Fam_Id = (int)cmbFamilia.SelectedValue;  
@@ -44,68 +70,71 @@ namespace LPOO2_GRUPO_08
             return oArticulo;
         }
 
+        private void cargarArticulo()
+        {
+            txtCodigo.Text = oArticuloModificado.Art_Codigo;
+            txtDescrip.Text = oArticuloModificado.Art_Descripcion;
+            txtPrecio.Text = Convert.ToString(oArticuloModificado.Art_Precio);
+            cmbCategoria.SelectedValue = oArticuloModificado.Cat_Id;
+            cmbFamilia.SelectedValue = oArticuloModificado.Fam_Id;
+            cmbUM.SelectedValue = oArticuloModificado.Um_Id;
+            cmbCategoria.Text = oArticuloModificado.ACategoria.Cat_Descripcion;
+            cmbFamilia.Text = oArticuloModificado.AFamilia.Fam_Descripcion;
+            cmbUM.Text = oArticuloModificado.AUnidadMedida.Um_Descripcion;
+            chkStock.IsChecked = oArticuloModificado.Art_ManejaStock;
+        }
+
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            
             Articulo oArticulo = cargarDatos();
-            MessageBoxResult result = MessageBox.Show(encadenarDatosArticulo(oArticulo) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            if (oArticuloModificado == null)
             {
-                try
+                MessageBoxResult result = MessageBox.Show(encadenarDatosArticulo(oArticulo) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
                 {
-                    TrabajarArticulos.agregarArticulo(oArticulo);
+                    try
+                    {
+                        TrabajarArticulos.agregarArticulo(oArticulo);
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("No se puede");
+                    }
+                    MessageBox.Show("DATOS GUARDADOS CON EXITO!");
+                    Window wWinABMArticulos = new WinABMArticulos(-1);
+                    wWinABMArticulos.Show();
+                    this.Close();
+                    limpiarCampos();
                 }
-                catch (Exception a)
-                {
-                    MessageBox.Show("No se puede");
-                }
-                MessageBox.Show("DATOS GUARDADOS CON EXITO!");
-                Window wWinABMArticulos = new WinABMArticulos();
-                wWinABMArticulos.Show();
-                this.Close();
-                limpiarCampos();
             }
-        }
-
-        private int determinarFamilia(string sFamilia)
-        {
-            int iId = 0;
-            switch (sFamilia){
-                case "Bebidas":
-                    iId = 1;
-                    break;
-                case "Producto terminado":
-                    iId = 2;
-                    break;
-                case "Materia prima":
-                    iId = 3;
-                    break;
-            }
-            return iId;
-        }
-
-        private int determinarUnidad(string sUnidad)
-        {
-            int iId = 0;
-            switch (sUnidad)
+            else
             {
-                case "Litros":
-                    iId = 1;
-                    break;
-                case "Kilos":
-                    iId = 2;
-                    break;
-                case "Unidades":
-                    iId = 3;
-                    break;
+                MessageBoxResult result = MessageBox.Show(encadenarDatosArticulo(oArticulo) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        oArticulo.Art_Id = oArticuloModificado.Art_Id;
+                        TrabajarArticulos.editarArticulo(oArticulo);
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("No se puede");
+                    }
+                    MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
+                    Window wWinABMArticulos = new WinABMArticulos(iPosicion);
+                    wWinABMArticulos.Show();
+                    this.Close();
+                    limpiarCampos();
+                }
             }
-            return iId;
         }
 
         private string encadenarDatosArticulo(Articulo oArticulo)
         {
             string sCadenaDatosArticulo = "DATOS A GUARDAR: \n" +
                                               "\n" +
+                                              "Código:  " + oArticulo.Art_Codigo + "\n" +
                                               "Descripcion:  " + oArticulo.Art_Descripcion + "\n" +
                                               "Familia:  " + oArticulo.Fam_Id + ": " + cmbFamilia.Text + "\n" +
                                               "UM:  " + oArticulo.Um_Id + ": " + cmbUM.Text + "\n" +
@@ -155,5 +184,6 @@ namespace LPOO2_GRUPO_08
                 this.DragMove();
             }
         }
+
     }
 }

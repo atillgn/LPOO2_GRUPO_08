@@ -75,5 +75,7 @@ namespace ClasesBase
             ped_Comensales = comensales;
             ped_Facturado = facturado;
         }
+
+        public Pedido() { }
     }
 }

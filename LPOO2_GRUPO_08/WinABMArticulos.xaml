@@ -13,7 +13,7 @@
 
     <DockPanel Background="#272335">
         <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
-            <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Alta Articulos</TextBlock>
+            <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">ABM Artículos</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <StackPanel Width="345"/>
                 <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click">
@@ -27,27 +27,27 @@
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
             <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
-            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA ARTICULOS" Width="145" Height="28" Name="lblTitulo" FontSize="16" />
+            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ABM ARTÍCULOS" Width="145" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
         
         <DockPanel>
             <DockPanel Background="#403B51"  Height="40" DockPanel.Dock="Top">
-                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Nuevo" Height="23" Name="button1" Width="74" Margin="120, 5, 10, 5" Click="btnAltaArticulo_Click" />
-                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Eliminar" Height="23" Name="button2" Width="74" Margin="10, 5" Click="button2_Click" />
-                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Modificar" Height="23" Name="button3" Width="74" Margin="10, 5" Click="button3_Click" />
-                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Ver Articulos" Height="23"  Name="btnVerArticulos" Width="94"  Margin="10, 5" Click="btnVerArticulos_Click" />
+                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Nuevo" Height="23" Name="btnNuevo" Width="74" Margin="120, 5, 10, 5" Click="btnNuevo_Click" />
+                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Eliminar" Height="23" Name="btnEliminar" Width="74" Margin="10, 5" Click="btnEliminar_Click" />
+                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Modificar" Height="23" Name="btnModificar" Width="74" Margin="10, 5" Click="btnModificar_Click" />
+                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Ver Artículos" Height="23"  Name="btnVerArticulos" Width="94"  Margin="10, 5" Click="btnVerArticulos_Click" />
             </DockPanel>
 
             <DockPanel Background="#1D1A27" Width="300" Margin="0 15" Height="257">
                 <DockPanel DockPanel.Dock="Top">
                     <StackPanel Orientation="Horizontal" Height="209">
                         <StackPanel Margin="40 20 5 0">
-                            <Label Content="Codigo"/>
-                            <Label Content="Descripcion"/>
+                            <Label Content="Código"/>
+                            <Label Content="Descripción"/>
                             <Label Content="Precio"/>
                             <Label Content="Stock"/>
                             <Label Content="Familia"/>
-                            <Label Content="Categoria"/>
+                            <Label Content="Categoría"/>
                             <Label Content="Unidad de medida"/>
                         </StackPanel>
 
@@ -57,9 +57,9 @@
                                     <Setter Property="Foreground" Value="#1cbfff"/>
                                 </Style>
                             </StackPanel.Resources>
-
-                            <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Id}" Name="txtId" />
-                            <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Descripcion}" />
+                            <TextBlock Height="0" Text="{Binding Art_Id}" Name="txtIdArticulo" Width="22" IsEnabled="False" Visibility="Hidden" />
+                            <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Codigo}" Name="txtCodigo" />
+                            <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Descripcion}" Name="txtDescrip"/>
                             <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Precio}" />
                             <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_ManejaStock}" />
                             <TextBlock TextAlignment="Center" Padding="5" Text="{Binding AFamilia.Fam_Descripcion}" />

@@ -28,29 +28,42 @@ namespace ClasesBase
             get { return art_Id; }
             set { art_Id = value; }
         }
-        private float precio;
+        private decimal precio;
 
-        public float Precio
+        public decimal Precio
         {
             get { return precio; }
             set { precio = value; }
         }
-        private float cantidad;
+        private decimal cantidad;
 
-        public float Cantidad
+        public decimal Cantidad
         {
             get { return cantidad; }
             set { cantidad = value; }
         }
-        private float importe;
+        private decimal importe;
 
-        public float Importe
+        public decimal Importe
         {
             get { return importe; }
             set { importe = value; }
         }
 
-        public ItemPedido(int idItemPed, int id, int idArt, float pre, float cant, float imp) 
+        private Articulo articulo;
+        public Articulo Articulo
+        {
+            get
+            {
+                return articulo;
+            }
+            set
+            {
+                articulo = value;
+            }
+        }
+
+        public ItemPedido(int idItemPed, int id, int idArt, decimal pre, decimal cant, decimal imp, Articulo art) 
         {
             itemPedId = idItemPed;
             ped_Id = id;
@@ -58,6 +71,9 @@ namespace ClasesBase
             precio = pre;
             cantidad = cant;
             importe = imp;
+            articulo = art;
         }
+
+        public ItemPedido() { }
     }
 }

@@ -27,5 +27,7 @@ namespace ClasesBase
             rol_Id = id;
             Rol_Descripcion = descripcion;
         }
+
+        public Rol() { }
     }
 }

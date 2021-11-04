@@ -35,5 +35,7 @@ namespace ClasesBase
             um_Descripcion = descripcion;
             um_Abrev = abrev;
         }
+
+        public UnidadMedida() { }
     }
 }

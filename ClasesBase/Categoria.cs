@@ -8,14 +8,13 @@ namespace ClasesBase
     public class Categoria
     {
         private int cat_Id;
-
         public int Cat_Id
         {
             get { return cat_Id; }
             set { cat_Id = value; }
         }
-        private string cat_Descripcion;
 
+        private string cat_Descripcion;
         public string Cat_Descripcion
         {
             get { return cat_Descripcion; }
@@ -27,5 +26,7 @@ namespace ClasesBase
             cat_Id = id;
             cat_Descripcion = descripcion;
         }
+
+        public Categoria() { }
     }
 }

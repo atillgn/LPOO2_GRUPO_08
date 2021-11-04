@@ -40,7 +40,7 @@
 
                     <Button Height="60" Content="Mesas" Style="{StaticResource BtnMenu}" Click="menuMesas_Click" TabIndex="2"/>
 
-                    <Button Height="60" Content="Pedido" Style="{StaticResource BtnMenu}" TabIndex="3"/>
+                    <Button Height="60" Content="Pedido" Style="{StaticResource BtnMenu}" TabIndex="3" Name="BtnPedido" Click="BtnPedido_Click" />
 
                 </StackPanel>
                 <StackPanel Background="#272335" Height="185"/>
