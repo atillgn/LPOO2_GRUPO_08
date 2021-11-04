@@ -64,6 +64,7 @@ namespace ClasesBase
             oNuevoArticulo.Art_Descripcion = (string)r["Descripcion"];
             oNuevoArticulo.Art_Precio = (decimal)r["Precio"];
             oNuevoArticulo.Art_ManejaStock = (bool)r["Stock"];
+            oNuevoArticulo.Art_Img = (string)r["Imagen"];
             Categoria cat = new Categoria((int)r["Categoria_Id"], (string)r["Categoria"]);
             oNuevoArticulo.ACategoria = cat;
             Familia fam = new Familia((int)r["Familia_Id"], (string)r["Familia"]);
@@ -90,6 +91,7 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@unidad", art.Um_Id);
             cmd.Parameters.AddWithValue("@categoria", art.Cat_Id);
             cmd.Parameters.AddWithValue("@codigo", art.Art_Codigo);
+            cmd.Parameters.AddWithValue("@imagen", art.Art_Img);
 
             cn.Open();
             cmd.ExecuteNonQuery();
@@ -129,6 +131,7 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@familia", art.Fam_Id);
             cmd.Parameters.AddWithValue("@unidad", art.Um_Id);
             cmd.Parameters.AddWithValue("@categoria", art.Cat_Id);
+            cmd.Parameters.AddWithValue("@imagen", art.Art_Img);
 
             cn.Open();
             cmd.ExecuteNonQuery();

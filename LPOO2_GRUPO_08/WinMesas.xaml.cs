@@ -56,7 +56,7 @@ namespace LPOO2_GRUPO_08
             temp.Click += new RoutedEventHandler(mesa_click);
             return temp;
         }
-
+        
         private Button asignarColorFondo(Button temp, Mesa mesaActual)
         {
             switch (mesaActual.Mesa_Estado)

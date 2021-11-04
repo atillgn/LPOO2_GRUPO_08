@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ClasesBase;
+using Microsoft.Win32;
+using System.IO;
 
 namespace LPOO2_GRUPO_08
 {
@@ -66,6 +68,7 @@ namespace LPOO2_GRUPO_08
             oArticulo.Fam_Id = (int)cmbFamilia.SelectedValue;  
             oArticulo.Um_Id = (int)cmbUM.SelectedValue;
             oArticulo.Art_ManejaStock = (bool)chkStock.IsChecked;
+            oArticulo.Art_Img = (string)txtImg.Text;
 
             return oArticulo;
         }
@@ -82,6 +85,8 @@ namespace LPOO2_GRUPO_08
             cmbFamilia.Text = oArticuloModificado.AFamilia.Fam_Descripcion;
             cmbUM.Text = oArticuloModificado.AUnidadMedida.Um_Descripcion;
             chkStock.IsChecked = oArticuloModificado.Art_ManejaStock;
+            txtImg.Text = oArticuloModificado.Art_Img;
+            img.Source = new BitmapImage(new Uri(txtImg.Text));
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -139,6 +144,7 @@ namespace LPOO2_GRUPO_08
                                               "Familia:  " + oArticulo.Fam_Id + ": " + cmbFamilia.Text + "\n" +
                                               "UM:  " + oArticulo.Um_Id + ": " + cmbUM.Text + "\n" +
                                               "Precio:  " + oArticulo.Art_Precio + "\n" +
+                                              "Imagen: " + oArticulo.Art_Img + "\n" +
                                               "Maneja Stock:  " + oArticulo.Art_ManejaStock + "\n";
             return sCadenaDatosArticulo;
         }
@@ -151,6 +157,7 @@ namespace LPOO2_GRUPO_08
             cmbUM.SelectedValue = 1;
             cmbFamilia.SelectedValue = 1;
             chkStock.IsChecked = false;
+            txtImg.Text = "";
         }
 
         private void bntMinimizedScreen_Click(object sender, RoutedEventArgs e)
@@ -182,6 +189,18 @@ namespace LPOO2_GRUPO_08
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 this.DragMove();
+            }
+        }
+
+        private void btnCargar_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Seleccione una imagen";
+            dialog.Filter = "All supported graphics|*.jpg; *.jpeg; *.png" + "JPEG (*.jpg; *.jpeg)|*.jpg;*jpeg" + "Portable Network Graphic (*.png)|*.png";
+            if (dialog.ShowDialog() == true)
+            {
+                txtImg.Text = dialog.FileName;
+                img.Source = new BitmapImage(new Uri(dialog.FileName));
             }
         }
 

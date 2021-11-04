@@ -92,6 +92,17 @@ namespace ClasesBase
             }
         }
 
+        private string art_Img;
+        public string Art_Img
+        {
+            get { return art_Img; }
+            set
+            {
+                art_Img = value;
+                OnPropertyChanged("Art_Img");
+            }
+        }
+
         private Familia aFamilia;
         public Familia AFamilia
         {
@@ -126,7 +137,7 @@ namespace ClasesBase
             }
         }
 
-        public Articulo(int id, string codigo, string descripcion, int idFam, int idUM, int idCat, decimal precio, bool manejaStock) 
+        public Articulo(int id, string codigo, string descripcion, int idFam, int idUM, int idCat, decimal precio, bool manejaStock, string imagen) 
         {
             art_Id = id;
             art_Codigo = codigo;
@@ -136,6 +147,7 @@ namespace ClasesBase
             cat_Id = idCat;
             art_Precio = precio;
             art_ManejaStock = manejaStock;
+            art_Img = imagen;
         }
 
         public Articulo()
@@ -145,13 +157,14 @@ namespace ClasesBase
 
         //Constructor con familia, categoria y unidad de medida
 
-        public Articulo(int id, string codigo, string descripcion, decimal precio, bool manejaStock, Familia familia, Categoria categoria, UnidadMedida unidadMedida)
+        public Articulo(int id, string codigo, string descripcion, decimal precio, bool manejaStock, string imagen, Familia familia, Categoria categoria, UnidadMedida unidadMedida)
         {
             art_Id = id;
             art_Codigo = codigo;
             art_Descripcion = descripcion;
             art_Precio = precio;
             art_ManejaStock = manejaStock;
+            art_Img = imagen;
             aFamilia = familia;
             aCategoria = categoria;
             aUnidadMedida = unidadMedida;

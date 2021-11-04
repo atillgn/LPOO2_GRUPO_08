@@ -38,10 +38,10 @@
                 <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Ver Artículos" Height="23"  Name="btnVerArticulos" Width="94"  Margin="10, 5" Click="btnVerArticulos_Click" />
             </DockPanel>
 
-            <DockPanel Background="#1D1A27" Width="300" Margin="0 15" Height="257">
+            <DockPanel Background="#1D1A27" Width="365" Margin="0 15" Height="257">
                 <DockPanel DockPanel.Dock="Top">
                     <StackPanel Orientation="Horizontal" Height="209">
-                        <StackPanel Margin="40 20 5 0">
+                        <StackPanel Margin="25 20 5 0">
                             <Label Content="Código"/>
                             <Label Content="Descripción"/>
                             <Label Content="Precio"/>
@@ -51,30 +51,36 @@
                             <Label Content="Unidad de medida"/>
                         </StackPanel>
 
-                        <StackPanel Margin="0 20 5 0" HorizontalAlignment="Right" Name="stkp_Content" DataContext="{Binding Source={StaticResource ResourceKey=ListArt}}" Width="107">
+                        <StackPanel Orientation="Horizontal" Margin="0 20 5 0" HorizontalAlignment="Right" Name="stkp_Content" DataContext="{Binding Source={StaticResource ResourceKey=ListArt}}" Width="200">
                             <StackPanel.Resources>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="Foreground" Value="#1cbfff"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <TextBlock Height="0" Text="{Binding Art_Id}" Name="txtIdArticulo" Width="22" IsEnabled="False" Visibility="Hidden" />
-                            <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Codigo}" Name="txtCodigo" />
-                            <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Descripcion}" Name="txtDescrip"/>
-                            <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Precio}" />
-                            <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_ManejaStock}" />
-                            <TextBlock TextAlignment="Center" Padding="5" Text="{Binding AFamilia.Fam_Descripcion}" />
-                            <TextBlock TextAlignment="Center" Padding="5" Text="{Binding ACategoria.Cat_Descripcion}"/>
-                            <TextBlock TextAlignment="Center" Padding="5" >
-                            <Run Text="{Binding AUnidadMedida.Um_Descripcion}" />
-                            <Run Text="(" />
-                            <Run Text="{Binding AUnidadMedida.Um_Abrev}" />
-                            <Run Text=")" />
-                            </TextBlock>
+                            <StackPanel Width="100">
+                                <TextBlock Height="0" Text="{Binding Art_Id}" Name="txtIdArticulo" Width="22" IsEnabled="False" Visibility="Hidden" />
+                                <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Codigo}" Name="txtCodigo" />
+                                <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Descripcion}" Name="txtDescrip"/>
+                                <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_Precio}" />
+                                <TextBlock TextAlignment="Center" Padding="5" Text="{Binding Art_ManejaStock}" />
+                                <TextBlock TextAlignment="Center" Padding="5" Text="{Binding AFamilia.Fam_Descripcion}" />
+                                <TextBlock TextAlignment="Center" Padding="5" Text="{Binding ACategoria.Cat_Descripcion}"/>
+                                <TextBlock TextAlignment="Center" Padding="5" >
+                                <Run Text="{Binding AUnidadMedida.Um_Descripcion}" />
+                                <Run Text="(" />
+                                <Run Text="{Binding AUnidadMedida.Um_Abrev}" />
+                                <Run Text=")" />
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel Width="100">
+                                <StackPanel Height="60" />
+                                <Image Stretch="Fill" Source="{Binding Art_Img}" />
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </DockPanel>
                 <DockPanel DockPanel.Dock="Top" Height="40">
-                    <StackPanel  Width="300" HorizontalAlignment="Right">
+                    <StackPanel  Width="360" HorizontalAlignment="Right">
                         <StackPanel Height="40" Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button Style="{StaticResource BtnLogin}" Name="btnFirst" Content="|&lt;" Click="btnFirst_Click" Margin="0 0 10 0" Width="40" Height="23" />
                             <Button Style="{StaticResource BtnLogin}" Name="btnPrevious" Content="&lt;" Click="btnPrevious_Click" Margin="0 0 10 0" Width="40" Height="23" />
