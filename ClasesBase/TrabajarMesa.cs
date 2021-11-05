@@ -89,6 +89,26 @@ namespace ClasesBase
             return oMesa;
         }
 
+        public static Mesa buscarMesaByPosicion(int mesaPosicion)
+        {
+            SqlConnection conn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "BuscarMesaByPosicion";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@mesaPosicion", mesaPosicion);
+            cmd.Connection = conn;
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+
+            var oMesa = transformarMesa(0, dt);
+
+            return oMesa;
+        }
+
         private static Mesa transformarMesa(int posicion, DataTable dt)
         {
             var oMesaBuscada = new Mesa();

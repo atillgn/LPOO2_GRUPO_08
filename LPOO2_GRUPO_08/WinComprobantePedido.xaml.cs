@@ -22,6 +22,7 @@ namespace LPOO2_GRUPO_08
     {
         private Pedido pedido;
         private ObservableCollection<ItemPedido> listaItem;
+        private int iDestino = 0;
 
         public WinComprobantePedido()
         {
@@ -33,6 +34,14 @@ namespace LPOO2_GRUPO_08
             InitializeComponent();
             pedido = TrabajarPedido.buscarPedidoById(pedidoId);
             listaItem = TrabajarItemPedido.buscarItemByPedidoId(pedidoId);
+        }
+
+        public WinComprobantePedido(int pedidoId, int destino)
+        {
+            InitializeComponent();
+            pedido = TrabajarPedido.buscarPedidoById(pedidoId);
+            listaItem = TrabajarItemPedido.buscarItemByPedidoId(pedidoId);
+            iDestino = destino;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -70,9 +79,30 @@ namespace LPOO2_GRUPO_08
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinMozo = new WinMenuMozo();
-            wWinMozo.Show();
-            this.Close();
+            switch (iDestino)
+            {
+                case 0:
+                    Window wWinPedido = new WinPedidos();
+                    wWinPedido.Show();
+                    this.Close();
+                    break;
+                case 1:
+                    Window wWinFacturacion = new WinFacturacion();
+                    wWinFacturacion.Show();
+                    this.Close();
+                    break;
+                case 2:
+                    Window wWinFacturacionComp = new WinFacturacionCompleta();
+                    wWinFacturacionComp.Show();
+                    this.Close();
+                    break;
+                case 3:
+                    Window wWinMesa = new WinMesas();
+                    wWinMesa.Show();
+                    this.Close();
+                    break;
+            }
+
         }
 
     }

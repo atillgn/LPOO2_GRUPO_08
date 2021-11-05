@@ -75,5 +75,12 @@ namespace LPOO2_GRUPO_08
             winPedido.Show();
             this.Close();
         }
+
+        private void BtnFacturacion_Click(object sender, RoutedEventArgs e)
+        {
+            Window winFacturacion = new WinFacturacion();
+            winFacturacion.Show();
+            this.Close();
+        }
     }
 }

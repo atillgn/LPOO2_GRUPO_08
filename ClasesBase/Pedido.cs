@@ -64,7 +64,35 @@ namespace ClasesBase
             set { ped_Facturado = value; }
         }
 
-        public Pedido(int id, int idUsu, int idMesa, int idCli, DateTime fechaEmision, DateTime fechaEntrega, int comensales, bool facturado) 
+        private Mesa oMesa;
+        public Mesa OMesa
+        {
+            get { return oMesa; }
+            set { oMesa = value; }
+        }
+
+        private Cliente oCliente;
+        public Cliente OCliente
+        {
+            get { return oCliente; }
+            set { oCliente = value; }
+        }
+
+        private Usuario oMozo;
+        public Usuario OMozo
+        {
+            get { return oMozo; }
+            set { oMozo = value; }
+        }
+
+        private decimal totalPedido;
+        public decimal TotalPedido
+        {
+            get { return totalPedido; }
+            set { totalPedido = value; }
+        }
+
+        public Pedido(int id, int idUsu, int idMesa, int idCli, DateTime fechaEmision, DateTime fechaEntrega, int comensales, bool facturado, Usuario mozo, Cliente client, Mesa mesa, decimal totalP)
         {
             ped_Id = id;
             usu_Id = idUsu;
@@ -74,6 +102,10 @@ namespace ClasesBase
             ped_fechaEntrega = fechaEntrega;
             ped_Comensales = comensales;
             ped_Facturado = facturado;
+            oCliente = client;
+            oMesa = mesa;
+            oMozo = mozo;
+            totalPedido = totalP;
         }
 
         public Pedido() { }

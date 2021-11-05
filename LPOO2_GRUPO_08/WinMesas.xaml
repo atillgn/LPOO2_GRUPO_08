@@ -4,7 +4,7 @@
         xmlns:svc="clr-namespace:LPOO2_GRUPO_08.Converters"
         WindowStyle="None" ResizeMode="NoResize"
         Name="Mesas" Title="Mesas" Height="550" Width="1000" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
-    
+
     <DockPanel Background="#272335">
         <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
             <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Disposicion de Mesas</TextBlock>
@@ -20,7 +20,7 @@
             </StackPanel>
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
+            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6"/>
             <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="DISPOSICION DE MESAS" Foreground="White" Width="262" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
         <Grid>
@@ -31,10 +31,10 @@
 
 
             <WrapPanel Name="mesas" Width="760" Height="370" HorizontalAlignment="Left" VerticalAlignment="Center">
-                
+
             </WrapPanel>
 
-            <ListBox Background="#1D1A27" Foreground="White" x:Name="lbEstados" Height="300" Margin="806,38,51,109" ItemsSource="{Binding Source={StaticResource EstadosMesas}, XPath=estado/@name}" >
+            <ListBox Background="#1D1A27" Foreground="White" x:Name="lbEstados" Height="300" Margin="806,38,51,109" ItemsSource="{Binding Source={StaticResource EstadosMesas}, XPath=estado/@name}" SelectionChanged="lbEstados_SelectionChanged">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Template">
@@ -85,5 +85,5 @@
     -->
         </Grid>
     </DockPanel>
-    
+
 </Window>

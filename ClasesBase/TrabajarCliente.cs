@@ -40,5 +40,52 @@ namespace ClasesBase
 
             return (dt);
         }
+
+        public static ObservableCollection<Cliente> traerClientes2()
+        {
+            DataTable dt = traerClientes();
+
+            ObservableCollection<Cliente> listaCliente = new ObservableCollection<Cliente>();
+            foreach (DataRow r in dt.Rows)
+            {
+                listaCliente.Add(transformarCliente(r));
+            }
+
+            return (listaCliente);
+        }
+
+        private static Cliente transformarCliente(DataRow r)
+        {
+            var oNuevoCliente = new Cliente();
+            oNuevoCliente.Cli_Id = (int)r["Cli_Id"];
+            oNuevoCliente.Cli_Apellido = (string)r["Cli_Apellido"];
+            oNuevoCliente.Cli_Nombre = (string)r["Cli_Nombre"];
+            oNuevoCliente.Cli_Telefono = (string)r["Cli_Telefono"];
+            oNuevoCliente.Cli_Email = (string)r["Cli_Email"];
+            oNuevoCliente.Cli_Domicilio = (string)r["Cli_Domicilio"];
+
+            return oNuevoCliente;
+        }
+
+        public static Cliente buscarClienteById(int clienteId)
+        {
+            SqlConnection cn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "BuscarClienteById";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", clienteId);
+            cmd.Connection = cn;
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+
+            var oCliente = transformarCliente(dt.Rows[0]);
+
+            return oCliente;
+        }
+
     }
 }

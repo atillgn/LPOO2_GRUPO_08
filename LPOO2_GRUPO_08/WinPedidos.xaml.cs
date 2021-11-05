@@ -21,10 +21,19 @@ namespace LPOO2_GRUPO_08
     {
         private List<ItemPedido> listaItem;
         private Pedido pedidoEnCurso;
+        private Mesa mesaOcupable;
+        private int iTipo = 0;
 
         public WinPedidos()
         {
             InitializeComponent();
+        }
+
+        public WinPedidos(Mesa mesa, int tipo)
+        {
+            InitializeComponent();
+            mesaOcupable = mesa;
+            iTipo = tipo;
         }
 
         public WinPedidos(List<ItemPedido> lista, Pedido pedido)
@@ -36,9 +45,18 @@ namespace LPOO2_GRUPO_08
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinMenuMozo= new WinMenuMozo();
-            wWinMenuMozo.Show();
-            this.Close();
+            if (iTipo == 0)
+            {
+                Window wWinMenuMozo = new WinMenuMozo();
+                wWinMenuMozo.Show();
+                this.Close();
+            }
+            else
+            {
+                Window wWinMesas = new WinMesas();
+                wWinMesas.Show();
+                this.Close();
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -47,6 +65,10 @@ namespace LPOO2_GRUPO_08
             {
                 txtFechaEmision.Text = Convert.ToString(DateTime.Now);
                 txtFechaEntrega.Text = Convert.ToString(DateTime.Now);
+                if (mesaOcupable != null)
+                {
+                    cmbMesa.SelectedValue = mesaOcupable.Mesa_Id;
+                }
             }
             else
                 cargarCampos();
@@ -116,13 +138,13 @@ namespace LPOO2_GRUPO_08
         private Pedido cargarDatosPedido()
         {
             Pedido oPedido = new Pedido();
-            if (cmbCliente.SelectedValue != null) { oPedido.Usu_Id = (int)cmbMozo.SelectedValue; }
+            if (cmbCliente.SelectedValue != null) { oPedido.Cli_Id = (int)cmbCliente.SelectedValue; }
             if (cmbMesa.SelectedValue != null) { oPedido.Mesa_Id = (int)cmbMesa.SelectedValue; }
-            if (cmbMozo.SelectedValue != null) { oPedido.Cli_Id = (int)cmbCliente.SelectedValue; }
+            if (cmbMozo.SelectedValue != null) { oPedido.Usu_Id = (int)cmbMozo.SelectedValue; }
             oPedido.Ped_FechaEmision = Convert.ToDateTime(txtFechaEmision.Text);
             oPedido.Ped_fechaEntrega = Convert.ToDateTime(txtFechaEntrega.Text);
             if (txtComensales.Text != "") { oPedido.Ped_Comensales = Convert.ToInt32(txtComensales.Text); }
-            oPedido.Ped_Facturado = (bool)chkFacturado.IsChecked;
+            oPedido.Ped_Facturado = false;
             return oPedido;
         }
 
@@ -132,7 +154,6 @@ namespace LPOO2_GRUPO_08
             cmbMozo.SelectedValue = pedidoEnCurso.Usu_Id;
             cmbMesa.SelectedValue = pedidoEnCurso.Mesa_Id;
             cmbCliente.SelectedValue = pedidoEnCurso.Cli_Id;
-            chkFacturado.IsChecked = (bool)pedidoEnCurso.Ped_Facturado;
             txtFechaEntrega.Text = Convert.ToString(pedidoEnCurso.Ped_fechaEntrega);
             if (pedidoEnCurso.Ped_Comensales != 0) { txtComensales.Text = Convert.ToString(pedidoEnCurso.Ped_Comensales); }
         }
@@ -176,7 +197,15 @@ namespace LPOO2_GRUPO_08
             cmbMesa.ItemsSource = TrabajarMesa.buscarMesaByEstado(1).DefaultView;
         }
 
-        
+        private void btnBuscarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            pedidoEnCurso = cargarDatosPedido();
+            Window winTablaCliente = new WinTablaClientes(listaItem, pedidoEnCurso);
+            winTablaCliente.Show();
+            this.Close();
+        }
+
+
 
     }
 }

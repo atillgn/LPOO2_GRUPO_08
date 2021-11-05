@@ -42,10 +42,12 @@
 
                     <Button Height="60" Content="Pedido" Style="{StaticResource BtnMenu}" TabIndex="3" Name="BtnPedido" Click="BtnPedido_Click" />
 
+                    <Button Height="60" Content="Facturación" Style="{StaticResource BtnMenu}" TabIndex="3" Name="BtnFacturacion" Click="BtnFacturacion_Click" />
+
                 </StackPanel>
                 <StackPanel Background="#272335" Height="185"/>
             </StackPanel>
-                 
+
         </Grid>
     </DockPanel>
 </Window>

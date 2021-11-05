@@ -99,6 +99,12 @@
     <Compile Include="WinComprobantePedido.xaml.cs">
       <DependentUpon>WinComprobantePedido.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinFacturacion.xaml.cs">
+      <DependentUpon>WinFacturacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinFacturacionCompleta.xaml.cs">
+      <DependentUpon>WinFacturacionCompleta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinItemPedido.xaml.cs">
       <DependentUpon>WinItemPedido.xaml</DependentUpon>
     </Compile>
@@ -116,6 +122,9 @@
     </Compile>
     <Compile Include="WinTablaArticulos.xaml.cs">
       <DependentUpon>WinTablaArticulos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinTablaClientes.xaml.cs">
+      <DependentUpon>WinTablaClientes.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinVistaPreviaImpresion.xaml.cs">
       <DependentUpon>WinVistaPreviaImpresion.xaml</DependentUpon>
@@ -164,6 +173,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinFacturacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinFacturacionCompleta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinItemPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -197,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinTablaArticulos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinTablaClientes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -282,6 +303,9 @@
     <Resource Include="Resources\minOff.png" />
     <Resource Include="Resources\res.png" />
     <Resource Include="Resources\resOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\lupa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ClasesBase;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace LPOO2_GRUPO_08
 {
@@ -54,9 +55,10 @@ namespace LPOO2_GRUPO_08
             temp.FontSize = 20;
             temp.Foreground = Brushes.White;
             temp.Click += new RoutedEventHandler(mesa_click);
+            temp.MouseDoubleClick += new MouseButtonEventHandler(mesa_MouseDoubleClick);
             return temp;
         }
-        
+
         private Button asignarColorFondo(Button temp, Mesa mesaActual)
         {
             switch (mesaActual.Mesa_Estado)
@@ -108,21 +110,77 @@ namespace LPOO2_GRUPO_08
             }
         }
 
+        private Button mesaSeleccionada = new Button();
+
         private void mesa_click(Object sender, EventArgs e)
         {
-            Button mesaSeleccionada = (Button)sender;
-            if (mesaSeleccionada.Background == Brushes.Green)
+            mesaSeleccionada.FontSize = 20;
+            lbEstados.SelectedIndex = -1;
+            mesaSeleccionada = (Button)sender;
+            mesaSeleccionada.FontSize = 30;
+        }
+
+        private void mesa_MouseDoubleClick(Object sender, MouseButtonEventArgs e)
+        {
+            lbEstados.SelectedIndex = -1;
+            Button mesaElegida = (Button)sender;
+            if (mesaElegida.Background == Brushes.Green)
+             {
+                 MessageBoxResult result = MessageBox.Show("Ocupar mesa?", "MESA LIBRE", MessageBoxButton.YesNo);
+                 if (result == MessageBoxResult.Yes)
+                 {
+                     Mesa mesaEditable = TrabajarMesa.buscarMesaByPosicion(Convert.ToInt32(Regex.Replace(Convert.ToString(mesaElegida.Content), @"[^\d]", "")));
+                     Window winPedido = new WinPedidos(mesaEditable, 1);
+                     winPedido.Show();
+                     this.Close();
+                 }
+             }else
             {
-                MessageBoxResult result = MessageBox.Show("Ocupar mesa?", "MESA LIBRE", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show("Generar Factura?", "FACTURAR", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
-                    mesaSeleccionada.Background = Brushes.Red;
+                {
+                    Mesa oMesaOcupada = TrabajarMesa.buscarMesaById(Convert.ToInt32(Regex.Replace(Convert.ToString(mesaElegida.Content), @"[^\d]", "")));
+                    oMesaOcupada.Mesa_Estado = 1;
+                    TrabajarMesa.editarMesa(oMesaOcupada);
+
+                    Pedido pedido = TrabajarPedido.buscarPedidoByMesaAndEstado(Convert.ToInt32(Regex.Replace(Convert.ToString(mesaElegida.Content), @"[^\d]", "")));
+                    pedido.Ped_Facturado = true;
+                    TrabajarPedido.editar_Pedido(pedido);
+
+                    Window winComprobante = new WinComprobantePedido(pedido.Ped_Id, 1);
+                    winComprobante.Show();
+                    this.Close();
+                }
             }
-            else
+        }
+
+        private void lbEstados_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbEstados.SelectedIndex != -1)
             {
-                MessageBoxResult result = MessageBox.Show("Liberar mesa?", "MESA OCUPADA", MessageBoxButton.YesNo);
-                if (result == MessageBoxResult.Yes)
-                    mesaSeleccionada.Background = Brushes.Green;
+                if (mesaSeleccionada.Background != Brushes.Green)
+                {
+                    if (lbEstados.SelectedIndex != 0)
+                    {
+                        string result = Regex.Replace(Convert.ToString(mesaSeleccionada.Content), @"[^\d]", "");
+                        Mesa mesaEditable = TrabajarMesa.buscarMesaByPosicion(Convert.ToInt32(result));
+                        mesaEditable.Mesa_Estado = lbEstados.SelectedIndex + 1;
+                        TrabajarMesa.editarMesa(mesaEditable);
+                        asignarColorFondo(mesaSeleccionada, mesaEditable);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede cambiar el estado de una mesa a libre, primero debe facturar","FACTURAR");
+                        lbEstados.SelectedIndex = -1;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se puede cambiar el estado de una mesa libre, asigne un pedido", "ASIGNE PEDIDO");
+                    lbEstados.SelectedIndex = -1;
+                }
             }
+            
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
