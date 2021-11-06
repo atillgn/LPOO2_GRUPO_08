@@ -2,10 +2,50 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         ResizeMode="NoResize" WindowStyle="None"
-        Title="Usuario" Height="300" Width="456" WindowStartupLocation="CenterScreen">
+        xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+        Title="Usuario" Height="450" Width="600" WindowStartupLocation="CenterScreen">
     <Window.Resources>
+        <ObjectDataProvider
+            x:Key="DATA_USUARIO"
+            ObjectType="{x:Type svc:TrabajarUsuario}"
+            MethodName="traerUsuario">
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="misRoles" 
+                            ObjectType="{x:Type svc:TrabajarRol}" 
+                            MethodName="traerRoles" />
+
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="white"/>
+        </Style>
+        
+        <ControlTemplate x:Key="TextBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="125,7,0,0" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#11FF1111" Offset="0"/>
+                            <GradientStop Color="#FFFF0000" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </DockPanel>
+        </ControlTemplate>
+
+        <Style x:Key="EstiloError" TargetType="TextBox">
+            <!--<Setter Property="Template" Value="{StaticResource TemInp}"/>-->
+            <Setter Property="Margin" Value="4,4,10,4"/>
+            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent"
+                                     RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
     
@@ -25,22 +65,59 @@
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
             <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
-            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA USUARIO" Width="125" Height="28" Name="lblTitulo" FontSize="16" />
+            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA USUARIO" Width="161" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
         <Grid>
-            <Label Content="Apellido y nombre" Height="28" HorizontalAlignment="Left" Margin="94,11,0,0" Name="lblApellido" VerticalAlignment="Top" />
-            <Label Content="Usuario" Height="28" HorizontalAlignment="Left" Margin="152,82,0,0" Name="lblUsername" VerticalAlignment="Top" />
-            <Label Content="Contraseña" Height="28" HorizontalAlignment="Left" Margin="132,116,0,0" Name="lblPassword" VerticalAlignment="Top" />
-            <Label Content="Rol" Height="28" HorizontalAlignment="Left" Margin="175,48,0,0" Name="lblRol" VerticalAlignment="Top" />
-            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="218,15,0,0" Name="txtApellido" VerticalAlignment="Top" Width="120" TabIndex="1"/>
-            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="218,82,0,0" Name="txtUsername" VerticalAlignment="Top" Width="120" TabIndex="3" />
-            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="218,116,0,0" Name="txtPassword" VerticalAlignment="Top" Width="120" TabIndex="4" />
-            <ComboBox Height="23" HorizontalAlignment="Left" Margin="218,48,0,0" Name="cmbRol" VerticalAlignment="Top" Width="120" TabIndex="2">
-                <ComboBoxItem Content="Administrador" />
-                <ComboBoxItem Content="Mozo" />
-                <ComboBoxItem Content="Vendedor" />
+            <Label Content="Apellido y nombre" Height="28" HorizontalAlignment="Left" Margin="57,32,0,0" Name="lblApellido" VerticalAlignment="Top" />
+            <Label Content="Usuario" Height="28" HorizontalAlignment="Left" Margin="115,103,0,0" Name="lblUsername" VerticalAlignment="Top" />
+            <Label Content="Contraseña" Height="28" HorizontalAlignment="Left" Margin="95,137,0,0" Name="lblPassword" VerticalAlignment="Top" />
+            <Label Content="Rol" Height="28" HorizontalAlignment="Left" Margin="138,69,0,0" Name="lblRol" VerticalAlignment="Top" />
+            <TextBox DataContext="{StaticResource DATA_USUARIO}"
+                     Style="{StaticResource EstiloError}"
+                     Height="23" HorizontalAlignment="Left" 
+                     Margin="181,36,0,0" Name="txtApellido" 
+                     VerticalAlignment="Top" Width="120" TabIndex="1">
+                <TextBox.Text>
+                    <Binding Path="Usu_ApellidoNombre" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox DataContext="{StaticResource DATA_USUARIO}"
+                     Style="{StaticResource EstiloError}" 
+                     Height="23" HorizontalAlignment="Left" 
+                     Margin="181,103,0,0" Name="txtUsername" 
+                     VerticalAlignment="Top" Width="120" TabIndex="3">
+                <TextBox.Text>
+                    <Binding Path="Usu_NombreUsuario" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox DataContext="{StaticResource DATA_USUARIO}"
+                     Style="{StaticResource EstiloError}" 
+                     Height="23" HorizontalAlignment="Left" 
+                     Margin="181,137,0,0" Name="txtPassword" 
+                     VerticalAlignment="Top" Width="120" TabIndex="4">
+                <TextBox.Text>
+                    <Binding Path="Usu_Contrasenia" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
+            <ComboBox ItemsSource="{Binding Source={StaticResource misRoles}}" 
+                      DisplayMemberPath="Rol_Descripcion" 
+                      SelectedValuePath="Rol_Id" 
+                      Height="23" HorizontalAlignment="Left" 
+                      Margin="181,69,0,0" Name="cmbRol" VerticalAlignment="Top" 
+                      Width="120" TabIndex="2">
             </ComboBox>
-            <Button Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="189,160,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="5" />
+            <Button Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="152,181,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="5" />
+            <Label Content="Imagen" Height="28" HorizontalAlignment="Left" Margin="298,179,0,0" Name="label1" VerticalAlignment="Top" />
+            <TextBlock Foreground="White" Height="23" HorizontalAlignment="Left" Margin="349,181,0,0" Name="txtImg" VerticalAlignment="Top" Width="84" />
+
+
+            <Button Style="{StaticResource BtnLogin}" Content="Cargar" Height="23" HorizontalAlignment="Left" Margin="439,180,0,0" Name="btnCargar" VerticalAlignment="Top" Width="47" Click="btnCargar_Click" />
+            <Grid Background="#403B51" Height="124" HorizontalAlignment="Left" Margin="337,36,0,0" Name="rectangle1" VerticalAlignment="Top" Width="149">
+                <Image Stretch="Fill" Name="img" />
+            </Grid>
         </Grid>
     </DockPanel>
 </Window>

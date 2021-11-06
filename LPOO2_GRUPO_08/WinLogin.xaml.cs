@@ -31,10 +31,10 @@ namespace LPOO2_GRUPO_08
             Rol oRol1 = new Rol(1, "Administrador");
             Rol oRol2 = new Rol(2, "Mozo");
             Rol oRol3 = new Rol(3, "Vendedor");
-            Usuario oUser1 = new Usuario(1, "Grafion Atilio", "atillgn", "123", 1);
-            Usuario oUser4 = new Usuario(2, "Marcia Velarde", "admin", "123", 1);
-            Usuario oUser2 = new Usuario(3, "Oviedo Ignacio", "gekaidas", "123", 2);
-            Usuario oUser3 = new Usuario(4, "Cruz Pablo", "joacru", "123", 3);
+            Usuario oUser1 = new Usuario(1, "Grafion Atilio", "atillgn", "123", 1, "");
+            Usuario oUser4 = new Usuario(2, "Marcia Velarde", "admin", "123", 1, "");
+            Usuario oUser2 = new Usuario(3, "Oviedo Ignacio", "gekaidas", "123", 2, "");
+            Usuario oUser3 = new Usuario(4, "Cruz Pablo", "joacru", "123", 3, "");
             Usuario[] usuarios = { oUser1, oUser2, oUser3, oUser4};
             bool login = false;
             int aux = 0;

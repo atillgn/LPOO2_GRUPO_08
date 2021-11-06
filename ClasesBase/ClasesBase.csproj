@@ -62,13 +62,16 @@
     <Compile Include="TrabajarItemPedido.cs" />
     <Compile Include="TrabajarMesa.cs" />
     <Compile Include="TrabajarPedido.cs" />
+    <Compile Include="TrabajarRol.cs" />
     <Compile Include="TrabajarUnidadMedida.cs" />
     <Compile Include="TrabajarUsuario.cs" />
     <Compile Include="UnidadMedida.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Diagrama de clases.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

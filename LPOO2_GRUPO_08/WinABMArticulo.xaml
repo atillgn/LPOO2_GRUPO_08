@@ -51,9 +51,9 @@
             <ComboBox ItemsSource="{Binding Source={StaticResource misUnidadesMedidas}}" DisplayMemberPath="Um_Descripcion" SelectedValuePath="Um_Id" Height="23" HorizontalAlignment="Left" Margin="153,221,0,0" Name="cmbUM" VerticalAlignment="Top" Width="120" TabIndex="6" />
             <Label Content="Imagen" Height="28" HorizontalAlignment="Left" Margin="300,219,0,0" Name="label1" VerticalAlignment="Top" />
             <TextBlock Foreground="White" Height="23" HorizontalAlignment="Left" Margin="356,221,0,0" Name="txtImg" VerticalAlignment="Top" Width="120" />
-            
-            
-            <Button Content="Cargar" Height="23" HorizontalAlignment="Left" Margin="475,221,0,0" Name="btnCargar" VerticalAlignment="Top" Width="75" Click="btnCargar_Click" />
+
+
+            <Button Style="{StaticResource BtnLogin}" Content="Cargar" Height="23" HorizontalAlignment="Left" Margin="475,221,0,0" Name="btnCargar" VerticalAlignment="Top" Width="75" Click="btnCargar_Click" />
             <Grid Background="#403B51" Height="177" HorizontalAlignment="Left" Margin="300,28,0,0" Name="rectangle1" VerticalAlignment="Top" Width="250">
                 <Image Stretch="Fill" Name="img" />
             </Grid>
