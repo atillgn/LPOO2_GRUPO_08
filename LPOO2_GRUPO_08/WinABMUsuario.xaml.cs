@@ -167,9 +167,13 @@ namespace LPOO2_GRUPO_08
         private void btnMaximizeScreen_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState != WindowState.Maximized)
+            {
                 this.WindowState = WindowState.Maximized;
+            }
             else
+            {
                 this.WindowState = WindowState.Normal;
+            }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
