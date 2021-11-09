@@ -4,7 +4,7 @@
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Title="WinTablaUsuarios" Height="450" Width="620" Loaded="Window_Loaded">
+        Title="WinTablaUsuarios" Height="450" Width="650" Loaded="Window_Loaded">
     <Window.Resources>
         <ObjectDataProvider x:Key="ListUsuario" 
                             ObjectType="{x:Type svc:TrabajarUsuario}" 
@@ -44,22 +44,15 @@
 
         <DockPanel>
             <DockPanel Background="#403B51"  Height="40" DockPanel.Dock="Top">
-                <Button Margin="158 0 30 0" Style="{StaticResource BtnLogin}" Content="Nuevo" Height="23" Name="btnNuevo" Width="74" Click="btnNuevo_Click" />
-                <Button Margin="0 0 30 0" Style="{StaticResource BtnLogin}" Content="Eliminar" Height="23" Name="btnEliminar" Width="74" Click="btnEliminar_Click" IsEnabled="False" />
-                <Button Margin="0 0 173 0" Style="{StaticResource BtnLogin}" Content="Modificar" Height="23" Name="btnModificar" Width="74" Click="btnModificar_Click" IsEnabled="False" />
+                <Button HorizontalAlignment="Left" Margin="190 5 10 5" Style="{StaticResource BtnLogin}" Content="Nuevo" Height="23" Name="btnNuevo" Width="74" Click="btnNuevo_Click" />
+                <Button HorizontalAlignment="Left" Margin="10 5" Style="{StaticResource BtnLogin}" Content="Eliminar" Height="23" Name="btnEliminar" Width="74" Click="btnEliminar_Click" />
+                <Button HorizontalAlignment="Left" Margin="10 5" Style="{StaticResource BtnLogin}" Content="Modificar" Height="23" Name="btnModificar" Width="74" Click="btnModificar_Click" />
             </DockPanel>
 
-            <DockPanel Background="#1D1A27" Width="564" Margin="0 15" Height="257">
+            <DockPanel Background="#1D1A27" Width="584" Margin="0 15" Height="257">
                 <DockPanel DockPanel.Dock="Top" Height="35">
-                    <Label Name="lblBuscar" Foreground="White" Content="BUSCAR POR APELLIDO" Margin="20 0" VerticalAlignment="Center" />
-                    <TextBox Name="txtFilter" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center" Width="158" TabIndex="1" TextChanged="txtFilter_TextChanged" Background="Transparent" Foreground="White" BorderThickness="2" IsKeyboardFocusedChanged="Label_IsKeyboardFocusedChanged" SelectionBrush="#6F6C7A" CaretBrush="#6F6C7A" LostFocus="txtFilter_LostFocus">
-                        <TextBox.BorderBrush>
-                            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
-                                <GradientStop Color="#FFE63070" Offset="2" />
-                                <GradientStop Color="#FFFE8704" Offset="0" />
-                            </LinearGradientBrush>
-                        </TextBox.BorderBrush>
-                    </TextBox>
+                    <Label Name="lblBuscar" Foreground="White" Content="BUSCAR POR APELLIDO" Margin="20 0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <TextBox Name="txtFilter" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center" Width="158" TabIndex="1" TextChanged="txtFilter_TextChanged" IsKeyboardFocusedChanged="Label_IsKeyboardFocusedChanged" LostFocus="txtFilter_LostFocus" Style="{StaticResource stlInp}"/>
                 </DockPanel>
 
 
@@ -81,8 +74,10 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Grid DockPanel.Dock="Left" Background="#403B51" Height="146"  Name="rectangle1" Width="143">
-                    <Image Stretch="Fill" Name="img"/>
+                <Grid DockPanel.Dock="Left" Background="#403B51" Height="166"  Name="rectangle1" Width="163">
+                    <Border BorderThickness="6" BorderBrush="#403B51">
+                        <Image Stretch="Fill" Name="img"/>
+                    </Border>
                 </Grid>
             </DockPanel>
         </DockPanel>

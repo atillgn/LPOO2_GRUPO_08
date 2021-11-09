@@ -250,8 +250,19 @@
     <Style TargetType="{x:Type Button}" x:Key="BtnLogin">
         <Setter Property="Template" Value="{StaticResource TemBtnLogin}" />
     </Style>
+
+    <ControlTemplate TargetType="{x:Type Button}" x:Key="TemDisBtnLogin">
+        <Border Name="Borde" BorderThickness="2" CornerRadius="3" TextBlock.Foreground="Gray" 
+        Background="Transparent"  TextBlock.FontFamily="Arial" BorderBrush="Gray">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+    </ControlTemplate>
     
-    <!--BtnMenu-->
+    <Style TargetType="{x:Type Button}" x:Key="BtnDisLogin">
+        <Setter Property="Template" Value="{StaticResource TemDisBtnLogin}" />
+    </Style>
+    
+            <!--BtnMenu-->
     <ControlTemplate TargetType="{x:Type Button}" x:Key="TemBtnMenu">
         <Border BorderBrush="Transparent" Name="Borde"  BorderThickness="10 0 0 0" Background="Transparent" TextBlock.Foreground="LightGray" TextBlock.FontSize="18" Padding="10 0">
             <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />

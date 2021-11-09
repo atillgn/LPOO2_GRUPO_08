@@ -21,19 +21,21 @@ namespace LPOO2_GRUPO_08
     /// </summary>
     public partial class WinTablaUsuarios : Window
     {
+
         private CollectionViewSource UsuarioFilter;
         ObservableCollection<Usuario> listaUsuarios;
 
         public WinTablaUsuarios()
         {
             InitializeComponent();
-            UsuarioFilter = Resources["UsuarioColl"] as CollectionViewSource;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ObjectDataProvider odp = (ObjectDataProvider)this.Resources["ListUsuario"];
             listaUsuarios = odp.Data as ObservableCollection<Usuario>;
+            btnDisabled(btnModificar);
+            btnDisabled(btnEliminar);
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
@@ -51,6 +53,21 @@ namespace LPOO2_GRUPO_08
             this.Close();
         }
 
+        private void btnDisabled(Button b)
+        {
+            b.IsEnabled = false;
+            Style stl = Application.Current.FindResource("BtnDisLogin") as Style;
+            b.Style = stl;
+            
+        }
+
+        private void btnEnable(Button b)
+        {
+            b.IsEnabled = true;
+            Style stl = Application.Current.FindResource("BtnLogin") as Style;
+            b.Style = stl;
+        }
+
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             Usuario user = (Usuario)lblUsuarios.SelectedItem;
@@ -59,8 +76,11 @@ namespace LPOO2_GRUPO_08
             {
                 TrabajarUsuario.borrarUsuario(user.Usu_Id);
                 MessageBox.Show("USUARIO ELIMINADO CON ÉXITO");
+                btnDisabled(btnModificar);
+                btnDisabled(btnEliminar);
+                /*
                 btnModificar.IsEnabled = false;
-                btnEliminar.IsEnabled = false;
+                btnEliminar.IsEnabled = false;*/
                 lblUsuarios.SelectedIndex = -1;
                 img.Source = null;
                 var UsuarioDelete = listaUsuarios.Single(i => i.Usu_Id == user.Usu_Id);
@@ -81,8 +101,11 @@ namespace LPOO2_GRUPO_08
         {
             img.Source = null;
             lblUsuarios.SelectedIndex = -1;
+            /*
             btnModificar.IsEnabled = false;
-            btnEliminar.IsEnabled = false;
+            btnEliminar.IsEnabled = false;*/
+            btnDisabled(btnModificar);
+            btnDisabled(btnEliminar);
             if (UsuarioFilter != null)
             {
                 UsuarioFilter.Filter += new FilterEventHandler(FiltroUsuario);
@@ -97,8 +120,11 @@ namespace LPOO2_GRUPO_08
                 Usuario user = (Usuario)lblUsuarios.SelectedItem;
                 dialog.FileName = user.Usu_Img;
                 img.Source = new BitmapImage(new Uri(dialog.FileName));
+                /*
                 btnEliminar.IsEnabled = true;
-                btnModificar.IsEnabled = true;
+                btnModificar.IsEnabled = true;*/
+                btnEnable(btnEliminar);
+                btnEnable(btnModificar);
             }
         }
 

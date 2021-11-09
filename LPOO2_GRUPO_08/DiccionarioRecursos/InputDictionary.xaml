@@ -18,7 +18,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox Foreground="White" Name="txtbox"  Background="Transparent" BorderThickness="0 0 0 2" CaretBrush="#6F6C7A" SelectionBrush="#6F6C7A">
+            <TextBox Text="{TemplateBinding Text}" Foreground="White" Background="Transparent" BorderThickness="0 0 0 2" CaretBrush="#6F6C7A" SelectionBrush="#6F6C7A">
                 <TextBox.BorderBrush>
                     <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
                         <GradientStop Color="#FFE63070" Offset="2" />
@@ -27,17 +27,31 @@
                 </TextBox.BorderBrush>
             </TextBox>
         </Grid>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter TargetName="txtbox" Property="BorderThickness" Value="0 0 0 3"/>
-                <Setter TargetName="txtbox" Property="BorderBrush" Value="#1cbfff" />
-            </Trigger>
-
-        </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style TargetType="{x:Type TextBox}" x:Key="stlInp">
+    <Style TargetType="{x:Type TextBox}" x:Key="stlInputABM">
         <Setter Property="Template" Value="{StaticResource TemInp}" />
     </Style>
+
+    <Style TargetType="{x:Type TextBox}" x:Key="stlInp">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="SelectionBrush" Value="#6F6C7A" />
+        <Setter Property="CaretBrush" Value="#6F6C7A" />
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                    <GradientStop Color="#FFE63070" Offset="2" />
+                    <GradientStop Color="#FFFE8704" Offset="0" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--
+    <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+        <GradientStop Color="#FFE63070" Offset="2" />
+        <GradientStop Color="#FFFE8704" Offset="0" />
+    </LinearGradientBrush>-->
 
 </ResourceDictionary>

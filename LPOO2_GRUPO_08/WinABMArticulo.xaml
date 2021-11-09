@@ -60,32 +60,35 @@
         <Grid>
             <Grid.Resources>
                 <ObjectDataProvider x:Key="misCategorias" ObjectType="{x:Type svc:TrabajarCategoria}" MethodName="TraerCategorias" />
-                <ObjectDataProvider x:Key="misFamilias" ObjectType="{x:Type svc:TrabajarFamilia}" MethodName="TraerFamilias" />
+                <ObjectDataProvider x:Key="misFamilias" ObjectType="{x:Type svc:TrabajarFamilia}" MethodName="traerFamiliasObv" />
                 <ObjectDataProvider x:Key="misUnidadesMedidas" ObjectType="{x:Type svc:TrabajarUnidadMedida}" MethodName="TraerUnidadMedidas" />
             </Grid.Resources>
 
             <Label Content="Código" Height="28" HorizontalAlignment="Left" Margin="98,23,0,0" Name="lblCodigo" VerticalAlignment="Top" />
-            <TextBox  Height="23" HorizontalAlignment="Left" Margin="153,28,0,0" Name="txtCodigo" VerticalAlignment="Top" Width="120" TabIndex="1" />
+            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,28,0,0" Name="txtCodigo" VerticalAlignment="Top" Width="120" TabIndex="1" />
             <Label Content="Descripción" Height="28" HorizontalAlignment="Left" Margin="75,61,0,0" Name="lblDescrip" VerticalAlignment="Top" />
             <Label Content="Familia" Height="28" HorizontalAlignment="Left" Margin="100,177,0,0" Name="lblFamilia" VerticalAlignment="Top" />
             <Label Content="Unidad de medida" Height="28" HorizontalAlignment="Left" Margin="39,216,0,0" Name="lblUM" VerticalAlignment="Top" />
             <Label Content="Precio" Height="28" HorizontalAlignment="Left" Margin="104,100,0,0" Name="lblPrecio" VerticalAlignment="Top" />
             <Label Content="Categoría" Height="28" HorizontalAlignment="Left" Margin="86,137,0,0" Name="lblCategoria" VerticalAlignment="Top" />
             <Button Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="257,294,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="8" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="153,66,0,0" Name="txtDescrip" VerticalAlignment="Top" Width="120" TabIndex="2" />
-            <TextBox  Height="23" HorizontalAlignment="Left" Margin="153,105,0,0" Name="txtPrecio" VerticalAlignment="Top" Width="120" TabIndex="3" />
+            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,66,0,0" Name="txtDescrip" VerticalAlignment="Top" Width="120" TabIndex="2" />
+            <TextBox  Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,105,0,0" Name="txtPrecio" VerticalAlignment="Top" Width="120" TabIndex="3" />
             <ComboBox ItemsSource="{Binding Source={StaticResource misCategorias}}" DisplayMemberPath="Cat_Descripcion" SelectedValuePath="Cat_Id" Height="23" HorizontalAlignment="Left" Margin="153,142,0,0" Name="cmbCategoria" VerticalAlignment="Top" Width="120" TabIndex="4"/>
             <ComboBox ItemsSource="{Binding Source={StaticResource misFamilias}}" DisplayMemberPath="Fam_Descripcion" SelectedValuePath="Fam_Id" Height="23" HorizontalAlignment="Left" Margin="153,182,0,0" Name="cmbFamilia" VerticalAlignment="Top" Width="120" TabIndex="5" />
             <CheckBox Foreground="White" Content="?Maneja Stock" Height="16" HorizontalAlignment="Left" Margin="62,259,0,0" Name="chkStock" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="12,-1,0,0" TabIndex="8" />
             <ComboBox ItemsSource="{Binding Source={StaticResource misUnidadesMedidas}}" DisplayMemberPath="Um_Descripcion" SelectedValuePath="Um_Id" Height="23" HorizontalAlignment="Left" Margin="153,221,0,0" Name="cmbUM" VerticalAlignment="Top" Width="120" TabIndex="6" />
-            <Label Content="Imagen" Height="28" HorizontalAlignment="Left" Margin="300,219,0,0" Name="label1" VerticalAlignment="Top" />
-            <TextBlock Foreground="White" Height="23" HorizontalAlignment="Left" Margin="356,221,0,0" Name="txtImg" VerticalAlignment="Top" Width="120" />
+            <Label Content="Imagen" Height="28" HorizontalAlignment="Left" Margin="300,245,0,0" Name="label1" VerticalAlignment="Top" />
+            <TextBlock Foreground="White" Height="23" HorizontalAlignment="Left" Margin="356,252,0,0" Name="txtImg" VerticalAlignment="Top" Width="110" />
 
-
-            <Button Style="{StaticResource BtnLogin}" Content="Cargar" Height="23" HorizontalAlignment="Left" Margin="475,221,0,0" Name="btnCargar" VerticalAlignment="Top" Width="75" Click="btnCargar_Click" />
-            <Grid Background="#403B51" Height="177" HorizontalAlignment="Left" Margin="300,28,0,0" Name="rectangle1" VerticalAlignment="Top" Width="250">
-                <Image Stretch="Fill" Name="img" />
+            
+            <Button Style="{StaticResource BtnLogin}" Content="Cargar" Height="23" HorizontalAlignment="Left" Margin="475,252,0,0" Name="btnCargar" VerticalAlignment="Top" Width="75" Click="btnCargar_Click" />
+            <Grid Background="#403B51" Height="177" HorizontalAlignment="Left" Margin="300,58,0,0" Name="rectangle1" VerticalAlignment="Top" Width="250">
+                <Border BorderThickness="6" BorderBrush="#403B51">
+                    <Image Stretch="Fill" Name="img" />
+                </Border>
             </Grid>
+            <Label Content="Vista Previa Imagen" Height="28" HorizontalAlignment="Left" Margin="370,28,0,0" Name="label2" VerticalAlignment="Top" />
         </Grid>
     </DockPanel>
 </Window>

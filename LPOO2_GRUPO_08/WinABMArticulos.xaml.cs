@@ -91,16 +91,16 @@ namespace LPOO2_GRUPO_08
                 try
                 {
                     TrabajarArticulos.borrarArticulo(Convert.ToInt32(txtIdArticulo.Text));
+                    MessageBox.Show("ARTÍCULO ELIMINADO CON EXITO!");
+                    var articuloDelete = listaArticulos.Single(i => i.Art_Id == Convert.ToInt32(txtIdArticulo.Text));
+                    listaArticulos.Remove(articuloDelete);
+                    Vista.MoveCurrentToPosition(Vista.CurrentPosition - 1);
                     
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("La tabla esta vacia");
                 }
-                MessageBox.Show("ARTÍCULO ELIMINADO CON EXITO!");
-                var articuloDelete = listaArticulos.Single(i => i.Art_Id == Convert.ToInt32(txtIdArticulo.Text));
-                listaArticulos.Remove(articuloDelete);
-                Vista.MoveCurrentToPosition(Vista.CurrentPosition - 1);
             }
         }
 
