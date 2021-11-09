@@ -24,8 +24,8 @@
                 <Ellipse DockPanel.Dock="Right" Margin="125,7,0,0" Width="10" Height="10">
                     <Ellipse.Fill>
                         <LinearGradientBrush>
-                            <GradientStop Color="#11FF1111" Offset="0"/>
-                            <GradientStop Color="#FFFF0000" Offset="1"/>
+                            <GradientStop Color="#FFE63070" Offset="0" />
+                            <GradientStop Color="#FFFE8704" Offset="0.70" />
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>

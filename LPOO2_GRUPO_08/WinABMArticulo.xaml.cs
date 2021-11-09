@@ -91,8 +91,61 @@ namespace LPOO2_GRUPO_08
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Articulo oArticulo = cargarDatos();
-            if (oArticuloModificado == null)
+            if (txtCodigo.Text != "" && txtDescrip.Text != "" && txtPrecio.Text != "" && cmbCategoria.Text != "" && cmbFamilia.Text != "" && cmbUM.Text != "" && txtImg.Text != "")
+            {
+                Articulo oArticulo = new Articulo();
+                oArticulo = cargarDatos();
+                if (oArticuloModificado != null)
+                {
+                    try
+                    {
+                        
+                        MessageBoxResult result = MessageBox.Show(encadenarDatosArticulo(oArticulo) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            oArticulo.Art_Id = oArticuloModificado.Art_Id;
+                            TrabajarArticulos.editarArticulo(oArticulo);
+                            MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
+                            Window wWinABMArticulos = new WinABMArticulos(iPosicion);
+                            wWinABMArticulos.Show();
+                            this.Close();
+                            limpiarCampos();
+                        }
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("Los articulos no pueden tener datos repetidos");
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        
+                        MessageBoxResult result = MessageBox.Show(encadenarDatosArticulo(oArticulo) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            TrabajarArticulos.agregarArticulo(oArticulo);
+                            MessageBox.Show("DATOS GUARDADOS CON EXITO!");
+                            Window wWinABMArticulos = new WinABMArticulos(-1);
+                            wWinABMArticulos.Show();
+                            this.Close();
+                            limpiarCampos();
+                        }
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("Los articulos no pueden tener datos repetidos");
+                    }
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("El articulo no puede tener campos vacio");
+            }
+            /*if (oArticuloModificado == null)
             {
                 MessageBoxResult result = MessageBox.Show(encadenarDatosArticulo(oArticulo) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
@@ -132,7 +185,7 @@ namespace LPOO2_GRUPO_08
                     this.Close();
                     limpiarCampos();
                 }
-            }
+            }*/
         }
 
         private string encadenarDatosArticulo(Articulo oArticulo)

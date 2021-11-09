@@ -8,6 +8,35 @@
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="white"/>
         </Style>
+
+        <ControlTemplate x:Key="TextBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="125,7,0,0" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#FFE63070" Offset="0" />
+                            <GradientStop Color="#FFFE8704" Offset="0.70" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </DockPanel>
+        </ControlTemplate>
+        
+        <Style x:Key="EstiloError" TargetType="TextBox">
+            <!--<Setter Property="Template" Value="{StaticResource TemInp}"/>-->
+            <Setter Property="Margin" Value="4,4,10,4"/>
+            <Setter +Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent"
+                                     RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
 
     <DockPanel Background="#272335">
