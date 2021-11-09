@@ -93,7 +93,7 @@ namespace LPOO2_GRUPO_08
                     TrabajarArticulos.borrarArticulo(Convert.ToInt32(txtIdArticulo.Text));
                     
                 }
-                catch (Exception a)
+                catch (Exception)
                 {
                     MessageBox.Show("La tabla esta vacia");
                 }

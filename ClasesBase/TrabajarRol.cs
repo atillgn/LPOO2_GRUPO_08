@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 
 namespace ClasesBase
 {
@@ -29,6 +30,28 @@ namespace ClasesBase
             da.Fill(dt);
 
             return dt;
+        }
+
+        public static ObservableCollection<Rol> traerRoles2()
+        {
+            DataTable dt = traerRoles();
+
+            var listaRoles = new ObservableCollection<Rol>();
+            foreach (DataRow r in dt.Rows)
+            {
+                listaRoles.Add(transformarRol(r));
+            }
+
+            return listaRoles;
+        }
+
+        private static Rol transformarRol(DataRow dt)
+        {
+            var oRolBuscado = new Rol();
+            oRolBuscado.Rol_Id = (int)dt["Rol_Id"];
+            oRolBuscado.Rol_Descripcion = (string)dt["Rol_Descripcion"];
+
+            return oRolBuscado;
         }
     }
 }

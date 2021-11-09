@@ -112,7 +112,7 @@ namespace LPOO2_GRUPO_08
                             limpiarCampos();
                         }
                     }
-                    catch (Exception a)
+                    catch (Exception)
                     {
                         MessageBox.Show("Los articulos no pueden tener datos repetidos");
                     }
@@ -133,7 +133,7 @@ namespace LPOO2_GRUPO_08
                             limpiarCampos();
                         }
                     }
-                    catch (Exception a)
+                    catch (Exception)
                     {
                         MessageBox.Show("Los articulos no pueden tener datos repetidos");
                     }
@@ -154,7 +154,7 @@ namespace LPOO2_GRUPO_08
                     {
                         TrabajarArticulos.agregarArticulo(oArticulo);
                     }
-                    catch (Exception a)
+                    catch (Exception)
                     {
                         MessageBox.Show("No se puede");
                     }
@@ -175,7 +175,7 @@ namespace LPOO2_GRUPO_08
                         oArticulo.Art_Id = oArticuloModificado.Art_Id;
                         TrabajarArticulos.editarArticulo(oArticulo);
                     }
-                    catch (Exception a)
+                    catch (Exception)
                     {
                         MessageBox.Show("No se puede");
                     }

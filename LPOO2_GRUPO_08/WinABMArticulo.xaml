@@ -25,7 +25,7 @@
         <Style x:Key="EstiloError" TargetType="TextBox">
             <!--<Setter Property="Template" Value="{StaticResource TemInp}"/>-->
             <Setter Property="Margin" Value="4,4,10,4"/>
-            <Setter +Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="ToolTip">

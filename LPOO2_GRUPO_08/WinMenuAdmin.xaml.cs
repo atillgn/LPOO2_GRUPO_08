@@ -25,7 +25,7 @@ namespace LPOO2_GRUPO_08
 
         private void menuUsuarios_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinUsuario = new WinABMUsuario();
+            Window wWinUsuario = new WinTablaUsuarios();
             wWinUsuario.Show();
             this.Close();
         }

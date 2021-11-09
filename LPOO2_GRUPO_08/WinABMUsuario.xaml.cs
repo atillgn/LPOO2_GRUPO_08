@@ -21,15 +21,42 @@ namespace LPOO2_GRUPO_08
     /// </summary>
     public partial class WinABMUsuario : Window
     {
+        private int tipo;
+        private Usuario oUsuarioModificable = new Usuario();
+
         public WinABMUsuario()
         {
             InitializeComponent();
         }
 
+        public WinABMUsuario(Usuario oUsu, int opcion)
+        {
+            InitializeComponent();
+            tipo = opcion;
+            oUsuarioModificable = oUsu;
+        }
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (tipo == 1)
+            {
+                lblTitulo.Content = "ALTA USUARIO";
+                txtNombreVentana.Text = "Alta Usuario";
+            }
+            else
+            {
+                lblTitulo.Content = "MODIFICAR USUARIO";
+                txtNombreVentana.Text = "Modificar Usuario";
+                cargarCampos();
+            }
+            gridContenedor.DataContext = oUsuarioModificable;
+        }
+
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinMenuAdmin = new WinMenuAdmin();
-            wWinMenuAdmin.Show();
+            Window wWinTablaUsuarios = new WinTablaUsuarios();
+            wWinTablaUsuarios.Show();
             this.Close();
         }
 
@@ -44,26 +71,64 @@ namespace LPOO2_GRUPO_08
             return oUsuario;
         }
 
+        private void cargarCampos()
+        {
+            txtApellido.Text = oUsuarioModificable.Usu_ApellidoNombre;
+            txtUsername.Text = oUsuarioModificable.Usu_NombreUsuario;
+            txtPassword.Text = oUsuarioModificable.Usu_Contrasenia;
+            txtImg.Text = oUsuarioModificable.Usu_Img;
+            cmbRol.SelectedValue = oUsuarioModificable.Rol_Id;
+            img.Source = new BitmapImage(new Uri(oUsuarioModificable.Usu_Img));
+        }
+
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             if (cmbRol.Text != "" && txtApellido.Text != "" && txtUsername.Text != "" && txtPassword.Text != "" && txtImg.Text != "")
             {
-                Usuario usuarioBuscado = TrabajarUsuario.buscarUsuarioByNombreUsuario(txtUsername.Text);
-                if (usuarioBuscado == null)
+                if (tipo == 1)
                 {
-                    Usuario oUsuario = cargarDatos();
-                    MessageBoxResult result = MessageBox.Show(encadenarDatosUsuario(oUsuario) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
-                    if (result == MessageBoxResult.Yes)
+                    try
                     {
-                        TrabajarUsuario.agregarUsuario(oUsuario);
-                        MessageBox.Show("DATOS GUARDADOS CON EXITO!");
-                        limpiarCampos();
+                        Usuario oUsuario = cargarDatos();
+                        MessageBoxResult result = MessageBox.Show(encadenarDatosUsuario(oUsuario) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            TrabajarUsuario.agregarUsuario(oUsuario);
+                            MessageBox.Show("DATOS GUARDADOS CON EXITO!");
+                            limpiarCampos();
+                            Window winTablaUsuario = new WinTablaUsuarios();
+                            winTablaUsuario.Show();
+                            this.Close();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("El nombre de usuario ya se encuentra registrado", "ERROR USUARIO EXISTENTE");
+                        txtUsername.Focus();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El nombre de usuario ya se encuentra registrado", "ERROR USUARIO EXISTENTE");
-                    txtUsername.Focus();
+                    try
+                    {
+                        Usuario oUsuario = cargarDatos();
+                        MessageBoxResult result = MessageBox.Show(encadenarDatosUsuario(oUsuario) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            oUsuario.Usu_Id = oUsuarioModificable.Usu_Id;
+                            TrabajarUsuario.editarUsuario(oUsuario);
+                            MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
+                            limpiarCampos();
+                            Window winTablaUsuario = new WinTablaUsuarios();
+                            winTablaUsuario.Show();
+                            this.Close();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("El nombre de usuario ya se encuentra registrado", "ERROR USUARIO EXISTENTE");
+                        txtUsername.Focus();
+                    }
                 }
             }
             else
@@ -137,6 +202,7 @@ namespace LPOO2_GRUPO_08
                 img.Source = new BitmapImage(new Uri(dialog.FileName));
             }
         }
+
  
     }
 }

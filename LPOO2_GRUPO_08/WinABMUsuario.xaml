@@ -3,14 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         ResizeMode="NoResize" WindowStyle="None"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
-        Title="Usuario" Height="450" Width="600" WindowStartupLocation="CenterScreen">
+        Title="Usuario" Height="350" Width="600" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.Resources>
-        <ObjectDataProvider
-            x:Key="DATA_USUARIO"
-            ObjectType="{x:Type svc:TrabajarUsuario}"
-            MethodName="traerUsuario">
-        </ObjectDataProvider>
-
         <ObjectDataProvider x:Key="misRoles" 
                             ObjectType="{x:Type svc:TrabajarRol}" 
                             MethodName="traerRoles" />
@@ -51,29 +45,28 @@
     
     <DockPanel Background="#272335">
         <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
-            <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Alta Usuario</TextBlock>
+            <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold" Name="txtNombreVentana">Alta Usuario</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <StackPanel Width="345"/>
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click" TabIndex="8">
                     <Image Source="./Resources/min.png" Width="30" Height="15" />
                 </Button>
 
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click" TabIndex="9">
                     <Image Source="./Resources/Exit.png" Width="30" Height="15" />
                 </Button>
             </StackPanel>
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
-            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA USUARIO" Width="161" Height="28" Name="lblTitulo" FontSize="16" />
+            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="7" />
+            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA USUARIO" Width="205" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
-        <Grid>
+        <Grid Name="gridContenedor">
             <Label Content="Apellido y nombre" Height="28" HorizontalAlignment="Left" Margin="57,32,0,0" Name="lblApellido" VerticalAlignment="Top" />
             <Label Content="Usuario" Height="28" HorizontalAlignment="Left" Margin="115,103,0,0" Name="lblUsername" VerticalAlignment="Top" />
             <Label Content="Contraseña" Height="28" HorizontalAlignment="Left" Margin="95,137,0,0" Name="lblPassword" VerticalAlignment="Top" />
             <Label Content="Rol" Height="28" HorizontalAlignment="Left" Margin="138,69,0,0" Name="lblRol" VerticalAlignment="Top" />
-            <TextBox DataContext="{StaticResource DATA_USUARIO}"
-                     Style="{StaticResource EstiloError}"
+            <TextBox Style="{StaticResource EstiloError}"
                      Height="23" HorizontalAlignment="Left" 
                      Margin="181,36,0,0" Name="txtApellido" 
                      VerticalAlignment="Top" Width="120" TabIndex="1">
@@ -82,8 +75,7 @@
                          ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
                 </TextBox.Text>
             </TextBox>
-            <TextBox DataContext="{StaticResource DATA_USUARIO}"
-                     Style="{StaticResource EstiloError}" 
+            <TextBox Style="{StaticResource EstiloError}" 
                      Height="23" HorizontalAlignment="Left" 
                      Margin="181,103,0,0" Name="txtUsername" 
                      VerticalAlignment="Top" Width="120" TabIndex="3">
@@ -92,8 +84,7 @@
                          ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
                 </TextBox.Text>
             </TextBox>
-            <TextBox DataContext="{StaticResource DATA_USUARIO}"
-                     Style="{StaticResource EstiloError}" 
+            <TextBox Style="{StaticResource EstiloError}" 
                      Height="23" HorizontalAlignment="Left" 
                      Margin="181,137,0,0" Name="txtPassword" 
                      VerticalAlignment="Top" Width="120" TabIndex="4">
@@ -109,15 +100,23 @@
                       Margin="181,69,0,0" Name="cmbRol" VerticalAlignment="Top" 
                       Width="120" TabIndex="2">
             </ComboBox>
-            <Button Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="152,181,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="5" />
-            <Label Content="Imagen" Height="28" HorizontalAlignment="Left" Margin="298,179,0,0" Name="label1" VerticalAlignment="Top" />
-            <TextBlock Foreground="White" Height="23" HorizontalAlignment="Left" Margin="349,181,0,0" Name="txtImg" VerticalAlignment="Top" Width="84" />
+            <Button Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="265,224,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="6" />
+            <Label Content="Foto" Height="28" HorizontalAlignment="Left" Margin="131,167,0,0" Name="lblFoto" VerticalAlignment="Top" />
+            <TextBox Style="{StaticResource EstiloError}" 
+                     Height="23" HorizontalAlignment="Left" 
+                     Margin="181,171,0,0" Name="txtImg" 
+                     VerticalAlignment="Top" Width="120" TabIndex="4" IsEnabled="False">
+                <TextBox.Text>
+                    <Binding Path="Usu_Img" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
 
-
-            <Button Style="{StaticResource BtnLogin}" Content="Cargar" Height="23" HorizontalAlignment="Left" Margin="439,180,0,0" Name="btnCargar" VerticalAlignment="Top" Width="47" Click="btnCargar_Click" />
-            <Grid Background="#403B51" Height="124" HorizontalAlignment="Left" Margin="337,36,0,0" Name="rectangle1" VerticalAlignment="Top" Width="149">
+            <Button Style="{StaticResource BtnLogin}" Height="23" Width="149" Content="Cargar Foto" Name="btnCargar" Click="btnCargar_Click" TabIndex="5" HorizontalAlignment="Left" Margin="336,153,0,71" />
+            <Grid Background="#403B51" Height="124" HorizontalAlignment="Left" Margin="336,36,0,0" Name="rectangle1" VerticalAlignment="Top" Width="149">
                 <Image Stretch="Fill" Name="img" />
             </Grid>
+            <Label Content="Vista Previa Foto" Height="28" HorizontalAlignment="Left" Margin="364,6,0,0" Name="lblVistaPrevia" VerticalAlignment="Top" />
         </Grid>
     </DockPanel>
 </Window>

@@ -126,6 +126,9 @@
     <Compile Include="WinTablaClientes.xaml.cs">
       <DependentUpon>WinTablaClientes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinTablaUsuarios.xaml.cs">
+      <DependentUpon>WinTablaUsuarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinVistaPreviaImpresion.xaml.cs">
       <DependentUpon>WinVistaPreviaImpresion.xaml</DependentUpon>
     </Compile>
@@ -218,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinTablaClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinTablaUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
