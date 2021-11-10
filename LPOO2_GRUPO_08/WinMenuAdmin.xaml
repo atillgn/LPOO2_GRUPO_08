@@ -55,7 +55,7 @@
                     <Button Height="60" Content="Unidades de medida" Style="{StaticResource BtnMenu}" Click="menuUnidades_Click"/>
                 </StackPanel>
                 
-                <StackPanel Background="#272335" Height="70" />
+                <StackPanel Background="#272335" Height="170" />
             </StackPanel>
         </Grid>
     </DockPanel>

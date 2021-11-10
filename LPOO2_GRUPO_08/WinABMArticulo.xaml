@@ -79,7 +79,7 @@
             <CheckBox Foreground="White" Content="?Maneja Stock" Height="16" HorizontalAlignment="Left" Margin="62,259,0,0" Name="chkStock" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="12,-1,0,0" TabIndex="8" />
             <ComboBox ItemsSource="{Binding Source={StaticResource misUnidadesMedidas}}" DisplayMemberPath="Um_Descripcion" SelectedValuePath="Um_Id" Height="23" HorizontalAlignment="Left" Margin="153,221,0,0" Name="cmbUM" VerticalAlignment="Top" Width="120" TabIndex="6" />
             <Label Content="Imagen" Height="28" HorizontalAlignment="Left" Margin="300,245,0,0" Name="label1" VerticalAlignment="Top" />
-            <TextBlock Foreground="White" Height="23" HorizontalAlignment="Left" Margin="356,252,0,0" Name="txtImg" VerticalAlignment="Top" Width="110" />
+            <TextBlock Background="Transparent" Foreground="White" Height="23" HorizontalAlignment="Left" Margin="356,252,0,0" Name="txtImg" VerticalAlignment="Top" Width="110"/>
 
             
             <Button Style="{StaticResource BtnLogin}" Content="Cargar" Height="23" HorizontalAlignment="Left" Margin="475,252,0,0" Name="btnCargar" VerticalAlignment="Top" Width="75" Click="btnCargar_Click" />

@@ -12,7 +12,7 @@
         <Setter Property="BorderBrush" Value="#1cbfff" />
         <Setter Property="FontFamily" Value="arial" />
     </Style>
-
+    <!--
     <ControlTemplate TargetType="{x:Type TextBox}" x:Key="TemInp">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -31,7 +31,7 @@
 
     <Style TargetType="{x:Type TextBox}" x:Key="stlInputABM">
         <Setter Property="Template" Value="{StaticResource TemInp}" />
-    </Style>
+    </Style>-->
 
     <Style TargetType="{x:Type TextBox}" x:Key="stlInp">
         <Setter Property="Background" Value="Transparent" />
@@ -47,8 +47,30 @@
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
+        <Setter Property="Border.BorderThickness" Value="0 0 0 2"/>
+        <Style.Triggers>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="BorderBrush" Value="#1cbfff" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
-    <!--
+
+    <Style TargetType="{x:Type TextBox}" x:Key="stlInpFil">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="SelectionBrush" Value="#6F6C7A" />
+        <Setter Property="CaretBrush" Value="#6F6C7A" />
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                    <GradientStop Color="#FFE63070" Offset="2" />
+                    <GradientStop Color="#FFFE8704" Offset="0" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+        <!--
     <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
         <GradientStop Color="#FFE63070" Offset="2" />
         <GradientStop Color="#FFFE8704" Offset="0" />

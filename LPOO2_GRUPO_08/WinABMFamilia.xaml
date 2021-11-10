@@ -36,7 +36,7 @@
         </DockPanel>
         <DockPanel Background="#403B51"  Height="40" DockPanel.Dock="Top">
             <Label Margin="40 0 10 0" Content="Descripción" Height="28" Name="lblDescrip" VerticalAlignment="Center" />
-            <TextBox Height="23" HorizontalAlignment="Left" Name="txtDescrip" VerticalAlignment="Center" Width="120" TabIndex="1" TextChanged="txtDescrip_TextChanged" IsKeyboardFocusedChanged="txtDescrip_IsKeyboardFocusedChanged" LostFocus="txtDescrip_LostFocus" />
+            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Name="txtDescrip" VerticalAlignment="Center" Width="120" TabIndex="1" TextChanged="txtDescrip_TextChanged" IsKeyboardFocusedChanged="txtDescrip_IsKeyboardFocusedChanged" LostFocus="txtDescrip_LostFocus" />
             <Button Margin="20 5 10 5" Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Name="btnGuardar" VerticalAlignment="Center" Width="75" TabIndex="6" Click="btnGuardar_Click" />   
         </DockPanel>
         <DockPanel Background="#1D1A27" Margin="75 25" Height="216">

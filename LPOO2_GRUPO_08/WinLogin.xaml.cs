@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClasesBase;
+using System.Data;
 
 namespace LPOO2_GRUPO_08
 {
@@ -27,10 +28,38 @@ namespace LPOO2_GRUPO_08
 
         private void btn_ingresar_Click(object sender, RoutedEventArgs e)
         {
+            DataTable dt = new DataTable();
+            dt = VerificarLogin.buscarUsuario(clogin.txtUser.Text, clogin.txtPass.Password);
+            if (dt.Rows.Count == 1)
+            {
+                MessageBox.Show("Bienvenido/a: " + clogin.txtUser.Text);
+                clogin.txtUser.Clear();
+                clogin.txtPass.Clear();
+                this.Hide();
+                Window wMenu;
+                if (dt.Rows[0][0].ToString() == "2" || dt.Rows[0][0].ToString() == "3")
+                {
+                    wMenu = new WinMenuMozo();
+                    wMenu.Show();
+                }
+                else
+                {
+                    wMenu = new WinMenuAdmin();
+                    wMenu.Show();
+                }
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Datos incorrectos");
+                clogin.txtUser.Focus();
+            }
             //usuarios y roles en modo "hardcoded"
+            /*
             Rol oRol1 = new Rol(1, "Administrador");
             Rol oRol2 = new Rol(2, "Mozo");
             Rol oRol3 = new Rol(3, "Vendedor");
+             * 
             /*Usuario oUser1 = new Usuario(1, "Grafion Atilio", "atillgn", "123", 1, "");
             Usuario oUser4 = new Usuario(2, "Marcia Velarde", "admin", "123", 1, "");
             Usuario oUser2 = new Usuario(3, "Oviedo Ignacio", "gekaidas", "123", 2, "");
@@ -56,7 +85,7 @@ namespace LPOO2_GRUPO_08
                 clogin.txtUser.Focus();
             }*/
         }
-
+        /*
         private void abrirMenu(int aux)
         {
             MessageBox.Show("Bienvenido: " + clogin.txtUser.Text);
@@ -72,7 +101,7 @@ namespace LPOO2_GRUPO_08
                 wMenu.Show();
             }
             this.Close();
-        }
+        }*/
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {

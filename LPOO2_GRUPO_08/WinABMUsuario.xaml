@@ -30,6 +30,21 @@
             <!--<Setter Property="Template" Value="{StaticResource TemInp}"/>-->
             <Setter Property="Margin" Value="4,4,10,4"/>
             <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SelectionBrush" Value="#6F6C7A" />
+            <Setter Property="CaretBrush" Value="#6F6C7A" />
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                        <GradientStop Color="#FFE63070" Offset="2" />
+                        <GradientStop Color="#FFFE8704" Offset="0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Border.BorderThickness" Value="0 0 0 2"/>
+            
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="ToolTip">
@@ -39,7 +54,11 @@
                         </Setter.Value>
                     </Setter>
                 </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#1cbfff" />
+                </Trigger>
             </Style.Triggers>
+            
         </Style>
     </Window.Resources>
     

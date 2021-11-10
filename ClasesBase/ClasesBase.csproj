@@ -67,6 +67,7 @@
     <Compile Include="TrabajarUsuario.cs" />
     <Compile Include="UnidadMedida.cs" />
     <Compile Include="Usuario.cs" />
+    <Compile Include="VerificarLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
