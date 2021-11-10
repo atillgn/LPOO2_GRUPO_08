@@ -34,5 +34,23 @@ namespace ClasesBase
             return dt;
 
         }
+
+        public static void agregarHistorial(HistorialLogin his)
+        {
+            SqlConnection cn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "AltaHistorial";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cn;
+
+            cmd.Parameters.AddWithValue("@des", his.Log_Descripcion);
+            cmd.Parameters.AddWithValue("@fecha", his.Log_FechaHora);
+            cmd.Parameters.AddWithValue("@usuId", his.Usu_Id);
+
+            cn.Open();
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
     }
 }

@@ -32,12 +32,17 @@ namespace LPOO2_GRUPO_08
             dt = VerificarLogin.buscarUsuario(clogin.txtUser.Text, clogin.txtPass.Password);
             if (dt.Rows.Count == 1)
             {
+                HistorialLogin oHistorial = new HistorialLogin();
+                oHistorial.Log_Descripcion = (string)"Usuario: " + clogin.txtUser.Text;
+                oHistorial.Log_FechaHora = (DateTime)DateTime.Now;
+                oHistorial.Usu_Id = (int)dt.Rows[0][0];
+                VerificarLogin.agregarHistorial(oHistorial);
                 MessageBox.Show("Bienvenido/a: " + clogin.txtUser.Text);
                 clogin.txtUser.Clear();
                 clogin.txtPass.Clear();
                 this.Hide();
                 Window wMenu;
-                if (dt.Rows[0][0].ToString() == "2" || dt.Rows[0][0].ToString() == "3")
+                if (dt.Rows[0][4].ToString() == "2" || dt.Rows[0][4].ToString() == "3")
                 {
                     wMenu = new WinMenuMozo();
                     wMenu.Show();
