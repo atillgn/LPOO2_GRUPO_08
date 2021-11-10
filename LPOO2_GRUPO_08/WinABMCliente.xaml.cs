@@ -19,9 +19,16 @@ namespace LPOO2_GRUPO_08
     /// </summary>
     public partial class WinABMCliente : Window
     {
+        private Cliente cliMod = new Cliente();
+
         public WinABMCliente()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            gContenedor.DataContext = cliMod;
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -105,5 +112,6 @@ namespace LPOO2_GRUPO_08
                 this.DragMove();
             }
         }
+
     }
 }

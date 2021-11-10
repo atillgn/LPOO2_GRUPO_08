@@ -23,48 +23,10 @@ namespace LPOO2_GRUPO_08
         bool edit;
         ObservableCollection<UnidadMedida> obvUni;
         UnidadMedida uniMod = new UnidadMedida();
+
         public WinABMUnidadDeMedida()
         {
             InitializeComponent();
-        }
-
-        private void btnVolver_Click(object sender, RoutedEventArgs e)
-        {
-            Window wWinMenuAdmin = new WinMenuAdmin();
-            wWinMenuAdmin.Show();
-            this.Close();
-        }
-
-        private void bntMinimizedScreen_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void btnMaximizeScreen_Click(object sender, RoutedEventArgs e)
-        {
-            if (WindowState != WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = WindowState.Normal;
-            }
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Window wWinLogin = new MainWindow();
-            wWinLogin.Show();
-            this.Close();
-        }
-
-        private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
         }
 
         private void btnDisabled(Button b)
@@ -72,7 +34,6 @@ namespace LPOO2_GRUPO_08
             b.IsEnabled = false;
             Style stl = Application.Current.FindResource("BtnDisLogin") as Style;
             b.Style = stl;
-
         }
 
         private void btnEnable(Button b)
@@ -87,9 +48,6 @@ namespace LPOO2_GRUPO_08
             if (lvUnidad.SelectedIndex != -1)
             {
                 UnidadMedida fam = (UnidadMedida)lvUnidad.SelectedItem;
-                /*
-                btnEliminar.IsEnabled = true;
-                btnModificar.IsEnabled = true;*/
                 btnEnable(btnEliminar);
                 btnEnable(btnModificar);
             }
@@ -114,8 +72,13 @@ namespace LPOO2_GRUPO_08
                             btnDisabled(btnModificar);
                             btnDisabled(btnEliminar);
                             btnGuardar.Content = "Guardar";
+                            oUnidad = TrabajarUnidadMedida.traerUnidadMedidaObv().Single(i => i.Um_Id == oUnidad.Um_Id);
+                            var indice = obvUni.IndexOf(uniMod);
+                            obvUni.RemoveAt(indice);
+                            obvUni.Insert(indice, oUnidad);
+                            edit = false;
                         }
-                        catch (Exception a)
+                        catch (Exception)
                         {
                             MessageBox.Show("La unidad ya se encuentra registrada", "ERROR UNIDAD EXISTENTE");
                             txtDescrip.Focus();
@@ -132,13 +95,14 @@ namespace LPOO2_GRUPO_08
                         {
                             TrabajarUnidadMedida.agregarUnidadMedida(oUnidad);
                             MessageBox.Show("DATOS GUARDADOS CON EXITO!");
+                            oUnidad = TrabajarUnidadMedida.traerUnidadMedidaObv().Single(i => i.Um_Descripcion == oUnidad.Um_Descripcion);
                             limpiarCampos();
                             obvUni.Add(oUnidad);
                         }
                     }
-                    catch (Exception a)
+                    catch (Exception)
                     {
-                        MessageBox.Show("La unidad ya se encuentra registrado", "ERROR UNIDAD EXISTENTE");
+                        MessageBox.Show("La unidad ya se encuentra registrada", "ERROR UNIDAD EXISTENTE");
                         txtDescrip.Focus();
                         txtAbrev.Focus();
                     }
@@ -174,7 +138,7 @@ namespace LPOO2_GRUPO_08
                     var UniDelete = obvUni.Single(i => i.Um_Id == uni.Um_Id);
                     obvUni.Remove(UniDelete);
                 }
-                catch (Exception a)
+                catch (Exception)
                 {
                     MessageBox.Show("Esta unidad esta vinculada a otros articulos", "ERROR ELIMINACION UNIDAD");
                 }
@@ -217,6 +181,7 @@ namespace LPOO2_GRUPO_08
             btnDisabled(btnModificar);
             btnDisabled(btnEliminar);
             edit = false;
+            dpContenedor.DataContext = uniMod;
         }
 
         private void txtAbrev_LostFocus(object sender, RoutedEventArgs e)
@@ -255,6 +220,44 @@ namespace LPOO2_GRUPO_08
             btnDisabled(btnEliminar);
         }
 
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinMenuAdmin = new WinMenuAdmin();
+            wWinMenuAdmin.Show();
+            this.Close();
+        }
+
+        private void bntMinimizedScreen_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnMaximizeScreen_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState != WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+            }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinLogin = new MainWindow();
+            wWinLogin.Show();
+            this.Close();
+        }
+
+        private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
 
     }
 }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         WindowStyle="None" ResizeMode="NoResize"
-        Title="Cliente" Height="350" Width="456" WindowStartupLocation="CenterScreen">
+        Title="Cliente" Height="350" Width="456" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.Resources>
         <ObjectDataProvider
             x:Key="DATA_CLIENTE"
@@ -16,8 +16,8 @@
                 <Ellipse DockPanel.Dock="Right" Margin="125,7,0,0" Width="10" Height="10">
                     <Ellipse.Fill>
                         <LinearGradientBrush>
-                            <GradientStop Color="#11FF1111" Offset="0"/>
-                            <GradientStop Color="#FFFF0000" Offset="1"/>
+                            <GradientStop Color="#FFE63070" Offset="0" />
+                            <GradientStop Color="#FFFE8704" Offset="0.70" />
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
@@ -25,9 +25,24 @@
         </ControlTemplate>
 
         <Style x:Key="EstiloError" TargetType="TextBox">
-            <Setter Property="Template" Value="{StaticResource TemInp}" />
+            <!--<Setter Property="Template" Value="{StaticResource TemInp}"/>-->
             <Setter Property="Margin" Value="4,4,10,4"/>
             <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SelectionBrush" Value="#6F6C7A" />
+            <Setter Property="CaretBrush" Value="#6F6C7A" />
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                        <GradientStop Color="#FFE63070" Offset="2" />
+                        <GradientStop Color="#FFFE8704" Offset="0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Border.BorderThickness" Value="0 0 0 2"/>
+
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="ToolTip">
@@ -37,7 +52,11 @@
                         </Setter.Value>
                     </Setter>
                 </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#1cbfff" />
+                </Trigger>
             </Style.Triggers>
+
         </Style>
         
         <Style TargetType="{x:Type Label}">
@@ -63,13 +82,13 @@
             <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
             <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA CLIENTE" Width="145" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
-        <Grid>
+        <Grid Name="gContenedor">
             <Label Content="Apellido" Height="28" HorizontalAlignment="Left" Margin="144,25,0,0" Name="lblApellido" VerticalAlignment="Top" />
             <Label Content="Nombre" Height="28" HorizontalAlignment="Left" Margin="144,59,0,0" Name="lblNombre" VerticalAlignment="Top" />
             <Label Content="Domicilio" Height="28" HorizontalAlignment="Left" Margin="138,127,0,0" Name="lblDomicilio" VerticalAlignment="Top" />
             <Label Content="Telefono" HorizontalAlignment="Left" Margin="142,93,0,0" Name="lblTelefono" Height="28" VerticalAlignment="Top" />
             <Label Content="Email" Height="28" HorizontalAlignment="Left" Margin="160,161,0,0" Name="lblEmail" VerticalAlignment="Top" />
-            <TextBox DataContext="{StaticResource DATA_CLIENTE}"
+            <TextBox 
                  Style="{StaticResource EstiloError}"
                  Height="23" Margin="204,27,0,0" Name="txtApellido" 
                  VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
@@ -78,7 +97,7 @@
                          ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
                 </TextBox.Text>
             </TextBox>
-            <TextBox DataContext="{StaticResource DATA_CLIENTE}"
+            <TextBox 
                  Style="{StaticResource EstiloError}" Height="23" 
                  HorizontalAlignment="Left" Margin="204,61,0,0" 
                  Name="txtNombre" VerticalAlignment="Top" Width="120">
@@ -87,7 +106,7 @@
                          ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
                 </TextBox.Text>
             </TextBox>
-            <TextBox DataContext="{StaticResource DATA_CLIENTE}"
+            <TextBox 
                  Style="{StaticResource EstiloError}" Height="23" 
                  HorizontalAlignment="Left" Margin="204,95,0,0" 
                  Name="txtTelefono" VerticalAlignment="Top" Width="120">

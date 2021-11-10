@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         WindowStyle="None" ResizeMode="NoResize" 
-        Title="Categoria" Height="410" Width="456" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Categoria" Height="422" Width="400" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="white"/>
@@ -11,11 +11,58 @@
         <ObjectDataProvider x:Key="listCat"
                             ObjectType="{x:Type svc:TrabajarCategoria}"
                             MethodName="traerCategoriasObv"/>
+        <ControlTemplate x:Key="TextBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="125,7,0,0" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#FFE63070" Offset="0" />
+                            <GradientStop Color="#FFFE8704" Offset="0.70" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </DockPanel>
+        </ControlTemplate>
+
+        <Style x:Key="EstiloError" TargetType="TextBox">
+            <!--<Setter Property="Template" Value="{StaticResource TemInp}"/>-->
+            <Setter Property="Margin" Value="4,4,10,4"/>
+            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SelectionBrush" Value="#6F6C7A" />
+            <Setter Property="CaretBrush" Value="#6F6C7A" />
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                        <GradientStop Color="#FFE63070" Offset="2" />
+                        <GradientStop Color="#FFFE8704" Offset="0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Border.BorderThickness" Value="0 0 0 2"/>
+
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent"
+                                     RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#1cbfff" />
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
     </Window.Resources>
 
     <DockPanel Background="#272335">
         <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
-            <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Alta Categoria</TextBlock>
+            <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">ABM Categoría</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <StackPanel Width="345"/>
                 <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click">
@@ -29,11 +76,22 @@
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
             <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
-            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA CATEGORIA" Width="145" Height="28" Name="lblTitulo" FontSize="16" />
+            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ABM CATEGORÍA" Width="201" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
-        <DockPanel Background="#403B51"  Height="40" DockPanel.Dock="Top">
+        <DockPanel Name="dpContenedor"  Background="#403B51"  Height="40" DockPanel.Dock="Top">
             <Label Margin="40 0 10 0" Content="Descripción" Height="28" Name="lblDescrip" VerticalAlignment="Center" />
-            <TextBox Height="23" HorizontalAlignment="Left" Name="txtDescrip" VerticalAlignment="Center" Width="120" TabIndex="1" TextChanged="txtDescrip_TextChanged" IsKeyboardFocusedChanged="txtDescrip_IsKeyboardFocusedChanged" LostFocus="txtDescrip_LostFocus" />
+            <TextBox Style="{StaticResource EstiloError}" 
+                     Height="23" HorizontalAlignment="Left" 
+                     Name="txtDescrip" VerticalAlignment="Center" 
+                     Width="120" TabIndex="1" 
+                     LostFocus="txtDescrip_LostFocus" 
+                     TextChanged="txtDescrip_TextChanged" 
+                     IsKeyboardFocusedChanged="txtDescrip_IsKeyboardFocusedChanged">
+                <TextBox.Text>
+                    <Binding Path="Cat_Descripcion" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
             <Button Margin="20 5 10 5" Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Name="btnGuardar" VerticalAlignment="Center" Width="75" TabIndex="6" Click="btnGuardar_Click" />
         </DockPanel>
         <DockPanel Background="#1D1A27" Margin="75 25" Height="216">
@@ -43,7 +101,7 @@
                         <GridView>
                             <GridView.Columns>
                                 <GridViewColumn Width="40" Header="ID" DisplayMemberBinding="{Binding Path=Cat_Id}"/>
-                                <GridViewColumn Width="100" Header="Descripcion" DisplayMemberBinding="{Binding Path=Cat_Descripcion}" />
+                                <GridViewColumn Width="108" Header="Descripcion" DisplayMemberBinding="{Binding Path=Cat_Descripcion}" />
                             </GridView.Columns>
                         </GridView>
                     </ListView.View>

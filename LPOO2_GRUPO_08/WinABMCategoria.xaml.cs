@@ -23,48 +23,10 @@ namespace LPOO2_GRUPO_08
         bool edit;
         ObservableCollection<Categoria> obvCat;
         Categoria catMod = new Categoria();
+
         public WinABMCategoria()
         {
             InitializeComponent();
-        }
-
-        private void btnVolver_Click(object sender, RoutedEventArgs e)
-        {
-            Window wWinMenuAdmin = new WinMenuAdmin();
-            wWinMenuAdmin.Show();
-            this.Close();
-        }
-
-        private void bntMinimizedScreen_Click(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void btnMaximizeScreen_Click(object sender, RoutedEventArgs e)
-        {
-            if (WindowState != WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = WindowState.Normal;
-            }
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Window wWinLogin = new MainWindow();
-            wWinLogin.Show();
-            this.Close();
-        }
-
-        private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
         }
 
         private Categoria cargarDatos()
@@ -83,7 +45,7 @@ namespace LPOO2_GRUPO_08
         {
             string sCadenaDatos = "DATOS A GUARDAR: \n" +
                                               "\n" +
-                                              "Descripcion: " + oCategoria.Cat_Descripcion + "\n";
+                                              "Descripción: " + oCategoria.Cat_Descripcion + "\n";
             return sCadenaDatos;
         }
 
@@ -99,6 +61,7 @@ namespace LPOO2_GRUPO_08
             btnDisabled(btnModificar);
             btnDisabled(btnEliminar);
             edit = false;
+            dpContenedor.DataContext = catMod;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -120,10 +83,15 @@ namespace LPOO2_GRUPO_08
                             btnDisabled(btnModificar);
                             btnDisabled(btnEliminar);
                             btnGuardar.Content = "Guardar";
+                            oCategoria = TrabajarCategoria.traerCategoriasObv().Single(i => i.Cat_Id == oCategoria.Cat_Id);
+                            var indice = obvCat.IndexOf(catMod);
+                            obvCat.RemoveAt(indice);
+                            obvCat.Insert(indice, oCategoria);
+                            edit = false;
                         }
-                        catch (Exception a)
+                        catch (Exception)
                         {
-                            MessageBox.Show("La categoria ya se encuentra registrado", "ERROR CATEGORIA EXISTENTE");
+                            MessageBox.Show("La categoria ya se encuentra registrada", "ERROR CATEGORIA EXISTENTE");
                             txtDescrip.Focus();
                         }
                     }
@@ -138,13 +106,14 @@ namespace LPOO2_GRUPO_08
                         {
                             TrabajarCategoria.agregarCategoria(oCategoria);
                             MessageBox.Show("DATOS GUARDADOS CON EXITO!");
+                            oCategoria = TrabajarCategoria.traerCategoriasObv().Single(i => i.Cat_Descripcion == oCategoria.Cat_Descripcion);
                             limpiarCampos();
                             obvCat.Add(oCategoria);
                         }
                     }
-                    catch (Exception a)
+                    catch (Exception)
                     {
-                        MessageBox.Show("La categoria ya se encuentra registrado", "ERROR CATEGORIA EXISTENTE");
+                        MessageBox.Show("La categoria ya se encuentra registrada", "ERROR CATEGORIA EXISTENTE");
                         txtDescrip.Focus();
                     }
                 }
@@ -153,21 +122,6 @@ namespace LPOO2_GRUPO_08
             {
                 MessageBox.Show("No pueden haber campos vacíos", "ERROR CAMPO VACÍO");
             }
-        }
-
-        private void txtDescrip_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void txtDescrip_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-
-        }
-
-        private void txtDescrip_LostFocus(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void btnDisabled(Button b)
@@ -211,7 +165,7 @@ namespace LPOO2_GRUPO_08
                     var FamDelete = obvCat.Single(i => i.Cat_Id == cat.Cat_Id);
                     obvCat.Remove(FamDelete);
                 }
-                catch (Exception a)
+                catch (Exception)
                 {
                     MessageBox.Show("Esta familia esta vinculada a otros articulos", "ERROR ELIMINACION FAMILIA");
                 }
@@ -226,5 +180,64 @@ namespace LPOO2_GRUPO_08
             cargarCampos();
             btnGuardar.Content = "Editar";
         }
+
+        private void txtDescrip_LostFocus(object sender, RoutedEventArgs e)
+        {
+            lblDescrip.Foreground = Brushes.White;
+        }
+
+        private void txtDescrip_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btnDisabled(btnModificar);
+            btnDisabled(btnEliminar);
+        }
+
+        private void txtDescrip_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            btnDisabled(btnModificar);
+            btnDisabled(btnEliminar);
+            lvCat.SelectedIndex = -1;
+            lblDescrip.Foreground = new SolidColorBrush(Color.FromRgb(28, 191, 255));
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinMenuAdmin = new WinMenuAdmin();
+            wWinMenuAdmin.Show();
+            this.Close();
+        }
+
+        private void bntMinimizedScreen_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnMaximizeScreen_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState != WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+            }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinLogin = new MainWindow();
+            wWinLogin.Show();
+            this.Close();
+        }
+
+        private void titleBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
     }
 }

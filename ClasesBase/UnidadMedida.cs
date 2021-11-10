@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace ClasesBase
 {
-    public class UnidadMedida
+    public class UnidadMedida: IDataErrorInfo
     {
         private int um_Id;
 
@@ -37,5 +38,36 @@ namespace ClasesBase
         }
 
         public UnidadMedida() { }
+
+        public string Error
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string msg_error = null;
+
+                switch (columnName)
+                {
+                    case "Um_Descripcion":
+                        msg_error = validad_Campo(um_Descripcion);
+                        break;
+                    case "Um_Abrev":
+                        msg_error = validad_Campo(um_Abrev);
+                        break;
+                }
+                return msg_error;
+            }
+        }
+
+        private string validad_Campo(string texto)
+        {
+            if (String.IsNullOrEmpty(texto)) 
+                return "El valor del campo es obligatorio";
+            return null;
+        }
     }
 }
