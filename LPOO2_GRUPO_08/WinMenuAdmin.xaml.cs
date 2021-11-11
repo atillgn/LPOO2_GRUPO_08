@@ -26,7 +26,6 @@ namespace LPOO2_GRUPO_08
         bool rep;
         string img;
         DataTable dt;
-        int id;
         Usuario user;
 
         public WinMenuAdmin()
@@ -82,6 +81,14 @@ namespace LPOO2_GRUPO_08
             this.Close();
         }
 
+        private void menuHistorial_Click(object sender, RoutedEventArgs e)
+        {
+            if (rep) mediaElm.Stop();
+            Window wWinHistorial = new WinLogAdmin();
+            wWinHistorial.Show();
+            this.Close();
+        }
+
         private void bntMinimizedScreen_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -117,9 +124,8 @@ namespace LPOO2_GRUPO_08
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            dt = TrabajarHistoriaLogin.traerHistorialMozo();
-            id = (int)dt.Rows[0][3];
-            user = TrabajarUsuario.buscarUsuarioById(id);
+            dt = TrabajarHistoriaLogin.traerUltimoIDUser();
+            user = TrabajarUsuario.buscarUsuarioById((int)dt.Rows[0][0]);
             img = user.Usu_Img;
             Elipse.Fill = new ImageBrush(new BitmapImage(new Uri(@img)));
         }
@@ -167,5 +173,7 @@ namespace LPOO2_GRUPO_08
             timer.Start();
             rep = true;
         }
+
+        
     }
 }

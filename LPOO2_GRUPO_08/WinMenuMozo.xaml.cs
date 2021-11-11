@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using ClasesBase;
+using System.Data;
 
 namespace LPOO2_GRUPO_08
 {
@@ -22,6 +24,9 @@ namespace LPOO2_GRUPO_08
         MediaPlayer media = new MediaPlayer();
         DispatcherTimer timer;
         bool rep;
+        string img;
+        DataTable dt;
+        Usuario user;
 
         public WinMenuMozo()
         {
@@ -117,7 +122,10 @@ namespace LPOO2_GRUPO_08
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            dt = TrabajarHistoriaLogin.traerUltimoIDUser();
+            user = TrabajarUsuario.buscarUsuarioById((int)dt.Rows[0][0]);
+            img = user.Usu_Img;
+            Elipse.Fill = new ImageBrush(new BitmapImage(new Uri(@img)));
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
