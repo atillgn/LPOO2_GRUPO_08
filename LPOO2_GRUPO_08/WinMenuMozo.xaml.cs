@@ -37,6 +37,13 @@ namespace LPOO2_GRUPO_08
             this.Close();
         }
 
+        private void BtnHistorial_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinHistorial = new WinLogMozo();
+            wWinHistorial.Show();
+            this.Close();
+        }
+
         private void bntMinimizedScreen_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;

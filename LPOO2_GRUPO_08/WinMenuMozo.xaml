@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStyle="None" ResizeMode="NoResize"
-        Title="Mozo / Vendedor" Height="480" Width="700" WindowStartupLocation="CenterScreen">
+        Title="Mozo / Vendedor" Height="532" Width="800" WindowStartupLocation="CenterScreen">
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
             <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Menú Mozo</TextBlock>
@@ -44,6 +44,7 @@
 
                     <Button Height="60" Content="Facturación" Style="{StaticResource BtnMenu}" TabIndex="3" Name="BtnFacturacion" Click="BtnFacturacion_Click" />
 
+                    <Button Height="60" Content="Mi Historial" Style="{StaticResource BtnMenu}" TabIndex="3" Name="BtnHistorial" Click="BtnHistorial_Click" />
                 </StackPanel>
                 <StackPanel Background="#272335" Height="185"/>
             </StackPanel>

@@ -108,6 +108,12 @@
     <Compile Include="WinItemPedido.xaml.cs">
       <DependentUpon>WinItemPedido.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinLogAdmin.xaml.cs">
+      <DependentUpon>WinLogAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinLogMozo.xaml.cs">
+      <DependentUpon>WinLogMozo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinMenuAdmin.xaml.cs">
       <DependentUpon>WinMenuAdmin.xaml</DependentUpon>
     </Compile>
@@ -192,6 +198,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinLogAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinLogin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -204,6 +214,10 @@
       <DependentUpon>WinLogin.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WinLogMozo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinMenuAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

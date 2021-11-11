@@ -72,6 +72,13 @@ namespace LPOO2_GRUPO_08
             this.Close();
         }
 
+        private void menuHistorial_Click(object sender, RoutedEventArgs e)
+        {
+            Window wWinUnidades = new WinLogAdmin();
+            wWinUnidades.Show();
+            this.Close();
+        }
+
         private void bntMinimizedScreen_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;

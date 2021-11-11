@@ -59,6 +59,7 @@
     <Compile Include="TrabajarCategoria.cs" />
     <Compile Include="TrabajarCliente.cs" />
     <Compile Include="TrabajarFamilia.cs" />
+    <Compile Include="TrabajarHistoriaLogin.cs" />
     <Compile Include="TrabajarItemPedido.cs" />
     <Compile Include="TrabajarMesa.cs" />
     <Compile Include="TrabajarPedido.cs" />
