@@ -321,4 +321,25 @@
         </Setter>
     </Style>
 
+    <!--Boton de escape
+    <ControlTemplate TargetType="{x:Type Image}" x:Key="TemImgUser">
+
+        <Ellipse Name="Elipse" Width="35" Height="35" StrokeThickness="2">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="../Resources/Exit.png"  Stretch="Uniform" />
+            </Ellipse.Fill>
+            <Ellipse.Stroke>
+                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                    <GradientStop Color="#FFE63070" Offset="2" />
+                    <GradientStop Color="#FFFE8704" Offset="0" />
+                </LinearGradientBrush>
+            </Ellipse.Stroke>
+        </Ellipse>
+
+    </ControlTemplate>
+
+    <Style TargetType="{x:Type Image}" x:Key="ImgUser">
+        <Setter Property="Template" Value="{StaticResource TemImgUser}" />
+    </Style>-->
+
 </ResourceDictionary>

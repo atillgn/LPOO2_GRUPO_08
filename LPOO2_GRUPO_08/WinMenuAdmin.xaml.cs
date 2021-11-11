@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using ClasesBase;
+using System.Data;
 
 namespace LPOO2_GRUPO_08
 {
@@ -22,9 +24,13 @@ namespace LPOO2_GRUPO_08
         MediaPlayer media = new MediaPlayer();
         DispatcherTimer timer;
         bool rep;
+        string img;
+        DataTable dt;
+        int id;
+        Usuario user;
 
         public WinMenuAdmin()
-        {
+        {   
             InitializeComponent();
             timer = new DispatcherTimer();
             rep = false;
@@ -39,7 +45,6 @@ namespace LPOO2_GRUPO_08
 
         private void menuUsuarios_Click(object sender, RoutedEventArgs e)
         {
-            media.Stop();
             Window wWinUsuario = new WinTablaUsuarios();
             wWinUsuario.Show();
             this.Close();
@@ -47,7 +52,6 @@ namespace LPOO2_GRUPO_08
 
         private void menuArticulos_Click(object sender, RoutedEventArgs e)
         {
-            media.Stop();
             if (rep) mediaElm.Stop();
             Window wWinArticulos = new WinABMArticulos();
             wWinArticulos.Show();
@@ -56,7 +60,6 @@ namespace LPOO2_GRUPO_08
 
         private void menuFamilia_Click(object sender, RoutedEventArgs e)
         {
-            media.Stop();
             if (rep) mediaElm.Stop();
             Window wWinFamilia = new WinABMFamilia();
             wWinFamilia.Show();
@@ -65,7 +68,6 @@ namespace LPOO2_GRUPO_08
 
         private void menuCategoria_Click(object sender, RoutedEventArgs e)
         {
-            media.Stop();
             if (rep) mediaElm.Stop();
             Window wWinCategoria = new WinABMCategoria();
             wWinCategoria.Show();
@@ -74,7 +76,6 @@ namespace LPOO2_GRUPO_08
 
         private void menuUnidades_Click(object sender, RoutedEventArgs e)
         {
-            media.Stop();
             if (rep) mediaElm.Stop();
             Window wWinUnidades = new WinABMUnidadDeMedida();
             wWinUnidades.Show();
@@ -100,7 +101,6 @@ namespace LPOO2_GRUPO_08
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            media.Stop();
             if (rep) mediaElm.Stop();
             Window wWinLogin = new MainWindow();
             wWinLogin.Show();
@@ -117,8 +117,11 @@ namespace LPOO2_GRUPO_08
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            media.Open(new Uri(@"C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\Resources\goodfood.wav"));
-            media.Play();
+            dt = TrabajarHistoriaLogin.traerHistorialMozo();
+            id = (int)dt.Rows[0][3];
+            user = TrabajarUsuario.buscarUsuarioById(id);
+            img = user.Usu_Img;
+            Elipse.Fill = new ImageBrush(new BitmapImage(new Uri(@img)));
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -149,7 +152,6 @@ namespace LPOO2_GRUPO_08
         private void btnAcerca_Click(object sender, RoutedEventArgs e)
         {
             dpVideo.Visibility = Visibility.Visible;
-            media.Stop();
             //mediaElm.Source = new Uri(@"C:\Users\admin\Downloads\videoplayback.mp4");
             mediaElm.Source = new Uri(@"C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\Resources\video.mp4");
             mediaElm.LoadedBehavior = MediaState.Manual;

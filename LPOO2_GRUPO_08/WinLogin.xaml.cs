@@ -21,9 +21,13 @@ namespace LPOO2_GRUPO_08
     /// </summary>
     public partial class MainWindow : Window
     {
+        MediaPlayer media = new MediaPlayer();
+
         public MainWindow()
         {
             InitializeComponent();
+            media.Open(new Uri(@"C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\Resources\goodfood.wav"));
+            
         }
 
         private void btn_ingresar_Click(object sender, RoutedEventArgs e)
@@ -36,21 +40,25 @@ namespace LPOO2_GRUPO_08
                 oHistorial.Log_Descripcion = (string)clogin.txtUser.Text;
                 oHistorial.Log_FechaHora = (DateTime)DateTime.Now;
                 oHistorial.Usu_Id = (int)dt.Rows[0][0];
+                string img = (string)dt.Rows[0][5];
                 VerificarLogin.agregarHistorial(oHistorial);
                 MessageBox.Show("Bienvenido/a: " + clogin.txtUser.Text);
                 clogin.txtUser.Clear();
                 clogin.txtPass.Clear();
                 this.Hide();
                 Window wMenu;
+                
                 if (dt.Rows[0][4].ToString() == "2" || dt.Rows[0][4].ToString() == "3")
                 {
                     wMenu = new WinMenuMozo();
                     wMenu.Show();
+                    media.Play();
                 }
                 else
                 {
                     wMenu = new WinMenuAdmin();
                     wMenu.Show();
+                    media.Play();
                 }
                 this.Close();
             }

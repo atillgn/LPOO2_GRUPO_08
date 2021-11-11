@@ -186,5 +186,6 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cn.Close();
         }
+
     }
 }

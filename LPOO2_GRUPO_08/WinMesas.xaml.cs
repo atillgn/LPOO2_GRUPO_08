@@ -187,6 +187,7 @@ namespace LPOO2_GRUPO_08
                 catch (Exception a)
                 {
                     MessageBox.Show("Primer eliga una mesa", "NO SELECCIONA MESA");
+                    lbEstados.SelectedIndex = -1;
                 }
             }
             
