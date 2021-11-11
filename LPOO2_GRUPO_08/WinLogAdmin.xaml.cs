@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ClasesBase;
 
 namespace LPOO2_GRUPO_08
 {
@@ -40,6 +41,11 @@ namespace LPOO2_GRUPO_08
             Window wWindowMenuAdmin = new WinMenuAdmin();
             wWindowMenuAdmin.Show();
             this.Close();
+        }
+
+        private void cmbUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            lvHistorial.ItemsSource = TrabajarHistoriaLogin.traerHistorialObv((int)cmbUsers.SelectedValue);
         }
     }
 }

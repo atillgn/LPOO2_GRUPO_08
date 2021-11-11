@@ -32,6 +32,13 @@
             <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
             <Label FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="HISTORIAL" Width="163" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
+        <DockPanel Name="dpContenedor"  Background="#403B51"  Height="40" DockPanel.Dock="Top">
+            <DockPanel.Resources>
+                <ObjectDataProvider x:Key="misUsuarios" ObjectType="{x:Type svc:TrabajarUsuario}" MethodName="traerUsuarios" />
+            </DockPanel.Resources>
+            <Label Margin="40 0 10 0" Content="Usuario:" Height="28" Name="lblDescrip" VerticalAlignment="Center" />
+            <ComboBox ItemsSource="{Binding Source={StaticResource misUsuarios}}" DisplayMemberPath="Usu_NombreUsuario" SelectedValuePath="Usu_Id" Height="23" Name="cmbUsers" Width="120" SelectionChanged="cmbUsers_SelectionChanged" />
+        </DockPanel>
         <DockPanel>
             <ListView Width="267" ItemsSource="{Binding Source={StaticResource ListLogs}}" Margin="22,15,24,20" Name="lvHistorial">
                 <ListView.View>
