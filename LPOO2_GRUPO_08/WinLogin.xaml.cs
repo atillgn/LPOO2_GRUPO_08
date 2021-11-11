@@ -33,7 +33,7 @@ namespace LPOO2_GRUPO_08
             if (dt.Rows.Count == 1)
             {
                 HistorialLogin oHistorial = new HistorialLogin();
-                oHistorial.Log_Descripcion = (string)"Usuario: " + clogin.txtUser.Text;
+                oHistorial.Log_Descripcion = (string)clogin.txtUser.Text;
                 oHistorial.Log_FechaHora = (DateTime)DateTime.Now;
                 oHistorial.Usu_Id = (int)dt.Rows[0][0];
                 VerificarLogin.agregarHistorial(oHistorial);

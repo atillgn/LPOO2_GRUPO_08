@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStyle="None" ResizeMode="NoResize"
-        Title="Administrador" Height="480" Width="700" WindowStartupLocation="CenterScreen">
+        Title="Administrador" Height="480" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
 
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
@@ -22,42 +22,80 @@
                 </Button>
             </StackPanel>
         </DockPanel>
-        <Grid>
-            <StackPanel Background="LightGray">
+        <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
+            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Bienvenido" Height="23" Name="btnAudio" Width="81" Click="btnAudio_Click" />
+            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Acerca de" Height="23" Name="btnAcerca" Width="76" Click="btnAcerca_Click" />
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
             
-            </StackPanel>
-            <StackPanel Width="219" HorizontalAlignment="Left" Background="#100E17" Orientation="Vertical">
-                <Grid Height="102" Background="#272335">
-                    <TextBlock VerticalAlignment="Center" Text=" GOOD FOOD" FontSize="28" FontWeight="Bold" Margin="0,25,0,33" FontFamily="Segoe Script">
+            <DockPanel DockPanel.Dock="Left">
+                <StackPanel Width="219" HorizontalAlignment="Left" Background="#100E17" Orientation="Vertical">
+                    <Grid Height="102" Background="#272335">
+                        <TextBlock VerticalAlignment="Center" Text=" GOOD FOOD" FontSize="28" FontWeight="Bold" Margin="0,25,0,33" FontFamily="Segoe Script">
                         <TextBlock.Foreground>
                             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
                             <GradientStop Color="#FFE63070" Offset="2" />
                             <GradientStop Color="#FFFE8704" Offset="0" />
                             </LinearGradientBrush>
                         </TextBlock.Foreground>
-                    </TextBlock>
-                    <TextBlock Text="ADMIN" FontSize="15" Foreground="#1cbfff" Margin="164,66,0,15"/>
-                </Grid>
-                <StackPanel Background="Transparent">
-                                   
-                    <!--<Grid Height="60" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+                        </TextBlock>
+                        <TextBlock Text="ADMIN" FontSize="15" Foreground="#1cbfff" Margin="164,66,0,15"/>
+                    </Grid>
+                    <StackPanel Background="Transparent">
+
+                        <!--<Grid Height="60" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
                     <Rectangle HorizontalAlignment="Left" Width="10" Fill="Transparent"/>
                     <TextBlock Foreground="LightGray" Text="Usuarios" FontSize="22" VerticalAlignment="Center" Margin="20 0" />
                 </Grid>-->
-                    <Button Height="60" Content="Usuario" Style="{StaticResource BtnMenu}" Click="menuUsuarios_Click" TabIndex="1"/>
+                        <Button Height="60" Content="Usuario" Style="{StaticResource BtnMenu}" Click="menuUsuarios_Click" TabIndex="1"/>
 
-                    <Button Height="60" Content="Artículos" Style="{StaticResource BtnMenu}" Click="menuArticulos_Click" TabIndex="2"/>
+                        <Button Height="60" Content="Artículos" Style="{StaticResource BtnMenu}" Click="menuArticulos_Click" TabIndex="2"/>
 
-                    <Button Height="60" Content="Familia" Style="{StaticResource BtnMenu}" Click="menuFamilia_Click" TabIndex="3"/>
+                        <Button Height="60" Content="Familia" Style="{StaticResource BtnMenu}" Click="menuFamilia_Click" TabIndex="3"/>
 
-                    <Button Height="60" Content="Categoria" Style="{StaticResource BtnMenu}" Click="menuCategoria_Click" TabIndex="5"/>
+                        <Button Height="60" Content="Categoria" Style="{StaticResource BtnMenu}" Click="menuCategoria_Click" TabIndex="5"/>
 
-                    <Button Height="60" Content="Unidades de medida" Style="{StaticResource BtnMenu}" Click="menuUnidades_Click"/>
+                        <Button Height="60" Content="Unidades de medida" Style="{StaticResource BtnMenu}" Click="menuUnidades_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Background="#272335" Height="170" />
                 </StackPanel>
-                
-                <StackPanel Background="#272335" Height="170" />
-            </StackPanel>
-        </Grid>
+            </DockPanel>
+
+            <!--Media-->
+
+            <DockPanel DockPanel.Dock="Right" Background="LightGray">
+                <DockPanel Visibility="Hidden" Name="dpVideo" Margin="10 30" Background="#403B51">
+                    <DockPanel DockPanel.Dock="Left" >
+                        <StackPanel DockPanel.Dock="Top">
+                            <TextBlock Margin="0 10 0 20" TextAlignment="Center" Text="Integrantes" Foreground="White"/>
+                            <TextBlock Text="  Cruz, Pablo Joaquín" Foreground="White"/>
+                            <TextBlock Text="  Coria, Jorge Delfín" Foreground="White"/>
+                            <TextBlock Text="  Grafión, Atilio Leonel" Foreground="White"/>
+                            <TextBlock Text="  Oviedo, Ingacio Nicolás" Foreground="White"/>
+                            <TextBlock Text="  Marcia, Pamela Velarde" Foreground="White"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <DockPanel DockPanel.Dock="Right" Width="400"  >
+                        <DockPanel DockPanel.Dock="Top" Height="240">
+                            <MediaElement Name="mediaElm" MediaOpened="mediaElm_MediaOpened" />
+                        </DockPanel>
+                        <StackPanel DockPanel.Dock="Top" Background="#403B51">
+                            <StackPanel>
+                                <Slider Height="23" Name="sldVideo" VerticalAlignment="Top" Width="359" ValueChanged="sldVideo_ValueChanged" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource BtnLogin}" Margin="30 0 10 0" Content="Play" HorizontalAlignment="Left" Name="btnPlay" VerticalAlignment="Top" Width="75" Height="23" Click="btnPlay_Click" />
+                                <Button Style="{StaticResource BtnLogin}" Margin="0 0 10 0" Content="Pause" HorizontalAlignment="Left" Name="btnPause" VerticalAlignment="Top" Width="75" Height="23" Click="btnPause_Click" />
+                                <Button Style="{StaticResource BtnLogin}" Margin="0 0 10 0" Content="Stop" HorizontalAlignment="Left" Name="btnStop" VerticalAlignment="Top" Width="75" Height="23" Click="btnStop_Click" />
+                                <Slider Margin="20 0" Maximum="1" LargeChange="0.1" SmallChange="0.01" Value="1" Height="23" HorizontalAlignment="Left" Name="sldVol" VerticalAlignment="top" Width="68" ValueChanged="sldVol_ValueChanged" />
+                            </StackPanel>
+                        </StackPanel>
+                    </DockPanel>
+                </DockPanel>
+            </DockPanel>
+        </DockPanel>
     </DockPanel>
         
 
