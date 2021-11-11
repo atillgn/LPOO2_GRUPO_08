@@ -39,6 +39,7 @@ namespace LPOO2_GRUPO_08
 
         private void menuUsuarios_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
             Window wWinUsuario = new WinTablaUsuarios();
             wWinUsuario.Show();
             this.Close();
@@ -46,6 +47,8 @@ namespace LPOO2_GRUPO_08
 
         private void menuArticulos_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
+            if (rep) mediaElm.Stop();
             Window wWinArticulos = new WinABMArticulos();
             wWinArticulos.Show();
             this.Close();
@@ -53,6 +56,8 @@ namespace LPOO2_GRUPO_08
 
         private void menuFamilia_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
+            if (rep) mediaElm.Stop();
             Window wWinFamilia = new WinABMFamilia();
             wWinFamilia.Show();
             this.Close();
@@ -60,6 +65,8 @@ namespace LPOO2_GRUPO_08
 
         private void menuCategoria_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
+            if (rep) mediaElm.Stop();
             Window wWinCategoria = new WinABMCategoria();
             wWinCategoria.Show();
             this.Close();
@@ -67,14 +74,9 @@ namespace LPOO2_GRUPO_08
 
         private void menuUnidades_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
+            if (rep) mediaElm.Stop();
             Window wWinUnidades = new WinABMUnidadDeMedida();
-            wWinUnidades.Show();
-            this.Close();
-        }
-
-        private void menuHistorial_Click(object sender, RoutedEventArgs e)
-        {
-            Window wWinUnidades = new WinLogAdmin();
             wWinUnidades.Show();
             this.Close();
         }
@@ -99,7 +101,7 @@ namespace LPOO2_GRUPO_08
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             media.Stop();
-            if (rep)mediaElm.Stop();
+            if (rep) mediaElm.Stop();
             Window wWinLogin = new MainWindow();
             wWinLogin.Show();
             this.Close();
@@ -113,15 +115,9 @@ namespace LPOO2_GRUPO_08
             }
         }
 
-        private void btnAudio_Click(object sender, RoutedEventArgs e)
-        {
-            media.Stop();
-            media.Play();
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            media.Open(new Uri(@"C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\Resources\audio.wma"));
+            media.Open(new Uri(@"C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\Resources\goodfood.wav"));
             media.Play();
         }
 

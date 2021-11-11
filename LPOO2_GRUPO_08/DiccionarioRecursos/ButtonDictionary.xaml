@@ -6,15 +6,15 @@
         <Setter Property="Background" Value="#2A324F" />
         <Setter Property="BorderBrush" Value="#1cbfff" />
         <Setter Property="FontFamily" Value="arial" />
-        
+
         <Style.Triggers>
-            
+
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="Blue" />
                 <Setter Property="FontSize" Value="15" />
                 <Setter Property="FontWeight" Value="Bold" />
             </Trigger>
-            
+
             <!--<EventTrigger RoutedEvent="Mouse.MouseEnter">
                 <EventTrigger.Actions>
                     <BeginStoryboard>
@@ -82,16 +82,17 @@
         TextBlock.Foreground="White" TextBlock.FontFamily="Arial">
             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
-        
-        <ControlTemplate.Triggers><!--
+
+        <ControlTemplate.Triggers>
+            <!--
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter TargetName="Borde" Property="TextBlock.Foreground" Value="Blue" />
                 <Setter Property="FontSize" Value="15" />
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter TargetName="Borde" Property="Background" Value="#1cbfff" />
             </Trigger>-->
-    
-           
+
+
             <EventTrigger RoutedEvent="Mouse.MouseEnter">
                 <EventTrigger.Actions>
                     <BeginStoryboard>
@@ -105,7 +106,7 @@
                             <ColorAnimation Storyboard.TargetName="Borde" Duration="0:0:0.2" Storyboard.TargetProperty="Background.Color" To="#1cbfff"/>
                         </Storyboard>
                     </BeginStoryboard>
-                    
+
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetProperty="Height" To="33" />
@@ -257,31 +258,31 @@
             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Border>
     </ControlTemplate>
-    
+
     <Style TargetType="{x:Type Button}" x:Key="BtnDisLogin">
         <Setter Property="Template" Value="{StaticResource TemDisBtnLogin}" />
     </Style>
-    
-            <!--BtnMenu-->
+
+    <!--BtnMenu-->
     <ControlTemplate TargetType="{x:Type Button}" x:Key="TemBtnMenu">
         <Border BorderBrush="Transparent" Name="Borde"  BorderThickness="10 0 0 0" Background="Transparent" TextBlock.Foreground="LightGray" TextBlock.FontSize="18" Padding="10 0">
             <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
         </Border>
-        
+
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter TargetName="Borde" Property="Background" Value="#403B51"/>
                 <Setter TargetName="Borde" Property="BorderBrush" Value="#1A7B9D"/>
                 <Setter TargetName="Borde" Property="TextBlock.Foreground" Value="#1cbfff"/>
             </Trigger>
-            
+
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
     <Style TargetType="{x:Type Button}" x:Key="BtnMenu">
         <Setter Property="Template" Value="{StaticResource TemBtnMenu}" />
     </Style>
-    
+
     <!--BtnWin-->
     <ControlTemplate TargetType="{x:Type Button}" x:Key="TemBtnWin">
         <Border BorderBrush="Transparent" Name="Borde"  BorderThickness="0" Background="Transparent" >
@@ -299,4 +300,25 @@
     <Style TargetType="{x:Type Button}" x:Key="BtnWin">
         <Setter Property="Template" Value="{StaticResource TemBtnWin}" />
     </Style>
+
+    <!--BtnMesas-->
+    <Style TargetType="{x:Type Button}" x:Key="BtnMesas">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" Name="Borde" BorderThickness="2" CornerRadius="3" TextBlock.FontFamily="Arial">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Borde" Property="Background" Value="#403B51"/>
+                            <Setter TargetName="Borde" Property="TextBlock.Foreground" Value="#1cbfff"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

@@ -25,6 +25,7 @@ namespace LPOO2_GRUPO_08
         private int cantColumnas = 0;
         private int cantFilas = 0;
         private ObservableCollection<Mesa> listaMesas = TrabajarMesa.traerMesasObjetos();
+        Style stl;
 
         public WinMesas()
         {
@@ -41,6 +42,7 @@ namespace LPOO2_GRUPO_08
                 Button temp = new Button();
                 temp.Height = altoBoton;
                 temp.Width = anchoBoton;
+                temp.Style = this.FindResource("BtnMesas") as Style;
                 modificarBoton(temp, listaMesas[j]);
                 mesas.Children.Add(temp);
             }
@@ -114,10 +116,10 @@ namespace LPOO2_GRUPO_08
 
         private void mesa_click(Object sender, EventArgs e)
         {
-            mesaSeleccionada.FontSize = 20;
+            mesaSeleccionada.Foreground = Brushes.White;
             lbEstados.SelectedIndex = -1;
             mesaSeleccionada = (Button)sender;
-            mesaSeleccionada.FontSize = 30;
+            mesaSeleccionada.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom("#1cbfff");
         }
 
         private void mesa_MouseDoubleClick(Object sender, MouseButtonEventArgs e)
@@ -158,26 +160,33 @@ namespace LPOO2_GRUPO_08
         {
             if (lbEstados.SelectedIndex != -1)
             {
-                if (mesaSeleccionada.Background != Brushes.Green)
+                try
                 {
-                    if (lbEstados.SelectedIndex != 0)
+                    if (mesaSeleccionada.Background != Brushes.Green)
                     {
-                        string result = Regex.Replace(Convert.ToString(mesaSeleccionada.Content), @"[^\d]", "");
-                        Mesa mesaEditable = TrabajarMesa.buscarMesaByPosicion(Convert.ToInt32(result));
-                        mesaEditable.Mesa_Estado = lbEstados.SelectedIndex + 1;
-                        TrabajarMesa.editarMesa(mesaEditable);
-                        asignarColorFondo(mesaSeleccionada, mesaEditable);
+                        if (lbEstados.SelectedIndex != 0)
+                        {
+                            string result = Regex.Replace(Convert.ToString(mesaSeleccionada.Content), @"[^\d]", "");
+                            Mesa mesaEditable = TrabajarMesa.buscarMesaByPosicion(Convert.ToInt32(result));
+                            mesaEditable.Mesa_Estado = lbEstados.SelectedIndex + 1;
+                            TrabajarMesa.editarMesa(mesaEditable);
+                            asignarColorFondo(mesaSeleccionada, mesaEditable);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se puede cambiar el estado de una mesa a libre, primero debe facturar", "FACTURAR");
+                            lbEstados.SelectedIndex = -1;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("No se puede cambiar el estado de una mesa a libre, primero debe facturar","FACTURAR");
+                        MessageBox.Show("No se puede cambiar el estado de una mesa libre, asigne un pedido", "ASIGNE PEDIDO");
                         lbEstados.SelectedIndex = -1;
                     }
                 }
-                else
+                catch (Exception a)
                 {
-                    MessageBox.Show("No se puede cambiar el estado de una mesa libre, asigne un pedido", "ASIGNE PEDIDO");
-                    lbEstados.SelectedIndex = -1;
+                    MessageBox.Show("Primer eliga una mesa", "NO SELECCIONA MESA");
                 }
             }
             

@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace LPOO2_GRUPO_08
 {
@@ -18,13 +19,27 @@ namespace LPOO2_GRUPO_08
     /// </summary>
     public partial class WinMenuMozo : Window
     {
+        MediaPlayer media = new MediaPlayer();
+        DispatcherTimer timer;
+        bool rep;
+
         public WinMenuMozo()
         {
             InitializeComponent();
+            timer = new DispatcherTimer();
+            rep = false;
+            timer.Interval = TimeSpan.FromMilliseconds(500);
+            timer.Tick += new EventHandler(timer_Tick);
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            sldVideo.Value = mediaElm.Position.TotalSeconds;
         }
 
         private void menuCliente_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
             Window wWinCliente = new WinABMCliente();
             wWinCliente.Show();
             this.Close();
@@ -32,6 +47,8 @@ namespace LPOO2_GRUPO_08
 
         private void menuMesas_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
+            if (rep) mediaElm.Stop();
             Window wWinMesas = new WinMesas();
             wWinMesas.Show();
             this.Close();
@@ -39,6 +56,8 @@ namespace LPOO2_GRUPO_08
 
         private void BtnHistorial_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
+            if (rep) mediaElm.Stop();
             Window wWinHistorial = new WinLogMozo();
             wWinHistorial.Show();
             this.Close();
@@ -63,6 +82,8 @@ namespace LPOO2_GRUPO_08
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
+            if (rep) mediaElm.Stop();
             Window wWinLogin = new MainWindow();
             wWinLogin.Show();
             this.Close();
@@ -78,6 +99,8 @@ namespace LPOO2_GRUPO_08
 
         private void BtnPedido_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
+            if (rep) mediaElm.Stop();
             Window winPedido = new WinPedidos();
             winPedido.Show();
             this.Close();
@@ -85,9 +108,62 @@ namespace LPOO2_GRUPO_08
 
         private void BtnFacturacion_Click(object sender, RoutedEventArgs e)
         {
+            media.Stop();
+            if (rep) mediaElm.Stop();
             Window winFacturacion = new WinFacturacion();
             winFacturacion.Show();
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            media.Open(new Uri(@"C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\Resources\goodfood.wav"));
+            media.Play();
+        }
+
+        private void btnPlay_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElm.Play();
+        }
+
+        private void btnPause_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElm.Pause();
+        }
+
+        private void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            mediaElm.Stop();
+        }
+
+        private void sldVol_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            mediaElm.Volume = (double)sldVol.Value;
+        }
+
+        private void sldVideo_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            mediaElm.Position = TimeSpan.FromSeconds(sldVideo.Value);
+        }
+
+        private void btnAcerca_Click(object sender, RoutedEventArgs e)
+        {
+            dpVideo.Visibility = Visibility.Visible;
+            media.Stop();
+            //mediaElm.Source = new Uri(@"C:\Users\admin\Downloads\videoplayback.mp4");
+            mediaElm.Source = new Uri(@"C:\Users\admin\Documents\Visual Studio 2010\Projects\LPOO2_GRUPO_08\LPOO2_GRUPO_08\Resources\video.mp4");
+            mediaElm.LoadedBehavior = MediaState.Manual;
+            mediaElm.UnloadedBehavior = MediaState.Manual;
+            mediaElm.Volume = (double)sldVol.Value;
+            mediaElm.Play();
+        }
+
+        private void mediaElm_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            TimeSpan ts = mediaElm.NaturalDuration.TimeSpan;
+            sldVideo.Maximum = ts.TotalSeconds;
+            timer.Start();
+            rep = true;
         }
     }
 }
