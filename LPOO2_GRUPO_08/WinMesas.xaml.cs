@@ -132,7 +132,7 @@ namespace LPOO2_GRUPO_08
                  if (result == MessageBoxResult.Yes)
                  {
                      Mesa mesaEditable = TrabajarMesa.buscarMesaByPosicion(Convert.ToInt32(Regex.Replace(Convert.ToString(mesaElegida.Content), @"[^\d]", "")));
-                     Window winPedido = new WinPedidos(mesaEditable, 1);
+                     Window winPedido = new WinPedidos(mesaEditable, 3);
                      winPedido.Show();
                      this.Close();
                  }
@@ -149,7 +149,7 @@ namespace LPOO2_GRUPO_08
                     pedido.Ped_Facturado = true;
                     TrabajarPedido.editar_Pedido(pedido);
 
-                    Window winComprobante = new WinComprobantePedido(pedido.Ped_Id, 1);
+                    Window winComprobante = new WinComprobantePedido(pedido.Ped_Id, 3);
                     winComprobante.Show();
                     this.Close();
                 }
@@ -230,6 +230,13 @@ namespace LPOO2_GRUPO_08
             {
                 this.DragMove();
             }
+        }
+
+        private void btnCantidadMesas_Click(object sender, RoutedEventArgs e)
+        {
+            Window winCantMesas = new WinCantMesas();
+            winCantMesas.Show();
+            this.Close();
         }
 
     }

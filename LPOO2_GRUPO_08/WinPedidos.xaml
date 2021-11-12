@@ -43,7 +43,7 @@
             <Label Content="Mozo" Height="28" HorizontalAlignment="Left" Margin="66,63,0,0" Name="lblMozo" VerticalAlignment="Top" />
             <Button Style="{StaticResource BtnLogin}" Content="Confirmar Pedido" Height="23" HorizontalAlignment="Left" Margin="232,318,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="107" Click="btnGuardar_Click" TabIndex="8" />
             <TextBox Height="23" HorizontalAlignment="Left" Margin="112,186,0,0" Name="txtFechaEntrega" VerticalAlignment="Top" Width="120" TabIndex="2" IsEnabled="False" />
-            <TextBox  Height="23" HorizontalAlignment="Left" Margin="112,225,0,0" Name="txtComensales" VerticalAlignment="Top" Width="120" TabIndex="3" />
+            <TextBox  Height="23" HorizontalAlignment="Left" Margin="112,225,0,0" Name="txtComensales" VerticalAlignment="Top" Width="120" TabIndex="3" TextChanged="txtComensales_TextChanged" />
             <ComboBox ItemsSource="{Binding Source={StaticResource misMozos}}" DisplayMemberPath="Usu_ApellidoNombre" SelectedValuePath="Usu_Id" Height="23" HorizontalAlignment="Left" Margin="112,68,0,0" Name="cmbMozo" VerticalAlignment="Top" Width="120" TabIndex="4"/>
             <ComboBox Height="23" HorizontalAlignment="Left" Margin="112,108,0,0" Name="cmbMesa" VerticalAlignment="Top" Width="120" TabIndex="5" Loaded="cmbMesa_Loaded" />
             <ComboBox ItemsSource="{Binding Source={StaticResource misClientes}}" DisplayMemberPath="NombreCompleto" SelectedValuePath="Cli_Id" Height="23" HorizontalAlignment="Left" Margin="112,147,0,0" Name="cmbCliente" VerticalAlignment="Top" Width="120" TabIndex="6" />

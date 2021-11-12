@@ -22,18 +22,20 @@ namespace LPOO2_GRUPO_08
         private CollectionViewSource ClienteFilter;
         private List<ItemPedido> listaItems;
         private Pedido pedidoEnCurso;
+        private int iTipo;
 
-        public WinTablaClientes(List<ItemPedido> lista, Pedido pedido)
+        public WinTablaClientes(List<ItemPedido> lista, Pedido pedido, int tipo)
         {
             InitializeComponent();
             ClienteFilter = Resources["ClienteColl"] as CollectionViewSource;
             listaItems = lista;
             pedidoEnCurso = pedido;
+            iTipo = tipo;
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            Window wWindowPedidos = new WinPedidos(listaItems, pedidoEnCurso);
+            Window wWindowPedidos = new WinPedidos(listaItems, pedidoEnCurso, iTipo);
             wWindowPedidos.Show();
             this.Close();
         }
@@ -41,7 +43,7 @@ namespace LPOO2_GRUPO_08
         private void FiltroCliente(object sender, FilterEventArgs e)
         {
             Cliente oCliente = (Cliente)e.Item;
-            if (oCliente.Cli_Apellido.StartsWith(txtFilter.Text, StringComparison.CurrentCultureIgnoreCase) || oCliente.Cli_Nombre.StartsWith(txtFilter.Text, StringComparison.CurrentCultureIgnoreCase))
+            if (oCliente.Cli_Dni.StartsWith(txtFilter.Text, StringComparison.CurrentCultureIgnoreCase))
             {
                 e.Accepted = true;
             }
@@ -53,11 +55,19 @@ namespace LPOO2_GRUPO_08
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lblClientes.SelectedIndex = -1;
-            btnSeleccionar.IsEnabled = false;
-            if (ClienteFilter != null)
+            if (!txtFilter.Text.All(char.IsDigit))
             {
-                ClienteFilter.Filter += new FilterEventHandler(FiltroCliente);
+                MessageBox.Show("Debe ingresar un número", "ERROR");
+                txtFilter.Text = txtFilter.Text.Remove(txtFilter.Text.Count() - 1);
+            }
+            else
+            {
+                lblClientes.SelectedIndex = -1;
+                btnSeleccionar.IsEnabled = false;
+                if (ClienteFilter != null)
+                {
+                    ClienteFilter.Filter += new FilterEventHandler(FiltroCliente);
+                }
             }
         }
 
@@ -68,7 +78,7 @@ namespace LPOO2_GRUPO_08
             if (result == MessageBoxResult.Yes)
             {
                 pedidoEnCurso.Cli_Id = oClienteSeleccionado.Cli_Id;
-                Window winPedido = new WinPedidos(listaItems, pedidoEnCurso);
+                Window winPedido = new WinPedidos(listaItems, pedidoEnCurso, iTipo);
                 winPedido.Show();
                 this.Close();
             }

@@ -36,11 +36,12 @@ namespace LPOO2_GRUPO_08
             iTipo = tipo;
         }
 
-        public WinPedidos(List<ItemPedido> lista, Pedido pedido)
+        public WinPedidos(List<ItemPedido> lista, Pedido pedido, int tipo)
         {
             InitializeComponent();
             listaItem = lista;
             pedidoEnCurso = pedido;
+            iTipo = tipo;
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -85,7 +86,7 @@ namespace LPOO2_GRUPO_08
         private void btnAgregarItem_Click(object sender, RoutedEventArgs e)
         {
             pedidoEnCurso = cargarDatosPedido();
-            Window wWinItemPedido = new WinItemPedido(listaItem, pedidoEnCurso);
+            Window wWinItemPedido = new WinItemPedido(listaItem, pedidoEnCurso, iTipo);
             wWinItemPedido.Show();
             this.Close();
         }
@@ -107,20 +108,30 @@ namespace LPOO2_GRUPO_08
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            pedidoEnCurso = cargarDatosPedido();
-            MessageBoxResult result = MessageBox.Show("\n Guardar datos? \n", "", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            if (listaItem != null)
             {
-                TrabajarPedido.insertar_Pedido(pedidoEnCurso);
-                MessageBox.Show("DATOS GUARDADOS CON EXITO!");
-                Mesa oMesaOcupada = TrabajarMesa.buscarMesaById((int)cmbMesa.SelectedValue);
-                oMesaOcupada.Mesa_Estado = 5;
-                TrabajarMesa.editarMesa(oMesaOcupada);
-                guardarItemPedido();
-                Window wWinComprobantePedido = new WinComprobantePedido(TrabajarPedido.buscarPedidoByFechaEmision(Convert.ToDateTime(txtFechaEmision.Text)).Ped_Id);
-                wWinComprobantePedido.Show();
-                this.Close();
+                if (txtComensales.Text != "" && cmbCliente.Text != "" && cmbMesa.Text != "" && cmbMozo.Text != "" && listaItem.Count != 0)
+                {
+                    pedidoEnCurso = cargarDatosPedido();
+                    MessageBoxResult result = MessageBox.Show("\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        TrabajarPedido.insertar_Pedido(pedidoEnCurso);
+                        MessageBox.Show("DATOS GUARDADOS CON EXITO!");
+                        Mesa oMesaOcupada = TrabajarMesa.buscarMesaById((int)cmbMesa.SelectedValue);
+                        oMesaOcupada.Mesa_Estado = 5;
+                        TrabajarMesa.editarMesa(oMesaOcupada);
+                        guardarItemPedido();
+                        Window wWinComprobantePedido = new WinComprobantePedido(TrabajarPedido.buscarPedidoByFechaEmision(Convert.ToDateTime(txtFechaEmision.Text)).Ped_Id, iTipo);
+                        wWinComprobantePedido.Show();
+                        this.Close();
+                    }
+                }
+                else
+                    MessageBox.Show("No pueden haber campos vacíos", "ERROR CAMPO VACÍO");
             }
+            else
+                MessageBox.Show("No pueden haber campos vacíos", "ERROR CAMPO VACÍO");
         }
 
         private void guardarItemPedido()
@@ -200,12 +211,19 @@ namespace LPOO2_GRUPO_08
         private void btnBuscarCliente_Click(object sender, RoutedEventArgs e)
         {
             pedidoEnCurso = cargarDatosPedido();
-            Window winTablaCliente = new WinTablaClientes(listaItem, pedidoEnCurso);
+            Window winTablaCliente = new WinTablaClientes(listaItem, pedidoEnCurso, iTipo);
             winTablaCliente.Show();
             this.Close();
         }
 
-
+        private void txtComensales_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!txtComensales.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Debe ingresar un número", "ERROR");
+                txtComensales.Text = txtComensales.Text.Remove(txtComensales.Text.Count() - 1);
+            }
+        }
 
     }
 }

@@ -7,7 +7,7 @@
 
     <DockPanel Background="#272335">
         <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
-            <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Disposicion de Mesas</TextBlock>
+            <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Disposición de Mesas</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <StackPanel Width="345"/>
                 <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click">
@@ -21,7 +21,7 @@
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
             <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6"/>
-            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="DISPOSICION DE MESAS" Foreground="White" Width="262" Height="28" Name="lblTitulo" FontSize="16" />
+            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="DISPOSICIÓN DE MESAS" Foreground="White" Width="262" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
         <Grid>
             <Grid.Resources>
@@ -78,6 +78,7 @@
                 <Rectangle Grid.Row="6" Height="20" Name="rectangle7" Width="20" Fill="RoyalBlue" Stroke="RoyalBlue" />
                 <Rectangle Grid.Row="7" Height="20" Name="rectangle8" Width="20" Fill="#FF91AB5C" Stroke="#FF91AB5C" />
             </Grid>
+            <Button Style="{StaticResource BtnLogin}" Content="Cantidad de mesas" Height="23" HorizontalAlignment="Left" Margin="10,6,0,0" Name="btnCantidadMesas" VerticalAlignment="Top" Width="126" Click="btnCantidadMesas_Click" />
             <!--<Rectangle Name="libre" Stroke="Green" Margin="20,429,730,12" Fill="Green" Height="20" Width="28" />
         <Rectangle Name="ocupada" Stroke="Red" Margin="117,429,633,12" Fill="Red" Width="28" Height="20" />
         <Label Content="Libre" Height="28" Margin="54,426,682,7" Name="lblLibre" FontSize="15" Width="45" />

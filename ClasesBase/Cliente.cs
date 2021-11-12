@@ -51,7 +51,14 @@ namespace ClasesBase
             set { cli_Email = value; }
         }
 
-        public Cliente(int id, string apellido, string nombre, string domicilio, string telefono, string email) 
+        private string cli_Dni;
+        public string Cli_Dni
+        {
+            get { return cli_Dni; }
+            set { cli_Dni = value; }
+        }
+
+        public Cliente(string dni, int id, string apellido, string nombre, string domicilio, string telefono, string email)
         {
             cli_Id = id;
             cli_Apellido = apellido;
@@ -59,6 +66,7 @@ namespace ClasesBase
             cli_Domicilio = domicilio;
             cli_Telefono = telefono;
             cli_Email = email;
+            cli_Dni = dni;
         }
 
         public Cliente() { }
@@ -77,44 +85,35 @@ namespace ClasesBase
                 switch (columnName)
                 {
                     case "Cli_Apellido":
-                        msg_error = validar_apellido();
+                        msg_error = validad_Campo(cli_Apellido, 1);
                         break;
                     case "Cli_Nombre":
-                        msg_error = validar_nombre();
+                        msg_error = validad_Campo(cli_Nombre, 1);
                         break;
                     case "Cli_Telefono":
-                        msg_error = validar_Telefono();
+                        msg_error = validad_Campo(cli_Telefono, 2);
+                        break;
+                    case "Cli_Dni":
+                        msg_error = validad_Campo(Cli_Dni, 2);
                         break;
                 }
                 return msg_error;
             }
         }
 
-        private string validar_apellido()
+        private string validad_Campo(string texto, int control)
         {
-            if (String.IsNullOrEmpty(cli_Apellido))
-            {
+            if (String.IsNullOrEmpty(texto))
                 return "El valor del campo es obligatorio";
+            else
+            {
+                if (texto.All(char.IsLetter) == false && control == 1)
+                    return "Debe ingresar solo letras";
+                if (texto.Length < 6 && control == 2)
+                    return "El campo debe contener mínimo 6 caracteres";
             }
             return null;
         }
 
-        private string validar_nombre()
-        {
-            if (String.IsNullOrEmpty(cli_Nombre))
-            {
-                return "El valor del campo es obligatorio";
-            }
-            return null;
-        }
-
-        private string validar_Telefono()
-        {
-            if (String.IsNullOrEmpty(cli_Telefono))
-            {
-                return "El valor del campo es obligatorio";
-            }
-            return null;
-        }
     }
 }

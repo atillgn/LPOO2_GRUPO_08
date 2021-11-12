@@ -3,18 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
         Title="WinItemPedido" WindowStyle="None" ResizeMode="NoResize"
-        Height="350" Width="300" WindowStartupLocation="CenterScreen">
+        Height="350" Width="300" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="white"/>
         </Style>
+        <ObjectDataProvider x:Key="misArticulos" ObjectType="{x:Type svc:TrabajarArticulos}" MethodName="traerArticulosPedidoObs" />
     </Window.Resources>
 
     <DockPanel Background="#272335">
         <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
             <TextBlock Name="txbNombreVentana" Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Alta Item Pedido</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <StackPanel Width="345"/>
                 <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click" TabIndex="7">
                     <Image Source="./Resources/min.png" Width="30" Height="15" />
                 </Button>
@@ -32,16 +32,18 @@
             <Grid.Resources>
                 <ObjectDataProvider x:Key="misArticulos" ObjectType="{x:Type svc:TrabajarArticulos}" MethodName="traerArticulos2" />
             </Grid.Resources>
-
+            <Button Style="{StaticResource BtnLogin}" Height="23" HorizontalAlignment="Right" Margin="0,29,24,0" Name="btnBuscarArticulo" VerticalAlignment="Top" Width="25" Click="btnBuscarArticulo_Click">
+                <Image Source="./Resources/lupa.png" />
+            </Button>
             <Label Content="Artículo" Height="28" HorizontalAlignment="Left" Margin="44,24,0,0" Name="lblCodigo" VerticalAlignment="Top" />
-            <TextBox  Height="23" HorizontalAlignment="Left" Margin="107,143,0,0" Name="txtTotal" VerticalAlignment="Top" Width="120" TabIndex="4" />
+            <TextBox  Height="23" HorizontalAlignment="Left" Margin="107,143,0,0" Name="txtTotal" VerticalAlignment="Top" Width="120" TabIndex="4" IsEnabled="False" />
             <Label Content="Precio" Height="28" HorizontalAlignment="Left" Margin="52,63,0,0" Name="lblDescrip" VerticalAlignment="Top" />
             <Label Content="Cantidad" Height="28" HorizontalAlignment="Left" Margin="37,101,0,0" Name="lblPrecio" VerticalAlignment="Top" />
             <Label Content="Total" Height="28" HorizontalAlignment="Left" Margin="56,138,0,0" Name="lblCategoria" VerticalAlignment="Top" />
             <Button Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="107,194,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="5" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="107,67,0,0" Name="txtPrecio" VerticalAlignment="Top" Width="120" TabIndex="2" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="107,67,0,0" Name="txtPrecio" VerticalAlignment="Top" Width="120" TabIndex="2" IsEnabled="False" />
             <TextBox  Height="23" HorizontalAlignment="Left" Margin="107,106,0,0" Name="txtCantidad" VerticalAlignment="Top" Width="120" TabIndex="3" TextChanged="txtCantidad_TextChanged" />
-            <ComboBox SelectedValue="{Binding Path=Art_Id}" Height="23" HorizontalAlignment="Left" Margin="107,29,0,0" Name="cmbArticulo" VerticalAlignment="Top" Width="120" TabIndex="1" SelectionChanged="cmbArticulo_SelectionChanged" Loaded="cmbArticulo_Loaded" />
+            <ComboBox ItemsSource="{Binding Source={StaticResource misArticulos}}" DisplayMemberPath="Descripcion" SelectedValuePath="Id" Height="23" HorizontalAlignment="Left" Margin="107,29,0,0" Name="cmbArticulo" VerticalAlignment="Top" Width="120" TabIndex="1" SelectionChanged="cmbArticulo_SelectionChanged" />
         </Grid>
     </DockPanel>
 </Window>

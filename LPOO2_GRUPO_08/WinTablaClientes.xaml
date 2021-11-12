@@ -44,7 +44,7 @@
         </DockPanel>
         <DockPanel>
             <DockPanel DockPanel.Dock="Top" Height="35">
-                <Label Name="lblBuscar" Foreground="White" Content="BUSCAR" Margin="20 0" VerticalAlignment="Center" />
+                <Label Name="lblBuscar" Foreground="White" Content="BUSCAR POR DNI" Margin="20 0" VerticalAlignment="Center" />
                 <TextBox Name="txtFilter" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center" Width="158" TabIndex="1" TextChanged="txtFilter_TextChanged" Background="Transparent" Foreground="White" BorderThickness="2" IsKeyboardFocusedChanged="Label_IsKeyboardFocusedChanged" SelectionBrush="#6F6C7A" CaretBrush="#6F6C7A" LostFocus="txtFilter_LostFocus">
                     <TextBox.BorderBrush>
                         <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
@@ -57,17 +57,19 @@
             </DockPanel>
 
 
-            <ListView Width="350" ItemsSource="{Binding Source={StaticResource ClienteColl}}" Margin="22,15,24,20" SelectionChanged="ListView_SelectionChanged" Name="lblClientes">
+            <ListView Width="378" ItemsSource="{Binding Source={StaticResource ClienteColl}}" Margin="22,15,24,20" SelectionChanged="ListView_SelectionChanged" Name="lblClientes">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
                             <GridViewColumn Width="0" Header="ID" DisplayMemberBinding="{Binding Path=Cli_Id}"/>
 
-                            <GridViewColumn Width="90" Header="Apellido" DisplayMemberBinding="{Binding Path=Cli_Apellido}"/>
+                            <GridViewColumn Width="80" Header="Apellido" DisplayMemberBinding="{Binding Path=Cli_Apellido}"/>
 
-                            <GridViewColumn Width="90" Header="Nombre" DisplayMemberBinding="{Binding Path=Cli_Nombre}"/>
+                            <GridViewColumn Width="80" Header="Nombre" DisplayMemberBinding="{Binding Path=Cli_Nombre}"/>
 
-                            <GridViewColumn Width="143" Header="Dirección" DisplayMemberBinding="{Binding Path=Cli_Domicilio}"/>
+                            <GridViewColumn Width="70" Header="Dni" DisplayMemberBinding="{Binding Path=Cli_Dni}"/>
+
+                            <GridViewColumn Width="133" Header="Dirección" DisplayMemberBinding="{Binding Path=Cli_Domicilio}"/>
 
                         </GridView.Columns>
                     </GridView>

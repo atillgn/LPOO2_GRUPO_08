@@ -15,40 +15,80 @@ using ClasesBase;
 namespace LPOO2_GRUPO_08
 {
     /// <summary>
-    /// Interaction logic for WinTablaArticulos.xaml
+    /// Lógica de interacción para WinTablaArticulosPedido.xaml
     /// </summary>
-    public partial class WinTablaArticulos : Window
+    public partial class WinTablaArticulosPedido : Window
     {
         private CollectionViewSource ArtFilter;
+        private List<ItemPedido> listaItems;
+        private Pedido pedidoEnCurso;
+        private int iTipo;
+        private int filtro;
 
-        public WinTablaArticulos()
+        public WinTablaArticulosPedido(List<ItemPedido> lista, Pedido pedido, int tipo)
         {
             InitializeComponent();
             ArtFilter = (CollectionViewSource)(this.Resources["ArtColl"]);
+            listaItems = lista;
+            pedidoEnCurso = pedido;
+            iTipo = tipo;
+        }
+
+        private void cmbCategoría_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            lvArt.SelectedIndex = -1;
+            filtro = 1;
+            txtFilter.Text = "";
+            if (ArtFilter != null)
+            {
+                ArtFilter.Filter += new FilterEventHandler(FiltroArticulo);
+            }
+        }
+
+        private void lvArt_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Articulo oArtSeleccionado = (ClasesBase.Articulo)lvArt.SelectedItem;
+            MessageBoxResult result = MessageBox.Show("Seleccionar a \"" + oArtSeleccionado.Art_Descripcion + "\" ?", "", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                Articulo art = (Articulo)lvArt.SelectedItem;
+                Window winItem = new WinItemPedido(listaItems, pedidoEnCurso, iTipo, art);
+                winItem.Show();
+                this.Close();
+            }
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            Window wWindowABMArticulos = new WinABMArticulos();
-            wWindowABMArticulos.Show();
+            Window wItem = new WinItemPedido(listaItems, pedidoEnCurso, iTipo);
+            wItem.Show();
             this.Close();
         }
 
         private void FiltroArticulo(object sender, FilterEventArgs e)
         {
             Articulo oItem = (Articulo)e.Item;
-            if (oItem.Art_Descripcion.StartsWith(txtFilter.Text, StringComparison.CurrentCultureIgnoreCase))
+            if (filtro == 0)
             {
-                e.Accepted = true;
+                if (oItem.Art_Descripcion.StartsWith(txtFilter.Text, StringComparison.CurrentCultureIgnoreCase))
+                    e.Accepted = true;
+                else
+                    e.Accepted = false;
             }
             else
             {
-                e.Accepted = false;
+                if (oItem.ACategoria.Cat_Id == (int)cmbCategoría.SelectedValue)
+                    e.Accepted = true;
+                else
+                    e.Accepted = false;
             }
         }
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
+            lvArt.SelectedIndex = -1;
+            cmbCategoría.Text = "";
+            filtro = 0;
             if (ArtFilter != null)
             {
                 ArtFilter.Filter += new FilterEventHandler(FiltroArticulo);
@@ -102,6 +142,15 @@ namespace LPOO2_GRUPO_08
             Window wVistaPrevia = new WinVistaPreviaImpresion(ArtFilter);
             wVistaPrevia.Show();
             this.Close();
+        }
+
+        private void txtFilter_GotFocus(object sender, RoutedEventArgs e)
+        {
+            filtro = 0;
+            if (ArtFilter != null)
+            {
+                ArtFilter.Filter += new FilterEventHandler(FiltroArticulo);
+            }
         }
 
     }

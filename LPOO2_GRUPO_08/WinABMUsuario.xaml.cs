@@ -85,50 +85,58 @@ namespace LPOO2_GRUPO_08
         {
             if (cmbRol.Text != "" && txtApellido.Text != "" && txtUsername.Text != "" && txtPassword.Text != "" && txtImg.Text != "")
             {
-                if (tipo == 1)
+                if (txtPassword.Text.Length > 5)
                 {
-                    try
+                    if (tipo == 1)
                     {
-                        Usuario oUsuario = cargarDatos();
-                        MessageBoxResult result = MessageBox.Show(encadenarDatosUsuario(oUsuario) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
-                        if (result == MessageBoxResult.Yes)
+                        try
                         {
-                            TrabajarUsuario.agregarUsuario(oUsuario);
-                            MessageBox.Show("DATOS GUARDADOS CON EXITO!");
-                            limpiarCampos();
-                            Window winTablaUsuario = new WinTablaUsuarios();
-                            winTablaUsuario.Show();
-                            this.Close();
+                            Usuario oUsuario = cargarDatos();
+                            MessageBoxResult result = MessageBox.Show(encadenarDatosUsuario(oUsuario) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                TrabajarUsuario.agregarUsuario(oUsuario);
+                                MessageBox.Show("DATOS GUARDADOS CON EXITO!");
+                                limpiarCampos();
+                                Window winTablaUsuario = new WinTablaUsuarios();
+                                winTablaUsuario.Show();
+                                this.Close();
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("El nombre de usuario ya se encuentra registrado", "ERROR USUARIO EXISTENTE");
+                            txtUsername.Focus();
                         }
                     }
-                    catch (Exception)
+                    else
                     {
-                        MessageBox.Show("El nombre de usuario ya se encuentra registrado", "ERROR USUARIO EXISTENTE");
-                        txtUsername.Focus();
+                        try
+                        {
+                            Usuario oUsuario = cargarDatos();
+                            MessageBoxResult result = MessageBox.Show(encadenarDatosUsuario(oUsuario) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                oUsuario.Usu_Id = oUsuarioModificable.Usu_Id;
+                                TrabajarUsuario.editarUsuario(oUsuario);
+                                MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
+                                limpiarCampos();
+                                Window winTablaUsuario = new WinTablaUsuarios();
+                                winTablaUsuario.Show();
+                                this.Close();
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("El nombre de usuario ya se encuentra registrado", "ERROR USUARIO EXISTENTE");
+                            txtUsername.Focus();
+                        }
                     }
                 }
                 else
                 {
-                    try
-                    {
-                        Usuario oUsuario = cargarDatos();
-                        MessageBoxResult result = MessageBox.Show(encadenarDatosUsuario(oUsuario) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            oUsuario.Usu_Id = oUsuarioModificable.Usu_Id;
-                            TrabajarUsuario.editarUsuario(oUsuario);
-                            MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
-                            limpiarCampos();
-                            Window winTablaUsuario = new WinTablaUsuarios();
-                            winTablaUsuario.Show();
-                            this.Close();
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("El nombre de usuario ya se encuentra registrado", "ERROR USUARIO EXISTENTE");
-                        txtUsername.Focus();
-                    }
+                    MessageBox.Show("La contraseña debe contener al menos 6 carácteres", "ERROR DNI");
+                    txtPassword.Focus();
                 }
             }
             else

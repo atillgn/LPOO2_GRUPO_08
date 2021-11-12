@@ -96,6 +96,9 @@
     <Compile Include="WinABMUsuario.xaml.cs">
       <DependentUpon>WinABMUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinCantMesas.xaml.cs">
+      <DependentUpon>WinCantMesas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinComprobantePedido.xaml.cs">
       <DependentUpon>WinComprobantePedido.xaml</DependentUpon>
     </Compile>
@@ -129,8 +132,14 @@
     <Compile Include="WinTablaArticulos.xaml.cs">
       <DependentUpon>WinTablaArticulos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinTablaArticulosPedido.xaml.cs">
+      <DependentUpon>WinTablaArticulosPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinTablaClientes.xaml.cs">
       <DependentUpon>WinTablaClientes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinTablaClientesABM.xaml.cs">
+      <DependentUpon>WinTablaClientesABM.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinTablaUsuarios.xaml.cs">
       <DependentUpon>WinTablaUsuarios.xaml</DependentUpon>
@@ -179,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinABMUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinCantMesas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,7 +251,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinTablaArticulosPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinTablaClientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinTablaClientesABM.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -256,6 +256,5 @@ namespace LPOO2_GRUPO_08
                 img.Source = new BitmapImage(new Uri(dialog.FileName));
             }
         }
-
     }
 }

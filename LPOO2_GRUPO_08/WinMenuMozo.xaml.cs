@@ -31,6 +31,11 @@ namespace LPOO2_GRUPO_08
         public WinMenuMozo()
         {
             InitializeComponent();
+            InitializeComponent();
+            timer = new DispatcherTimer();
+            rep = false;
+            timer.Interval = TimeSpan.FromMilliseconds(500);
+            timer.Tick += new EventHandler(timer_Tick);
         }
 
         public WinMenuMozo(string img)
@@ -50,8 +55,8 @@ namespace LPOO2_GRUPO_08
 
         private void menuCliente_Click(object sender, RoutedEventArgs e)
         {
-            Window wWinCliente = new WinABMCliente();
-            wWinCliente.Show();
+            Window wWinTablaCliente = new WinTablaClientesABM();
+            wWinTablaCliente.Show();
             this.Close();
         }
 

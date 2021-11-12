@@ -149,5 +149,38 @@ namespace ClasesBase
 
             return dt;
         }
+
+        public static void agregarMesa(Mesa oMesa)
+        {
+            SqlConnection cn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "AltaMesa";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cn;
+
+            cmd.Parameters.AddWithValue("@posicion", oMesa.Mesa_Posicion);
+            cmd.Parameters.AddWithValue("@estado", oMesa.Mesa_Estado);
+
+            cn.Open();
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        public static void borrarMesa(int posicion)
+        {
+            SqlConnection cn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "BorrarMesa";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cn;
+
+            cmd.Parameters.AddWithValue("@posicion", posicion);
+
+            cn.Open();
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
     }
 }

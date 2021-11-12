@@ -137,12 +137,27 @@ namespace ClasesBase
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cn;
 
+            cmd.Parameters.AddWithValue("@stock", true);
+
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
             da.Fill(dt);
 
             return (dt);
+        }
+
+        public static ObservableCollection<Articulo> traerArticulosPedidoObs()
+        {
+            DataTable dt = traerArticulosPedido();
+
+            var listaArticulo = new ObservableCollection<Articulo>();
+            foreach (DataRow r in dt.Rows)
+            {
+                listaArticulo.Add(transformarArticulo(r));
+            }
+
+            return listaArticulo;
         }
 
         public static Articulo buscarArticuloById(int articuloId)

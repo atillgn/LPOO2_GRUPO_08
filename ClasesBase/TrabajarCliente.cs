@@ -63,6 +63,7 @@ namespace ClasesBase
             oNuevoCliente.Cli_Telefono = (string)r["Cli_Telefono"];
             oNuevoCliente.Cli_Email = (string)r["Cli_Email"];
             oNuevoCliente.Cli_Domicilio = (string)r["Cli_Domicilio"];
+            oNuevoCliente.Cli_Dni = (string)r["Cli_Dni"];
 
             return oNuevoCliente;
         }
@@ -85,6 +86,65 @@ namespace ClasesBase
             var oCliente = transformarCliente(dt.Rows[0]);
 
             return oCliente;
+        }
+
+        public static void borrarCliente(int id)
+        {
+            SqlConnection cn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "BorrarCliente";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cn;
+
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cn.Open();
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        public static void agregarCliente(Cliente oCli)
+        {
+            SqlConnection cn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "AltaCliente";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cn;
+
+            cmd.Parameters.AddWithValue("@apellido", oCli.Cli_Apellido);
+            cmd.Parameters.AddWithValue("@nombre", oCli.Cli_Nombre);
+            cmd.Parameters.AddWithValue("@email", oCli.Cli_Email);
+            cmd.Parameters.AddWithValue("@telefono", oCli.Cli_Telefono);
+            cmd.Parameters.AddWithValue("@domicilio", oCli.Cli_Domicilio);
+            cmd.Parameters.AddWithValue("@dni", oCli.Cli_Dni);
+
+            cn.Open();
+            cmd.ExecuteNonQuery();
+            cn.Close();
+        }
+
+        public static void editarCliente(Cliente oCli)
+        {
+            SqlConnection cn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "ActualizarCliente";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cn;
+
+            cmd.Parameters.AddWithValue("@id", oCli.Cli_Id);
+            cmd.Parameters.AddWithValue("@apellido", oCli.Cli_Apellido);
+            cmd.Parameters.AddWithValue("@nombre", oCli.Cli_Nombre);
+            cmd.Parameters.AddWithValue("@email", oCli.Cli_Email);
+            cmd.Parameters.AddWithValue("@telefono", oCli.Cli_Telefono);
+            cmd.Parameters.AddWithValue("@domicilio", oCli.Cli_Domicilio);
+            cmd.Parameters.AddWithValue("@dni", oCli.Cli_Dni);
+
+            cn.Open();
+            cmd.ExecuteNonQuery();
+            cn.Close();
         }
 
     }

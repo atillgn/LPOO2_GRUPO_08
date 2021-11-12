@@ -73,7 +73,7 @@
             <Label Content="Categoría" Height="28" HorizontalAlignment="Left" Margin="86,137,0,0" Name="lblCategoria" VerticalAlignment="Top" />
             <Button Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="257,294,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="8" />
             <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,66,0,0" Name="txtDescrip" VerticalAlignment="Top" Width="120" TabIndex="2" />
-            <TextBox  Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,105,0,0" Name="txtPrecio" VerticalAlignment="Top" Width="120" TabIndex="3" />
+            <TextBox  Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,105,0,0" Name="txtPrecio" VerticalAlignment="Top" Width="120" TabIndex="3"/>
             <ComboBox ItemsSource="{Binding Source={StaticResource misCategorias}}" DisplayMemberPath="Cat_Descripcion" SelectedValuePath="Cat_Id" Height="23" HorizontalAlignment="Left" Margin="153,142,0,0" Name="cmbCategoria" VerticalAlignment="Top" Width="120" TabIndex="4"/>
             <ComboBox ItemsSource="{Binding Source={StaticResource misFamilias}}" DisplayMemberPath="Fam_Descripcion" SelectedValuePath="Fam_Id" Height="23" HorizontalAlignment="Left" Margin="153,182,0,0" Name="cmbFamilia" VerticalAlignment="Top" Width="120" TabIndex="5" />
             <CheckBox Foreground="White" Content="?Maneja Stock" Height="16" HorizontalAlignment="Left" Margin="62,259,0,0" Name="chkStock" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="12,-1,0,0" TabIndex="8" />

@@ -29,9 +29,15 @@ namespace ClasesBase
             set { mesa_Estado = value; }
         }
 
-        public Mesa(int id, int posicion, int estado) 
+        public Mesa(int id, int posicion, int estado)
         {
             mesa_Id = id;
+            mesa_Posicion = posicion;
+            mesa_Estado = estado;
+        }
+
+        public Mesa(int posicion, int estado)
+        {
             mesa_Posicion = posicion;
             mesa_Estado = estado;
         }

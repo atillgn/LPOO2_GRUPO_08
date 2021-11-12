@@ -58,7 +58,7 @@
             </Style.Triggers>
 
         </Style>
-        
+
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="white"/>
         </Style>
@@ -66,32 +66,33 @@
 
     <DockPanel Background="#272335">
         <DockPanel DockPanel.Dock="Top" Height="24" Name="titleBar" Background="#1D1A27" MouseDown="titleBar_MouseDown">
-            <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Alta Cliente</TextBlock>
+            <TextBlock Name="txtNombreVentana" Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Alta Cliente</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <StackPanel Width="345"/>
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click" TabIndex="9">
                     <Image Source="./Resources/min.png" Width="30" Height="15" />
                 </Button>
 
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click" TabIndex="10">
                     <Image Source="./Resources/Exit.png" Width="30" Height="15" />
                 </Button>
             </StackPanel>
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
-            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA CLIENTE" Width="145" Height="28" Name="lblTitulo" FontSize="16" />
+            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="8" />
+            <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA CLIENTE" Width="164" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
         <Grid Name="gContenedor">
             <Label Content="Apellido" Height="28" HorizontalAlignment="Left" Margin="144,25,0,0" Name="lblApellido" VerticalAlignment="Top" />
             <Label Content="Nombre" Height="28" HorizontalAlignment="Left" Margin="144,59,0,0" Name="lblNombre" VerticalAlignment="Top" />
-            <Label Content="Domicilio" Height="28" HorizontalAlignment="Left" Margin="138,127,0,0" Name="lblDomicilio" VerticalAlignment="Top" />
-            <Label Content="Telefono" HorizontalAlignment="Left" Margin="142,93,0,0" Name="lblTelefono" Height="28" VerticalAlignment="Top" />
-            <Label Content="Email" Height="28" HorizontalAlignment="Left" Margin="160,161,0,0" Name="lblEmail" VerticalAlignment="Top" />
+            <Label Content="Dni" Height="28" HorizontalAlignment="Left" Margin="169,93,0,0" Name="lblDni" VerticalAlignment="Top" />
+            <Label Content="Domicilio" Height="28" HorizontalAlignment="Left" Margin="138,155,0,0" Name="lblDomicilio" VerticalAlignment="Top" />
+            <Label Content="Telefono" HorizontalAlignment="Left" Margin="142,121,0,0" Name="lblTelefono" Height="28" VerticalAlignment="Top" />
+            <Label Content="Email" Height="28" HorizontalAlignment="Left" Margin="160,189,0,0" Name="lblEmail" VerticalAlignment="Top" />
             <TextBox 
                  Style="{StaticResource EstiloError}"
                  Height="23" Margin="204,27,0,0" Name="txtApellido" 
-                 VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">
+                 VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" TabIndex="1">
                 <TextBox.Text>
                     <Binding Path="Cli_Apellido" UpdateSourceTrigger="PropertyChanged"
                          ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
@@ -100,7 +101,7 @@
             <TextBox 
                  Style="{StaticResource EstiloError}" Height="23" 
                  HorizontalAlignment="Left" Margin="204,61,0,0" 
-                 Name="txtNombre" VerticalAlignment="Top" Width="120">
+                 Name="txtNombre" VerticalAlignment="Top" Width="120" TabIndex="2">
                 <TextBox.Text>
                     <Binding Path="Cli_Nombre" UpdateSourceTrigger="PropertyChanged"
                          ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
@@ -108,16 +109,25 @@
             </TextBox>
             <TextBox 
                  Style="{StaticResource EstiloError}" Height="23" 
-                 HorizontalAlignment="Left" Margin="204,95,0,0" 
-                 Name="txtTelefono" VerticalAlignment="Top" Width="120">
+                 HorizontalAlignment="Left" Margin="204,93,0,0" 
+                 Name="txtDni" VerticalAlignment="Top" Width="120" TabIndex="3" TextChanged="txtDni_TextChanged">
+                <TextBox.Text>
+                    <Binding Path="Cli_Dni" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox 
+                 Style="{StaticResource EstiloError}" Height="23" 
+                 HorizontalAlignment="Left" Margin="204,123,0,0" 
+                 Name="txtTelefono" VerticalAlignment="Top" Width="120" TextChanged="txtTelefono_TextChanged" TabIndex="4">
                 <TextBox.Text>
                     <Binding Path="Cli_Telefono" UpdateSourceTrigger="PropertyChanged"
                          ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
                 </TextBox.Text>
             </TextBox>
-            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="204,129,0,0" Name="txtDomicilio" VerticalAlignment="Top" Width="120" />
-            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="204,163,0,0" Name="txtEmail" VerticalAlignment="Top" Width="120" />
-            <Button Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="197,209,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" />
+            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="204,157,0,0" Name="txtDomicilio" VerticalAlignment="Top" Width="120" TabIndex="5" />
+            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="204,191,0,0" Name="txtEmail" VerticalAlignment="Top" Width="120" TabIndex="6" />
+            <Button Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="197,237,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="7" />
         </Grid>
-    </DockPanel>  
+    </DockPanel>
 </Window>

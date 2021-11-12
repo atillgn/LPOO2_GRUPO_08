@@ -115,7 +115,7 @@
                             <GridView.Columns>
                                 <GridViewColumn Width="30" Header="ID" DisplayMemberBinding="{Binding Path=Um_Id}"/>
                                 <GridViewColumn Width="70" Header="Abreviatura" DisplayMemberBinding="{Binding Path=Um_Abrev}" />
-                                <GridViewColumn Width="130" Header="Descripciión" DisplayMemberBinding="{Binding Path=Um_Descripcion}" />
+                                <GridViewColumn Width="115" Header="Descripción" DisplayMemberBinding="{Binding Path=Um_Descripcion}" />
                             </GridView.Columns>
                         </GridView>
                     </ListView.View>
