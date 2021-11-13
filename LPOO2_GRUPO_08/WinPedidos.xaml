@@ -8,6 +8,54 @@
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="white"/>
         </Style>
+
+        <ControlTemplate x:Key="TextBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="125,7,0,0" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#FFE63070" Offset="0" />
+                            <GradientStop Color="#FFFE8704" Offset="0.70" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </DockPanel>
+        </ControlTemplate>
+
+        <Style x:Key="EstiloError" TargetType="TextBox">
+            <!--<Setter Property="Template" Value="{StaticResource TemInp}"/>-->
+            <Setter Property="Margin" Value="4,4,10,4"/>
+            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SelectionBrush" Value="#6F6C7A" />
+            <Setter Property="CaretBrush" Value="#6F6C7A" />
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                        <GradientStop Color="#FFE63070" Offset="2" />
+                        <GradientStop Color="#FFFE8704" Offset="0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Border.BorderThickness" Value="0 0 0 2"/>
+
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent"
+                                     RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#1cbfff" />
+                </Trigger>
+            </Style.Triggers>
+
+        </Style>
     </Window.Resources>
 
     <DockPanel Background="#272335">
@@ -28,22 +76,27 @@
             <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="9" />
             <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA PEDIDO" Width="164" Height="28" Name="lblTitulo" FontSize="16"  />
         </DockPanel>
-        <Grid>
+        <Grid Name="gContenedor">
             <Grid.Resources>
                 <ObjectDataProvider x:Key="misMozos" ObjectType="{x:Type svc:TrabajarUsuario}" MethodName="traerMozos" />
                 <ObjectDataProvider x:Key="misClientes" ObjectType="{x:Type svc:TrabajarCliente}" MethodName="traerClientes" />
             </Grid.Resources>
 
             <Label Content="Fecha" Height="28" HorizontalAlignment="Left" Margin="65,27,0,0" Name="lblFechaEmision" VerticalAlignment="Top" />
-            <TextBox  Height="23" HorizontalAlignment="Left" Margin="112,29,0,0" Name="txtFechaEmision" VerticalAlignment="Top" Width="120" TabIndex="1" IsEnabled="False" />
+            <TextBox Style="{StaticResource EstiloError}" Height="23" HorizontalAlignment="Left" Margin="112,29,0,0" Name="txtFechaEmision" VerticalAlignment="Top" Width="120" TabIndex="1" IsEnabled="False" />
             <Label Content="Fecha Entrega" Height="28" HorizontalAlignment="Left" Margin="22,181,0,0" Name="lblFechaEntrega" VerticalAlignment="Top" />
             <Label Content="Mesa" Height="28" HorizontalAlignment="Left" Margin="68,103,0,0" Name="lblMesa" VerticalAlignment="Top" />
             <Label Content="Cliente" Height="28" HorizontalAlignment="Left" Margin="59,147,0,0" Name="lblCliente" VerticalAlignment="Top" />
             <Label Content="N° Comensales" Height="28" HorizontalAlignment="Left" Margin="16,220,0,0" Name="lblComensales" VerticalAlignment="Top" />
             <Label Content="Mozo" Height="28" HorizontalAlignment="Left" Margin="66,63,0,0" Name="lblMozo" VerticalAlignment="Top" />
             <Button Style="{StaticResource BtnLogin}" Content="Confirmar Pedido" Height="23" HorizontalAlignment="Left" Margin="232,318,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="107" Click="btnGuardar_Click" TabIndex="8" />
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="112,186,0,0" Name="txtFechaEntrega" VerticalAlignment="Top" Width="120" TabIndex="2" IsEnabled="False" />
-            <TextBox  Height="23" HorizontalAlignment="Left" Margin="112,225,0,0" Name="txtComensales" VerticalAlignment="Top" Width="120" TabIndex="3" TextChanged="txtComensales_TextChanged" />
+            <TextBox Style="{StaticResource EstiloError}" Height="23" HorizontalAlignment="Left" Margin="112,186,0,0" Name="txtFechaEntrega" VerticalAlignment="Top" Width="120" TabIndex="2" IsEnabled="False" />
+            <TextBox Style="{StaticResource EstiloError}" Height="23" HorizontalAlignment="Left" Margin="112,225,0,0" Name="txtComensales" VerticalAlignment="Top" Width="120" TabIndex="3" TextChanged="txtComensales_TextChanged">
+               <!-- <TextBox.Text>
+                    <Binding Path="Ped_Comensales" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox.Text>-->
+            </TextBox>
             <ComboBox ItemsSource="{Binding Source={StaticResource misMozos}}" DisplayMemberPath="Usu_ApellidoNombre" SelectedValuePath="Usu_Id" Height="23" HorizontalAlignment="Left" Margin="112,68,0,0" Name="cmbMozo" VerticalAlignment="Top" Width="120" TabIndex="4"/>
             <ComboBox Height="23" HorizontalAlignment="Left" Margin="112,108,0,0" Name="cmbMesa" VerticalAlignment="Top" Width="120" TabIndex="5" Loaded="cmbMesa_Loaded" />
             <ComboBox ItemsSource="{Binding Source={StaticResource misClientes}}" DisplayMemberPath="NombreCompleto" SelectedValuePath="Cli_Id" Height="23" HorizontalAlignment="Left" Margin="112,147,0,0" Name="cmbCliente" VerticalAlignment="Top" Width="120" TabIndex="6" />

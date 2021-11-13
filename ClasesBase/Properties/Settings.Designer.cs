@@ -27,7 +27,7 @@ namespace ClasesBase.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=\"D:\\FACULTAD\\TERCER AÑO\\2do CUATRIMESTR" +
-            "E\\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\\PROYECTOS\\TP Ultimo\\LPOO2_G" +
+            "E\\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\\PROYECTOS\\TP FINAL2\\LPOO2_G" +
             "RUPO_08\\pasteleria.mdf\";Integrated Security=True;Connect Timeout=30;User Instanc" +
             "e=True")]
         public string MyConnection {

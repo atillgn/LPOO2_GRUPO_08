@@ -34,6 +34,7 @@ namespace LPOO2_GRUPO_08
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            controlarMesas();
             determinarOrden();
             double anchoBoton = (mesas.Width - (10 * cantColumnas)) / cantColumnas;
             double altoBoton = (mesas.Height - (10 * cantFilas)) / cantFilas;
@@ -128,6 +129,7 @@ namespace LPOO2_GRUPO_08
             Button mesaElegida = (Button)sender;
             if (mesaElegida.Background == Brushes.Green)
              {
+                 btnDisabled(btnCantidadMesas);
                  MessageBoxResult result = MessageBox.Show("Ocupar mesa?", "MESA LIBRE", MessageBoxButton.YesNo);
                  if (result == MessageBoxResult.Yes)
                  {
@@ -141,11 +143,11 @@ namespace LPOO2_GRUPO_08
                 MessageBoxResult result = MessageBox.Show("Generar Factura?", "FACTURAR", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                    Mesa oMesaOcupada = TrabajarMesa.buscarMesaById(Convert.ToInt32(Regex.Replace(Convert.ToString(mesaElegida.Content), @"[^\d]", "")));
+                    Mesa oMesaOcupada = TrabajarMesa.buscarMesaByPosicion(Convert.ToInt32(Regex.Replace(Convert.ToString(mesaElegida.Content), @"[^\d]", "")));
                     oMesaOcupada.Mesa_Estado = 1;
                     TrabajarMesa.editarMesa(oMesaOcupada);
 
-                    Pedido pedido = TrabajarPedido.buscarPedidoByMesaAndEstado(Convert.ToInt32(Regex.Replace(Convert.ToString(mesaElegida.Content), @"[^\d]", "")));
+                    Pedido pedido = TrabajarPedido.buscarPedidoByMesaAndEstado(oMesaOcupada.Mesa_Id);
                     pedido.Ped_Facturado = true;
                     TrabajarPedido.editar_Pedido(pedido);
 
@@ -154,6 +156,30 @@ namespace LPOO2_GRUPO_08
                     this.Close();
                 }
             }
+        }
+
+        private void controlarMesas()
+        {
+            foreach (Mesa m in listaMesas)
+            {
+                if (m.Mesa_Estado != 1 && btnCantidadMesas.IsEnabled == true)
+                    btnDisabled(btnCantidadMesas);
+            }
+        }
+
+        private void btnDisabled(Button b)
+        {
+            b.IsEnabled = false;
+            Style stl = Application.Current.FindResource("BtnDisLogin") as Style;
+            b.Style = stl;
+
+        }
+
+        private void btnEnable(Button b)
+        {
+            b.IsEnabled = true;
+            Style stl = Application.Current.FindResource("BtnLogin") as Style;
+            b.Style = stl;
         }
 
         private void lbEstados_SelectionChanged(object sender, SelectionChangedEventArgs e)

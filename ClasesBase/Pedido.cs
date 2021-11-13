@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace ClasesBase
 {
-    public class Pedido
+    public class Pedido : IDataErrorInfo
     {
         private int ped_Id;
 
@@ -109,5 +110,34 @@ namespace ClasesBase
         }
 
         public Pedido() { }
+
+        public string Error
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string msg_error = null;
+
+                switch (columnName)
+                {
+                    case "Ped_Comensales":
+                        msg_error = validad_Comensales();
+                        break;
+                }
+                return msg_error;
+            }
+        }
+
+        private string validad_Comensales()
+        {
+            string sComensales = Convert.ToString(ped_Comensales);
+            if (String.IsNullOrEmpty(sComensales))
+                return "El valor del campo es obligatorio";
+            return null;
+        }
     }
 }
