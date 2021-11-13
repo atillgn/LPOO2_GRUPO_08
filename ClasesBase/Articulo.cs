@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace ClasesBase
 {
-    public class Articulo : INotifyPropertyChanged
+    public class Articulo : ClaseBase, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -72,13 +72,23 @@ namespace ClasesBase
             }
         }
         
+        private string art_Precio_String;
+        public string Art_Precio_String
+        {
+            get { return art_Precio_String; }
+            set { 
+                art_Precio_String = value;
+                OnPropertyChanged("Art_Precio_String");
+            }
+        }
+
         private decimal art_Precio;
         public decimal Art_Precio
         {
             get { return art_Precio; }
-            set { 
+            set
+            {
                 art_Precio = value;
-                OnPropertyChanged("Art_Precio");
             }
         }
         
@@ -152,6 +162,7 @@ namespace ClasesBase
 
         public Articulo()
         {
+            art_Precio_String = "";
         }
 
 
@@ -168,6 +179,11 @@ namespace ClasesBase
             aFamilia = familia;
             aCategoria = categoria;
             aUnidadMedida = unidadMedida;
+        }
+
+        public void colocarPrecio()
+        {
+            art_Precio = Convert.ToDecimal(art_Precio_String.Replace('.', ','));
         }
 
         protected void OnPropertyChanged(string info)
@@ -214,6 +230,45 @@ namespace ClasesBase
             }
             set
             {
+            }
+        }
+
+        public override string this[string columnName]
+        {
+            get
+            {
+                string error = null;
+                switch (columnName)
+                {
+                    case "Art_Codigo":
+                        error = validarTexto("Código", art_Codigo, maxLong: 10);
+                        break;
+                    case "Art_Descripcion":
+                        error = validarTexto("Descripción", art_Descripcion);
+                        break;
+                    case "Fam_Id":
+                        error = validarValor("Familia", fam_Id);
+                        break;
+                    case "Um_Id":
+                        error = validarValor("Unidad de medida", um_Id);
+                        break;
+                    case "Cat_Id":
+                        error = validarValor("Categoría", Cat_Id);
+                        break;
+                    case "Art_Precio_String":
+                        error = validarTexto("Precio", Art_Precio_String);
+                        if(error == null) error = validarDecimal("Precio", art_Precio_String);
+                        /*if (error == null)
+                        {
+                            art_Precio_String = art_Precio_String.Replace('.', ',');
+                            //art_Precio = Convert.ToDecimal(art_Precio_String.Replace('.', ','));
+                        }*/
+                        break;
+                    case "Art_Img":
+                        error = validarTexto("Imagen", Art_Img);
+                        break;
+                }
+                return error;
             }
         }
     }

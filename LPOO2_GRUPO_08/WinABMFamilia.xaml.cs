@@ -56,61 +56,61 @@ namespace LPOO2_GRUPO_08
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtDescrip.Text != "")
+            Familia oFamilia = cargarDatos();
+            string error = oFamilia.isValid();
+            if (error != null)
             {
-                if (edit)
+                MessageBox.Show(error, "Error al ingresar los datos");
+                return;
+            }
+            if (edit)
+            {
+                try
                 {
-                    Familia oFamilia = cargarDatos();
-                    MessageBoxResult result = MessageBox.Show(encadenarDatos(oFamilia) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                    MessageBoxResult result = MessageBox.Show(encadenarDatos(oFamilia) + "\n¿Guardar datos?", "", MessageBoxButton.YesNo);
                     if (result == MessageBoxResult.Yes)
                     {
-                        try
-                        {
-                            oFamilia.Fam_Id = famMod.Fam_Id;
-                            TrabajarFamilia.editarFamilia(oFamilia);
-                            MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
-                            limpiarCampos();
-                            btnDisabled(btnModificar);
-                            btnDisabled(btnEliminar);
-                            btnGuardar.Content = "Guardar";
-                            oFamilia = TrabajarFamilia.traerFamiliasObv().Single(i => i.Fam_Id == oFamilia.Fam_Id);
-                            var indice = obvFam.IndexOf(famMod);
-                            obvFam.RemoveAt(indice);
-                            obvFam.Insert(indice, oFamilia);
-                            edit = false;
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("La familia ya se encuentra registrado", "ERROR FAMILIA EXISTENTE");
-                            txtDescrip.Focus();
-                        }
+                        oFamilia.Fam_Id = famMod.Fam_Id;
+                        TrabajarFamilia.editarFamilia(oFamilia);
+                        MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
+                        limpiarCampos();
+                        btnDisabled(btnModificar);
+                        MessageBox.Show("Entra");
+                        btnDisabled(btnEliminar);
+                        btnGuardar.Content = "Guardar";
+                        oFamilia = TrabajarFamilia.traerFamiliasObv().Single(i => i.Fam_Id == oFamilia.Fam_Id);
+                        var indice = obvFam.IndexOf(famMod);
+                        obvFam.RemoveAt(indice);
+                        obvFam.Insert(indice, oFamilia);
+                        edit = false;
                     }
                 }
-                else
+                catch (Exception exception)
                 {
-                    try
-                    {
-                        Familia oFamilia = cargarDatos();
-                        MessageBoxResult result = MessageBox.Show(encadenarDatos(oFamilia) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            TrabajarFamilia.agregarFamilia(oFamilia);
-                            MessageBox.Show("DATOS GUARDADOS CON EXITO!");
-                            oFamilia = TrabajarFamilia.traerFamiliasObv().Single(i => i.Fam_Descripcion == oFamilia.Fam_Descripcion);
-                            limpiarCampos();
-                            obvFam.Add(oFamilia);
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("La familia ya se encuentra registrado", "ERROR FAMILIA EXISTENTE");
-                        txtDescrip.Focus();
-                    }
+                    MessageBox.Show(exception.Message);
+                    MessageBox.Show("La familia ya se encuentra registrado", "ERROR FAMILIA EXISTENTE");
+                    txtDescrip.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("No pueden haber campos vacíos", "ERROR CAMPO VACÍO");
+                try
+                {
+                    MessageBoxResult result = MessageBox.Show(encadenarDatos(oFamilia) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        TrabajarFamilia.agregarFamilia(oFamilia);
+                        MessageBox.Show("DATOS GUARDADOS CON EXITO!");
+                        oFamilia = TrabajarFamilia.traerFamiliasObv().Single(i => i.Fam_Descripcion == oFamilia.Fam_Descripcion);
+                        limpiarCampos();
+                        obvFam.Add(oFamilia);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("La familia ya se encuentra registrado", "ERROR FAMILIA EXISTENTE");
+                    txtDescrip.Focus();
+                }
             }
         }
 

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.ComponentModel;
 
 namespace ClasesBase
 {
-    public class Categoria : IDataErrorInfo
+    public class Categoria : ClaseBase
     {
         private int cat_Id;
         public int Cat_Id
@@ -30,32 +29,19 @@ namespace ClasesBase
 
         public Categoria() { }
 
-        public string Error
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public string this[string columnName]
+        public override string this[string columnName]
         {
             get
             {
-                string msg_error = null;
-
+                string error = null;
                 switch (columnName)
                 {
                     case "Cat_Descripcion":
-                        msg_error = validad_Campo(cat_Descripcion);
+                        error = validarTexto("Descripción", cat_Descripcion);
                         break;
                 }
-                return msg_error;
+                return error;
             }
-        }
-
-        private string validad_Campo(string texto)
-        {
-            if (String.IsNullOrEmpty(texto))
-                return "El valor del campo es obligatorio";
-            return null;
         }
     }
 }

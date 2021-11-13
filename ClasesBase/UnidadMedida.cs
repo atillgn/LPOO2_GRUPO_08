@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace ClasesBase
 {
-    public class UnidadMedida: IDataErrorInfo
+    public class UnidadMedida: ClaseBase
     {
         private int um_Id;
 
@@ -39,35 +39,22 @@ namespace ClasesBase
 
         public UnidadMedida() { }
 
-        public string Error
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public string this[string columnName]
+        public override string this[string columnName]
         {
             get
             {
-                string msg_error = null;
-
+                string error = null;
                 switch (columnName)
                 {
                     case "Um_Descripcion":
-                        msg_error = validad_Campo(um_Descripcion);
+                        error = validarTexto("Descripción", um_Descripcion);
                         break;
                     case "Um_Abrev":
-                        msg_error = validad_Campo(um_Abrev);
+                        error = validarTexto("Abreviación", um_Abrev, maxLong: 10);
                         break;
                 }
-                return msg_error;
+                return error;
             }
-        }
-
-        private string validad_Campo(string texto)
-        {
-            if (String.IsNullOrEmpty(texto)) 
-                return "El valor del campo es obligatorio";
-            return null;
         }
     }
 }

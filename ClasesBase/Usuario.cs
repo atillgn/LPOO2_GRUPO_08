@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace ClasesBase
 {
-    public class Usuario : IDataErrorInfo, INotifyPropertyChanged
+    public class Usuario : ClaseBase, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -107,48 +107,32 @@ namespace ClasesBase
             }
         }
 
-        public string Error
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public string this[string columnName]
+        public override string this[string columnName]
         {
             get
             {
-                string msg_error = null;
-
+                string error = null;
                 switch (columnName)
                 {
                     case "Usu_ApellidoNombre":
-                        msg_error = validad_Campo(usu_ApellidoNombre, 1);
+                        error = validarTexto("Apellido y nombre", usu_ApellidoNombre);
+                        if (error == null)
+                        {
+                            error = validarLetras("Apellido y nombre", usu_ApellidoNombre);
+                        }
                         break;
                     case "Usu_NombreUsuario":
-                        msg_error = validad_Campo(usu_NombreUsuario, 0);
+                        error = validarTexto("Nombre de Usuario", usu_NombreUsuario);
                         break;
                     case "Usu_Contrasenia":
-                        msg_error = validad_Campo(usu_Contrasenia, 2);
+                        error = validarTexto("Contraseña", usu_Contrasenia, minLong: 6);
                         break;
                     case "Usu_Img":
-                        msg_error = validad_Campo(usu_Img, 0);
+                        error = validarTexto("Imagen", usu_Img);
                         break;
                 }
-                return msg_error;
+                return error;
             }
-        }
-
-        private string validad_Campo(string texto, int control)
-        {
-            if (String.IsNullOrEmpty(texto))
-                return "El valor del campo es obligatorio";
-            else
-            {
-                if (texto.All(char.IsLetter) == false && control == 1)
-                    return "Debe ingresar solo letras";
-                if (texto.Length < 6 && control == 2)
-                    return "La contraseña debe contener mínimo 6 caracteres";
-            }
-            return null;
         }
     }
 }

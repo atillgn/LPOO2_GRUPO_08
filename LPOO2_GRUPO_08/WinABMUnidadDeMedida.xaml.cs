@@ -55,62 +55,62 @@ namespace LPOO2_GRUPO_08
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtDescrip.Text != "")
+            UnidadMedida oUnidad = cargarDatos();
+            string error = oUnidad.isValid();
+            if (error != null)
             {
-                if (edit)
-                {
-                    UnidadMedida oUnidad = cargarDatos();
-                    MessageBoxResult result = MessageBox.Show(encadenarDatos(oUnidad) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        try
-                        {
-                            oUnidad.Um_Id = uniMod.Um_Id;
-                            TrabajarUnidadMedida.editarUnidadMedida(oUnidad);
-                            MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
-                            limpiarCampos();
-                            btnDisabled(btnModificar);
-                            btnDisabled(btnEliminar);
-                            btnGuardar.Content = "Guardar";
-                            oUnidad = TrabajarUnidadMedida.traerUnidadMedidaObv().Single(i => i.Um_Id == oUnidad.Um_Id);
-                            var indice = obvUni.IndexOf(uniMod);
-                            obvUni.RemoveAt(indice);
-                            obvUni.Insert(indice, oUnidad);
-                            edit = false;
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("La unidad ya se encuentra registrada", "ERROR UNIDAD EXISTENTE");
-                            txtDescrip.Focus();
-                        }
-                    }
-                }
-                else
+                MessageBox.Show(error, "Error al ingresar los datos");
+                return;
+            }
+            if (edit)
+            {
+                //UnidadMedida oUnidad = cargarDatos();
+                MessageBoxResult result = MessageBox.Show(encadenarDatos(oUnidad) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
                 {
                     try
                     {
-                        UnidadMedida oUnidad = cargarDatos();
-                        MessageBoxResult result = MessageBox.Show(encadenarDatos(oUnidad) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            TrabajarUnidadMedida.agregarUnidadMedida(oUnidad);
-                            MessageBox.Show("DATOS GUARDADOS CON EXITO!");
-                            oUnidad = TrabajarUnidadMedida.traerUnidadMedidaObv().Single(i => i.Um_Descripcion == oUnidad.Um_Descripcion);
-                            limpiarCampos();
-                            obvUni.Add(oUnidad);
-                        }
+                        oUnidad.Um_Id = uniMod.Um_Id;
+                        TrabajarUnidadMedida.editarUnidadMedida(oUnidad);
+                        MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
+                        limpiarCampos();
+                        btnDisabled(btnModificar);
+                        btnDisabled(btnEliminar);
+                        btnGuardar.Content = "Guardar";
+                        oUnidad = TrabajarUnidadMedida.traerUnidadMedidaObv().Single(i => i.Um_Id == oUnidad.Um_Id);
+                        var indice = obvUni.IndexOf(uniMod);
+                        obvUni.RemoveAt(indice);
+                        obvUni.Insert(indice, oUnidad);
+                        edit = false;
                     }
                     catch (Exception)
                     {
                         MessageBox.Show("La unidad ya se encuentra registrada", "ERROR UNIDAD EXISTENTE");
                         txtDescrip.Focus();
-                        txtAbrev.Focus();
                     }
                 }
             }
             else
             {
-                MessageBox.Show("No pueden haber campos vacíos", "ERROR CAMPO VACÍO");
+                try
+                {
+                    //UnidadMedida oUnidad = cargarDatos();
+                    MessageBoxResult result = MessageBox.Show(encadenarDatos(oUnidad) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        TrabajarUnidadMedida.agregarUnidadMedida(oUnidad);
+                        MessageBox.Show("DATOS GUARDADOS CON EXITO!");
+                        oUnidad = TrabajarUnidadMedida.traerUnidadMedidaObv().Single(i => i.Um_Descripcion == oUnidad.Um_Descripcion);
+                        limpiarCampos();
+                        obvUni.Add(oUnidad);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("La unidad ya se encuentra registrada", "ERROR UNIDAD EXISTENTE");
+                    txtDescrip.Focus();
+                    txtAbrev.Focus();
+                }
             }
         }
 

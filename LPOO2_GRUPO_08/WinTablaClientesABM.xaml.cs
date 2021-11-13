@@ -69,17 +69,24 @@ namespace LPOO2_GRUPO_08
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            Cliente cliente = (Cliente)lvClientes.SelectedItem;
-            MessageBoxResult result = MessageBox.Show("Seguro que desea eliminar a \"" + cliente.Cli_Apellido + ", " + cliente.Cli_Nombre + "\" ?", "ELIMINAR", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            try
             {
-                TrabajarCliente.borrarCliente(cliente.Cli_Id);
-                MessageBox.Show("USUARIO ELIMINADO CON ÉXITO");
-                btnDisabled(btnModificar);
-                btnDisabled(btnEliminar);
-                lvClientes.SelectedIndex = -1;
-                var ClienteDelete = listaCliente.Single(i => i.Cli_Id == cliente.Cli_Id);
-                listaCliente.Remove(ClienteDelete);
+                Cliente cliente = (Cliente)lvClientes.SelectedItem;
+                MessageBoxResult result = MessageBox.Show("Seguro que desea eliminar a \"" + cliente.Cli_Apellido + ", " + cliente.Cli_Nombre + "\" ?", "ELIMINAR", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    TrabajarCliente.borrarCliente(cliente.Cli_Id);
+                    MessageBox.Show("USUARIO ELIMINADO CON ÉXITO");
+                    btnDisabled(btnModificar);
+                    btnDisabled(btnEliminar);
+                    lvClientes.SelectedIndex = -1;
+                    var ClienteDelete = listaCliente.Single(i => i.Cli_Id == cliente.Cli_Id);
+                    listaCliente.Remove(ClienteDelete);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se puede eliminar cliente vinculado a un pedido", "ERROR");
             }
         }
 
@@ -109,6 +116,19 @@ namespace LPOO2_GRUPO_08
                     ClienteFilter.Filter += new FilterEventHandler(FiltroCliente);
                 }
             }
+        }
+
+        private void Label_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            btnDisabled(btnModificar);
+            btnDisabled(btnEliminar);
+            lvClientes.SelectedIndex = -1;
+            lblBuscar.Foreground = new SolidColorBrush(Color.FromRgb(28, 191, 255));
+        }
+
+        private void txtFilter_LostFocus(object sender, RoutedEventArgs e)
+        {
+            lblBuscar.Foreground = Brushes.White;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -157,16 +177,6 @@ namespace LPOO2_GRUPO_08
             {
                 this.DragMove();
             }
-        }
-
-        private void Label_IsKeyboardFocusedChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            lblBuscar.Foreground = new SolidColorBrush(Color.FromRgb(28, 191, 255));
-        }
-
-        private void txtFilter_LostFocus(object sender, RoutedEventArgs e)
-        {
-            lblBuscar.Foreground = Brushes.White;
         }
 
     }

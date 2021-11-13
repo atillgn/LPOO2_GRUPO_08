@@ -66,61 +66,59 @@ namespace LPOO2_GRUPO_08
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            if (txtDescrip.Text != "")
+            Categoria oCategoria = cargarDatos();
+            string error = oCategoria.isValid();
+            if (error != null)
             {
-                if (edit)
+                MessageBox.Show(error, "Error al ingresar los datos");
+                return;
+            }
+            if (edit)
+            {
+                try
                 {
-                    Categoria oCategoria = cargarDatos();
                     MessageBoxResult result = MessageBox.Show(encadenarDatos(oCategoria) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
                     if (result == MessageBoxResult.Yes)
                     {
-                        try
-                        {
-                            oCategoria.Cat_Id = catMod.Cat_Id;
-                            TrabajarCategoria.editarCategoria(oCategoria);
-                            MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
-                            limpiarCampos();
-                            btnDisabled(btnModificar);
-                            btnDisabled(btnEliminar);
-                            btnGuardar.Content = "Guardar";
-                            oCategoria = TrabajarCategoria.traerCategoriasObv().Single(i => i.Cat_Id == oCategoria.Cat_Id);
-                            var indice = obvCat.IndexOf(catMod);
-                            obvCat.RemoveAt(indice);
-                            obvCat.Insert(indice, oCategoria);
-                            edit = false;
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("La categoria ya se encuentra registrada", "ERROR CATEGORIA EXISTENTE");
-                            txtDescrip.Focus();
-                        }
+                        oCategoria.Cat_Id = catMod.Cat_Id;
+                        TrabajarCategoria.editarCategoria(oCategoria);
+                        MessageBox.Show("DATOS MODIFICADOS CON EXITO!");
+                        limpiarCampos();
+                        btnDisabled(btnModificar);
+                        btnDisabled(btnEliminar);
+                        btnGuardar.Content = "Guardar";
+                        oCategoria = TrabajarCategoria.traerCategoriasObv().Single(i => i.Cat_Id == oCategoria.Cat_Id);
+                        var indice = obvCat.IndexOf(catMod);
+                        obvCat.RemoveAt(indice);
+                        obvCat.Insert(indice, oCategoria);
+                        edit = false;
                     }
                 }
-                else
+                catch (Exception)
                 {
-                    try
-                    {
-                        Categoria oCategoria = cargarDatos();
-                        MessageBoxResult result = MessageBox.Show(encadenarDatos(oCategoria) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            TrabajarCategoria.agregarCategoria(oCategoria);
-                            MessageBox.Show("DATOS GUARDADOS CON EXITO!");
-                            oCategoria = TrabajarCategoria.traerCategoriasObv().Single(i => i.Cat_Descripcion == oCategoria.Cat_Descripcion);
-                            limpiarCampos();
-                            obvCat.Add(oCategoria);
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("La categoria ya se encuentra registrada", "ERROR CATEGORIA EXISTENTE");
-                        txtDescrip.Focus();
-                    }
+                    MessageBox.Show("La categoria ya se encuentra registrada", "ERROR CATEGORIA EXISTENTE");
+                    txtDescrip.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("No pueden haber campos vacíos", "ERROR CAMPO VACÍO");
+                try
+                {
+                    MessageBoxResult result = MessageBox.Show(encadenarDatos(oCategoria) + "\n Guardar datos? \n", "", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        TrabajarCategoria.agregarCategoria(oCategoria);
+                        MessageBox.Show("DATOS GUARDADOS CON EXITO!");
+                        oCategoria = TrabajarCategoria.traerCategoriasObv().Single(i => i.Cat_Descripcion == oCategoria.Cat_Descripcion);
+                        limpiarCampos();
+                        obvCat.Add(oCategoria);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("La categoria ya se encuentra registrada", "ERROR CATEGORIA EXISTENTE");
+                    txtDescrip.Focus();
+                }
             }
         }
 

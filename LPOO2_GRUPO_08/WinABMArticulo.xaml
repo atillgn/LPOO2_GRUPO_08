@@ -26,6 +26,21 @@
             <!--<Setter Property="Template" Value="{StaticResource TemInp}"/>-->
             <Setter Property="Margin" Value="4,4,10,4"/>
             <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SelectionBrush" Value="#6F6C7A" />
+            <Setter Property="CaretBrush" Value="#6F6C7A" />
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                        <GradientStop Color="#FFE63070" Offset="2" />
+                        <GradientStop Color="#FFFE8704" Offset="0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Border.BorderThickness" Value="0 0 0 2"/>
+            
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="ToolTip">
@@ -34,6 +49,9 @@
                                      RelativeSource="{x:Static RelativeSource.Self}"/>
                         </Setter.Value>
                     </Setter>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#1cbfff" />
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -57,7 +75,7 @@
             <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="9" />
             <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA ARTICULOS" Width="164" Height="28" Name="lblTitulo" FontSize="16"  />
         </DockPanel>
-        <Grid>
+        <Grid Name="dpContenedor">
             <Grid.Resources>
                 <ObjectDataProvider x:Key="misCategorias" ObjectType="{x:Type svc:TrabajarCategoria}" MethodName="TraerCategorias" />
                 <ObjectDataProvider x:Key="misFamilias" ObjectType="{x:Type svc:TrabajarFamilia}" MethodName="traerFamiliasObv" />
@@ -65,16 +83,45 @@
             </Grid.Resources>
 
             <Label Content="Código" Height="28" HorizontalAlignment="Left" Margin="98,23,0,0" Name="lblCodigo" VerticalAlignment="Top" />
-            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,28,0,0" Name="txtCodigo" VerticalAlignment="Top" Width="120" TabIndex="1" />
+            <!--<TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,28,0,0" Name="txtCodigo" VerticalAlignment="Top" Width="120" TabIndex="1" />-->
+            <TextBox Style="{StaticResource EstiloError}"
+                     Height="23" HorizontalAlignment="Left"
+                     Name="txtCodigo" VerticalAlignment="Top"
+                     Width="120" TabIndex="1"
+                     Margin="153,28,0,0">
+                <TextBox.Text>
+                    <Binding Path="Art_Codigo" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
             <Label Content="Descripción" Height="28" HorizontalAlignment="Left" Margin="75,61,0,0" Name="lblDescrip" VerticalAlignment="Top" />
             <Label Content="Familia" Height="28" HorizontalAlignment="Left" Margin="100,177,0,0" Name="lblFamilia" VerticalAlignment="Top" />
             <Label Content="Unidad de medida" Height="28" HorizontalAlignment="Left" Margin="39,216,0,0" Name="lblUM" VerticalAlignment="Top" />
             <Label Content="Precio" Height="28" HorizontalAlignment="Left" Margin="104,100,0,0" Name="lblPrecio" VerticalAlignment="Top" />
             <Label Content="Categoría" Height="28" HorizontalAlignment="Left" Margin="86,137,0,0" Name="lblCategoria" VerticalAlignment="Top" />
             <Button Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Margin="257,294,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="75" Click="btnGuardar_Click" TabIndex="8" />
-            <TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,66,0,0" Name="txtDescrip" VerticalAlignment="Top" Width="120" TabIndex="2" />
-            <TextBox  Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,105,0,0" Name="txtPrecio" VerticalAlignment="Top" Width="120" TabIndex="3"/>
-            <ComboBox ItemsSource="{Binding Source={StaticResource misCategorias}}" DisplayMemberPath="Cat_Descripcion" SelectedValuePath="Cat_Id" Height="23" HorizontalAlignment="Left" Margin="153,142,0,0" Name="cmbCategoria" VerticalAlignment="Top" Width="120" TabIndex="4"/>
+            <!--<TextBox Style="{StaticResource stlInp}" Height="23" HorizontalAlignment="Left" Margin="153,66,0,0" Name="txtDescrip" VerticalAlignment="Top" Width="120" TabIndex="2" />-->
+            <TextBox Style="{StaticResource EstiloError}"
+                     Height="23" HorizontalAlignment="Left"
+                     Margin="153,66,0,0" Name="txtDescrip"
+                     VerticalAlignment="Top" Width="120"
+                     TabIndex="2">
+                <TextBox.Text>
+                    <Binding Path="Art_Descripcion" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
+            <TextBox  Style="{StaticResource EstiloError}"
+                      Height="23" HorizontalAlignment="Left"
+                      Margin="153,105,0,0" Name="txtPrecio"
+                      VerticalAlignment="Top" Width="120"
+                      TabIndex="3">
+                <TextBox.Text>
+                    <Binding Path="Art_Precio_String" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
+            <ComboBox ItemsSource="{Binding Source={StaticResource misCategorias}}" DisplayMemberPath="Cat_Descripcion" SelectedValuePath="Cat_Id" Height="23" HorizontalAlignment="Left" Margin="153,142,0,0" Name="cmbCategoria" VerticalAlignment="Top" Width="120" TabIndex="4" />
             <ComboBox ItemsSource="{Binding Source={StaticResource misFamilias}}" DisplayMemberPath="Fam_Descripcion" SelectedValuePath="Fam_Id" Height="23" HorizontalAlignment="Left" Margin="153,182,0,0" Name="cmbFamilia" VerticalAlignment="Top" Width="120" TabIndex="5" />
             <CheckBox Foreground="White" Content="?Maneja Stock" Height="16" HorizontalAlignment="Left" Margin="62,259,0,0" Name="chkStock" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Padding="12,-1,0,0" TabIndex="8" />
             <ComboBox ItemsSource="{Binding Source={StaticResource misUnidadesMedidas}}" DisplayMemberPath="Um_Descripcion" SelectedValuePath="Um_Id" Height="23" HorizontalAlignment="Left" Margin="153,221,0,0" Name="cmbUM" VerticalAlignment="Top" Width="120" TabIndex="6" />
