@@ -26,16 +26,9 @@ namespace ClasesBase.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-<<<<<<< HEAD
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=\"C:\\Users\\admin\\Documents\\Visual Studio" +
             " 2010\\Projects\\LPOO2_GRUPO_08\\pasteleria.mdf\";Integrated Security=True;Connect T" +
             "imeout=30;User Instance=True")]
-=======
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=\"D:\\FACULTAD\\TERCER AÑO\\2do CUATRIMESTR" +
-            "E\\LABORATORIO DE PROGRAMACION ORIENTADO A OBJETOS II\\PROYECTOS\\TP FINAL2\\LPOO2_G" +
-            "RUPO_08\\pasteleria.mdf\";Integrated Security=True;Connect Timeout=30;User Instanc" +
-            "e=True")]
->>>>>>> 49b9500212d35c64c9e72c358df41ba7553bb1d4
         public string MyConnection {
             get {
                 return ((string)(this["MyConnection"]));
