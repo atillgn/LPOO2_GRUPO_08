@@ -51,8 +51,15 @@
 
             <DockPanel Background="#1D1A27" Width="584" Margin="0 15" Height="257">
                 <DockPanel DockPanel.Dock="Top" Height="35">
-                    <Label Name="lblBuscar" Foreground="White" Content="BUSCAR POR APELLIDO" Margin="20 0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox Name="txtFilter" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center" Width="158" TabIndex="1" TextChanged="txtFilter_TextChanged" IsKeyboardFocusedChanged="Label_IsKeyboardFocusedChanged" LostFocus="txtFilter_LostFocus" Style="{StaticResource stlInpFil}"/>
+                    <Label Name="lblBuscar" Foreground="White" Content="BUSCAR POR NOMBRE Y APELLIDO" Margin="20 0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <TextBox Background="Transparent" Foreground="White" BorderThickness="2" SelectionBrush="#6F6C7A" CaretBrush="#6F6C7A" Name="txtFilter" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center" Width="158" TabIndex="1" TextChanged="txtFilter_TextChanged" IsKeyboardFocusedChanged="Label_IsKeyboardFocusedChanged" LostFocus="txtFilter_LostFocus">
+                        <TextBox.BorderBrush>
+                            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                                <GradientStop Color="#FFE63070" Offset="2" />
+                                <GradientStop Color="#FFFE8704" Offset="0" />
+                            </LinearGradientBrush>
+                        </TextBox.BorderBrush>
+                    </TextBox>
                 </DockPanel>
 
 

@@ -28,6 +28,7 @@ namespace LPOO2_GRUPO_08
         public WinTablaUsuarios()
         {
             InitializeComponent();
+            UsuarioFilter = (CollectionViewSource)(this.Resources["UsuarioColl"]);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -99,7 +100,7 @@ namespace LPOO2_GRUPO_08
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
-            img.Source = null;
+            /*img.Source = null;
             lblUsuarios.SelectedIndex = -1;
             /*
             btnModificar.IsEnabled = false;
