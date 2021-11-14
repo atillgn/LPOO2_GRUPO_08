@@ -9,8 +9,8 @@
     <StackPanel  DockPanel.Dock="Right">
         
         <StackPanel  Margin="5 20 5 0 " Height="65" Orientation="Horizontal">
-            <Image Height="32" Source="/Resources/usuario.png"></Image>
-            <StackPanel Margin="20 0 0 0" Width="200">
+            <Image Height="42" Source="../Resources/user.png"></Image>
+            <StackPanel Margin="10 0 0 0" Width="200">
                 <Label Name="lblUser" FontSize="14" Foreground="White">Nombre de Usuario</Label>
                 <TextBox Name="txtUser" Foreground="White" FontSize="18" Width="200" BorderThickness="0" SelectionBrush="#6F6C7A" Background="Transparent" CaretBrush="#6F6C7A" IsKeyboardFocusedChanged="txtUser_IsKeyboardFocusedChanged" LostFocus="txtUser_LostFocus" TabIndex="1" />
                 <Rectangle Name="rUser" Height="2" Width="200" />
@@ -18,8 +18,8 @@
         </StackPanel>
         
         <StackPanel  Margin="5 10 5 0 " Height="65" Orientation="Horizontal">
-            <Image Height="32" Source="/Resources/padlock.png"></Image>
-            <StackPanel Margin="20 0 0 0" Width="200">
+            <Image Height="42" Source="../Resources/unlock.png"></Image>
+            <StackPanel Margin="10 0 0 0" Width="200">
                 <Label Name="lblPass" FontSize="14" Foreground="White">Password</Label>
                 <PasswordBox Foreground="White" Name="txtPass" FontSize="18" Width="200" BorderThickness="0" SelectionBrush="#6F6C7A" Background="Transparent" CaretBrush="#6F6C7A" IsKeyboardFocusedChanged="txtPass_IsKeyboardFocusedChanged" LostFocus="txtPass_LostFocus" TabIndex="2"></PasswordBox>
                 <Rectangle Name="rPass" Height="2" Width="200" />

@@ -36,7 +36,9 @@ namespace LPOO2_GRUPO_08
             if (txtCantidad.Text != "")
             {
                
-                    int cantNecesaria = Convert.ToInt32(txtCantidad.Text);
+                int cantNecesaria = Convert.ToInt32(txtCantidad.Text);
+                if (cantNecesaria > 0 && cantNecesaria < 51)
+                {
                     int cantActual = listaMesas.Count;
                     if (cantActual > cantNecesaria)
                     {
@@ -64,6 +66,12 @@ namespace LPOO2_GRUPO_08
                         }
                     }
                     btnVolver_Click(sender, e);
+
+                }
+                else
+                {
+                    MessageBox.Show("La cantidad de mesas debe ser mayor a 0 y menor a 51", "ERROR");
+                }
 
             }
             else

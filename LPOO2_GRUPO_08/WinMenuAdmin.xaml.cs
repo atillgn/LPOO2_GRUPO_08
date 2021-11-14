@@ -27,6 +27,7 @@ namespace LPOO2_GRUPO_08
         string img;
         DataTable dt;
         Usuario user;
+        string nameUser;
 
         public WinMenuAdmin()
         {   
@@ -44,6 +45,7 @@ namespace LPOO2_GRUPO_08
 
         private void menuUsuarios_Click(object sender, RoutedEventArgs e)
         {
+            if (rep) mediaElm.Stop();
             Window wWinUsuario = new WinTablaUsuarios();
             wWinUsuario.Show();
             this.Close();
@@ -127,7 +129,9 @@ namespace LPOO2_GRUPO_08
             dt = TrabajarHistoriaLogin.traerUltimoIDUser();
             user = TrabajarUsuario.buscarUsuarioById((int)dt.Rows[0][0]);
             img = user.Usu_Img;
+            nameUser = user.Usu_NombreUsuario;
             Elipse.Fill = new ImageBrush(new BitmapImage(new Uri(@img)));
+            txtNombreUsu.Text = nameUser;
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -164,6 +168,7 @@ namespace LPOO2_GRUPO_08
             mediaElm.UnloadedBehavior = MediaState.Manual;
             mediaElm.Volume = (double)sldVol.Value;
             mediaElm.Play();
+            rep = true;
         }
 
         private void mediaElm_MediaOpened(object sender, RoutedEventArgs e)
@@ -174,6 +179,11 @@ namespace LPOO2_GRUPO_08
             rep = true;
         }
 
+        private void bntCerrarVideo_Click(object sender, RoutedEventArgs e)
+        {
+            dpVideo.Visibility = Visibility.Hidden;
+            mediaElm.Stop();
+        }
         
     }
 }
