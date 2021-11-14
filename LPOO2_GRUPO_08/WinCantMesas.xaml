@@ -78,7 +78,7 @@
                      VerticalAlignment="Center" 
                      Width="84" TabIndex="1" TextChanged="txtCantidad_TextChanged">
             </TextBox>
-            <Button Margin="10 5 10 5" Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Name="btnGuardar" VerticalAlignment="Center" Width="75" TabIndex="6" Click="btnGuardar_Click" />
+            <Button Margin="10 5 10 5" Style="{StaticResource BtnLogin}" Content="Guardar" Height="23" HorizontalAlignment="Left" Name="btnGuardar" VerticalAlignment="Center" Width="75" TabIndex="2" Click="btnGuardar_Click" />
         </DockPanel>
 
     </DockPanel>

@@ -29,27 +29,27 @@
             <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Facturación</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <StackPanel Width="345"/>
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click" TabIndex="5">
                     <Image Source="./Resources/min.png" Width="30" Height="15" />
                 </Button>
 
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click" TabIndex="6">
                     <Image Source="./Resources/Exit.png" Width="30" Height="15" />
                 </Button>
             </StackPanel>
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
+            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="4" />
             <Label FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="FACTURACIÓN DEL DÍA" Width="290" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
         <DockPanel>
             <DockPanel DockPanel.Dock="Top" Height="35">
-                <Button HorizontalAlignment="Left" Margin="10 0 0 0" Style="{StaticResource BtnLogin}" Content="Ver todos" Height="23" Name="btnVerTodos" Width="75" Click="btnVerTodos_Click" />
-                <Button HorizontalAlignment="Right" Margin="0 0 42 0" Style="{StaticResource BtnLogin}" Content="Facturar" Height="23" Name="btnGenerarComprobante" Width="75" IsEnabled="False" Click="btnGenerarComprobante_Click" />
+                <Button HorizontalAlignment="Left" Margin="10 0 0 0" Style="{StaticResource BtnLogin}" Content="Ver todos" Height="23" Name="btnVerTodos" Width="75" Click="btnVerTodos_Click" TabIndex="1" />
+                <Button HorizontalAlignment="Right" Margin="0 0 42 0" Style="{StaticResource BtnLogin}" Content="Facturar" Height="23" Name="btnGenerarComprobante" Width="75" IsEnabled="False" Click="btnGenerarComprobante_Click" TabIndex="3" />
             </DockPanel>
 
 
-            <ListView Width="500" ItemsSource="{Binding Source={StaticResource PedidoColl}}" Margin="22,15,24,20" Name="lblPedidos" SelectionChanged="lblPedidos_SelectionChanged">
+            <ListView Width="500" ItemsSource="{Binding Source={StaticResource PedidoColl}}" Margin="22,15,24,20" Name="lblPedidos" SelectionChanged="lblPedidos_SelectionChanged" TabIndex="2">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>

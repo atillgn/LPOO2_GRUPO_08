@@ -28,11 +28,11 @@
             <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">ABM Clientes</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <StackPanel Width="345"/>
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click" TabIndex="7">
                     <Image Source="./Resources/min.png" Width="30" Height="15" />
                 </Button>
 
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click" TabIndex="8">
                     <Image Source="./Resources/Exit.png" Width="30" Height="15" />
                 </Button>
             </StackPanel>
@@ -44,19 +44,19 @@
 
         <DockPanel>
             <DockPanel Background="#403B51"  Height="40" DockPanel.Dock="Top">
-                <Button HorizontalAlignment="Left" Margin="190 5 10 5" Style="{StaticResource BtnLogin}" Content="Nuevo" Height="23" Name="btnNuevo" Width="74" Click="btnNuevo_Click" />
-                <Button HorizontalAlignment="Left" Margin="10 5" Style="{StaticResource BtnLogin}" Content="Eliminar" Height="23" Name="btnEliminar" Width="74" Click="btnEliminar_Click" />
-                <Button HorizontalAlignment="Left" Margin="10 5" Style="{StaticResource BtnLogin}" Content="Modificar" Height="23" Name="btnModificar" Width="74" Click="btnModificar_Click" />
+                <Button HorizontalAlignment="Left" Margin="190 5 10 5" Style="{StaticResource BtnLogin}" Content="Nuevo" Height="23" Name="btnNuevo" Width="74" Click="btnNuevo_Click" TabIndex="1" />
+                <Button HorizontalAlignment="Left" Margin="10 5" Style="{StaticResource BtnLogin}" Content="Eliminar" Height="23" Name="btnEliminar" Width="74" Click="btnEliminar_Click" TabIndex="2" />
+                <Button HorizontalAlignment="Left" Margin="10 5" Style="{StaticResource BtnLogin}" Content="Modificar" Height="23" Name="btnModificar" Width="74" Click="btnModificar_Click" TabIndex="3" />
             </DockPanel>
 
             <DockPanel Background="#1D1A27" Width="584" Margin="0 15" Height="257">
                 <DockPanel DockPanel.Dock="Top" Height="35">
                     <Label Name="lblBuscar" Foreground="White" Content="BUSCAR POR DNI" Margin="20 0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    <TextBox Name="txtFilter" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center" Width="158" TabIndex="1" TextChanged="txtFilter_TextChanged" IsKeyboardFocusedChanged="Label_IsKeyboardFocusedChanged" LostFocus="txtFilter_LostFocus" Style="{StaticResource stlInpFil}"/>
+                    <TextBox Name="txtFilter" Height="23" HorizontalAlignment="Left" VerticalAlignment="Center" Width="158" TabIndex="4" TextChanged="txtFilter_TextChanged" IsKeyboardFocusedChanged="Label_IsKeyboardFocusedChanged" LostFocus="txtFilter_LostFocus" Style="{StaticResource stlInpFil}"/>
                 </DockPanel>
 
 
-                <ListView DockPanel.Dock="Left" Width="553" ItemsSource="{Binding Source={StaticResource ClienteColl}}" Margin="0 15" SelectionChanged="ListView_SelectionChanged" Name="lvClientes">
+                <ListView DockPanel.Dock="Left" Width="553" ItemsSource="{Binding Source={StaticResource ClienteColl}}" Margin="0 15" SelectionChanged="ListView_SelectionChanged" Name="lvClientes" TabIndex="5">
                     <ListView.View>
                         <GridView>
                             <GridView.Columns>

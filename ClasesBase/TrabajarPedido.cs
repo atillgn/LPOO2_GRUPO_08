@@ -195,6 +195,34 @@ namespace ClasesBase
 
             return oPedido;
         }
+
+        public static ObservableCollection<Pedido> buscarPedidosByMesa(int idMesa)
+        {
+            SqlConnection conn = connection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "BuscarPedidosByMesa";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@idMesa", idMesa);
+            cmd.Connection = conn;
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+
+            ObservableCollection<Pedido> listaPedido = null;
+            if (dt != null)
+            {
+                listaPedido = new ObservableCollection<Pedido>();
+                foreach (DataRow r in dt.Rows)
+                {
+                    listaPedido.Add(transformarPedido(r, true));
+                }
+            }
+
+            return listaPedido;
+        }
         
     }
 }

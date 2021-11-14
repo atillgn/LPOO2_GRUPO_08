@@ -63,17 +63,17 @@
             <TextBlock Name="txbNombreVentana" Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Alta Pedido</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <StackPanel Width="345"/>
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click" TabIndex="10">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click" TabIndex="11">
                     <Image Source="./Resources/min.png" Width="30" Height="15" />
                 </Button>
 
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click" TabIndex="11">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click" TabIndex="12">
                     <Image Source="./Resources/Exit.png" Width="30" Height="15" />
                 </Button>
             </StackPanel>
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="9" />
+            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="10" />
             <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ALTA PEDIDO" Width="164" Height="28" Name="lblTitulo" FontSize="16"  />
         </DockPanel>
         <Grid Name="gContenedor">
@@ -90,21 +90,21 @@
             <Label Content="N° Comensales" Height="28" HorizontalAlignment="Left" Margin="16,220,0,0" Name="lblComensales" VerticalAlignment="Top" />
             <Label Content="Mozo" Height="28" HorizontalAlignment="Left" Margin="66,63,0,0" Name="lblMozo" VerticalAlignment="Top" />
             <Button Style="{StaticResource BtnLogin}" Content="Confirmar Pedido" Height="23" HorizontalAlignment="Left" Margin="232,318,0,0" Name="btnGuardar" VerticalAlignment="Top" Width="107" Click="btnGuardar_Click" TabIndex="8" />
-            <TextBox Style="{StaticResource EstiloError}" Height="23" HorizontalAlignment="Left" Margin="112,186,0,0" Name="txtFechaEntrega" VerticalAlignment="Top" Width="120" TabIndex="2" IsEnabled="False" />
-            <TextBox Style="{StaticResource EstiloError}" Height="23" HorizontalAlignment="Left" Margin="112,225,0,0" Name="txtComensales" VerticalAlignment="Top" Width="120" TabIndex="3" TextChanged="txtComensales_TextChanged">
+            <TextBox Style="{StaticResource EstiloError}" Height="23" HorizontalAlignment="Left" Margin="112,186,0,0" Name="txtFechaEntrega" VerticalAlignment="Top" Width="120" TabIndex="6" IsEnabled="False" />
+            <TextBox Style="{StaticResource EstiloError}" Height="23" HorizontalAlignment="Left" Margin="112,225,0,0" Name="txtComensales" VerticalAlignment="Top" Width="120" TabIndex="7" TextChanged="txtComensales_TextChanged">
                <!-- <TextBox.Text>
                     <Binding Path="Ped_Comensales" UpdateSourceTrigger="PropertyChanged"
                          ValidatesOnExceptions="True" ValidatesOnDataErrors="True"/>
                 </TextBox.Text>-->
             </TextBox>
-            <ComboBox ItemsSource="{Binding Source={StaticResource misMozos}}" DisplayMemberPath="Usu_ApellidoNombre" SelectedValuePath="Usu_Id" Height="23" HorizontalAlignment="Left" Margin="112,68,0,0" Name="cmbMozo" VerticalAlignment="Top" Width="120" TabIndex="4"/>
-            <ComboBox Height="23" HorizontalAlignment="Left" Margin="112,108,0,0" Name="cmbMesa" VerticalAlignment="Top" Width="120" TabIndex="5" Loaded="cmbMesa_Loaded" />
-            <ComboBox ItemsSource="{Binding Source={StaticResource misClientes}}" DisplayMemberPath="NombreCompleto" SelectedValuePath="Cli_Id" Height="23" HorizontalAlignment="Left" Margin="112,147,0,0" Name="cmbCliente" VerticalAlignment="Top" Width="120" TabIndex="6" />
+            <ComboBox ItemsSource="{Binding Source={StaticResource misMozos}}" DisplayMemberPath="Usu_ApellidoNombre" SelectedValuePath="Usu_Id" Height="23" HorizontalAlignment="Left" Margin="112,68,0,0" Name="cmbMozo" VerticalAlignment="Top" Width="120" TabIndex="2"/>
+            <ComboBox Height="23" HorizontalAlignment="Left" Margin="112,108,0,0" Name="cmbMesa" VerticalAlignment="Top" Width="120" TabIndex="3" Loaded="cmbMesa_Loaded" />
+            <ComboBox ItemsSource="{Binding Source={StaticResource misClientes}}" DisplayMemberPath="NombreCompleto" SelectedValuePath="Cli_Id" Height="23" HorizontalAlignment="Left" Margin="112,147,0,0" Name="cmbCliente" VerticalAlignment="Top" Width="120" TabIndex="4" />
 
             <Label Content="Items" Height="28" HorizontalAlignment="Left" Margin="347,29,0,0" Name="lblItems" VerticalAlignment="Top" />
 
-            <Button  Style="{StaticResource BtnLogin}" Content="Agregar" Height="23" HorizontalAlignment="Right" Margin="0,29,103,0" Name="btnAgregarItem" VerticalAlignment="Top" Width="73" Click="btnAgregarItem_Click" />
-            <Button  Style="{StaticResource BtnLogin}" Content="Eliminar" Height="23" Margin="0,29,12,0" Name="btnEliminarItem" VerticalAlignment="Top" Click="btnEliminarItem_Click" IsEnabled="False" HorizontalAlignment="Right" Width="73" />
+            <Button  Style="{StaticResource BtnLogin}" Content="Agregar" Height="23" HorizontalAlignment="Right" Margin="0,29,103,0" Name="btnAgregarItem" VerticalAlignment="Top" Width="73" Click="btnAgregarItem_Click" TabIndex="8" />
+            <Button  Style="{StaticResource BtnLogin}" Content="Eliminar" Height="23" Margin="0,29,12,0" Name="btnEliminarItem" VerticalAlignment="Top" Click="btnEliminarItem_Click" IsEnabled="False" HorizontalAlignment="Right" Width="73" TabIndex="9" />
             <ListView Name="lvItems" Margin="0,63,12,110" HorizontalAlignment="Right" Width="300" SelectionChanged="lvItems_SelectionChanged">
                 <ListView.View>
                     <GridView>
@@ -115,7 +115,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button Style="{StaticResource BtnLogin}" Height="23" HorizontalAlignment="Right" Margin="0,147,340,0" Name="btnBuscarCliente" VerticalAlignment="Top" Width="25" Click="btnBuscarCliente_Click">
+            <Button Style="{StaticResource BtnLogin}" Height="23" HorizontalAlignment="Right" Margin="0,147,340,0" Name="btnBuscarCliente" VerticalAlignment="Top" Width="25" Click="btnBuscarCliente_Click" TabIndex="5">
                 <Image Source="./Resources/lupa.png" />
             </Button>
         </Grid>

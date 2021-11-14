@@ -60,6 +60,21 @@ namespace LPOO2_GRUPO_08
             }
         }
 
+        private void btnDisabled(Button b)
+        {
+            b.IsEnabled = false;
+            Style stl = Application.Current.FindResource("BtnDisLogin") as Style;
+            b.Style = stl;
+
+        }
+
+        private void btnEnable(Button b)
+        {
+            b.IsEnabled = true;
+            Style stl = Application.Current.FindResource("BtnLogin") as Style;
+            b.Style = stl;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             if (pedidoEnCurso == null)
@@ -74,6 +89,7 @@ namespace LPOO2_GRUPO_08
             else
                 cargarCampos();
             cargarLista();
+            btnDisabled(btnEliminarItem);
         }
 
         private void cargarLista()
@@ -97,13 +113,12 @@ namespace LPOO2_GRUPO_08
             var articuloDelete = listaItem[eliminar];
             listaItem.RemoveAt(eliminar);
             lvItems.Items.Remove(articuloDelete);
-            if (listaItem.Count == 0)
-                btnEliminarItem.IsEnabled = false;
+            btnDisabled(btnEliminarItem);
         }
 
         private void lvItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            btnEliminarItem.IsEnabled = true;
+            btnEnable(btnEliminarItem);
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)

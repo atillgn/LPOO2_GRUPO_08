@@ -10,11 +10,11 @@
             <TextBlock Margin="10 0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontWeight="DemiBold">Disposición de Mesas</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <StackPanel Width="345"/>
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30" Foreground="White" Name="bntMinimizeScreen" Click="bntMinimizedScreen_Click" TabIndex="3">
                     <Image Source="./Resources/min.png" Width="30" Height="15" />
                 </Button>
 
-                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click">
+                <Button HorizontalAlignment="Right" Style="{StaticResource BtnWin}" Height="24" Width="30 " Foreground="White" Name="btnClose"  Click="btnClose_Click" TabIndex="4">
                     <Image Source="./Resources/Exit.png" Width="30" Height="15" />
                 </Button>
             </StackPanel>
@@ -34,7 +34,7 @@
 
             </WrapPanel>
 
-            <ListBox Background="#1D1A27" Foreground="White" x:Name="lbEstados" Height="300" Margin="806,38,51,109" ItemsSource="{Binding Source={StaticResource EstadosMesas}, XPath=estado/@name}" SelectionChanged="lbEstados_SelectionChanged">
+            <ListBox Background="#1D1A27" Foreground="White" x:Name="lbEstados" Height="300" Margin="806,38,51,109" ItemsSource="{Binding Source={StaticResource EstadosMesas}, XPath=estado/@name}" SelectionChanged="lbEstados_SelectionChanged" TabIndex="2">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Template">
@@ -78,7 +78,7 @@
                 <Rectangle Grid.Row="6" Height="20" Name="rectangle7" Width="20" Fill="RoyalBlue" Stroke="RoyalBlue" />
                 <Rectangle Grid.Row="7" Height="20" Name="rectangle8" Width="20" Fill="#FF91AB5C" Stroke="#FF91AB5C" />
             </Grid>
-            <Button Style="{StaticResource BtnLogin}" Content="Cantidad de mesas" Height="23" HorizontalAlignment="Left" Margin="10,6,0,0" Name="btnCantidadMesas" VerticalAlignment="Top" Width="126" Click="btnCantidadMesas_Click" />
+            <Button Style="{StaticResource BtnLogin}" Content="Cantidad de mesas" Height="23" HorizontalAlignment="Left" Margin="10,6,0,0" Name="btnCantidadMesas" VerticalAlignment="Top" Width="126" Click="btnCantidadMesas_Click" TabIndex="1" />
             <!--<Rectangle Name="libre" Stroke="Green" Margin="20,429,730,12" Fill="Green" Height="20" Width="28" />
         <Rectangle Name="ocupada" Stroke="Red" Margin="117,429,633,12" Fill="Red" Width="28" Height="20" />
         <Label Content="Libre" Height="28" Margin="54,426,682,7" Name="lblLibre" FontSize="15" Width="45" />

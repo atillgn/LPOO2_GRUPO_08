@@ -33,22 +33,43 @@ namespace LPOO2_GRUPO_08
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            int cantNecesaria = Convert.ToInt32(txtCantidad.Text);
-            int cantActual = listaMesas.Count;
-            if (cantActual > cantNecesaria)
+            if (txtCantidad.Text != "")
             {
-                for (int i = cantNecesaria + 1; i <= cantActual; i++)
-                    TrabajarMesa.borrarMesa(i);
+               
+                    int cantNecesaria = Convert.ToInt32(txtCantidad.Text);
+                    int cantActual = listaMesas.Count;
+                    if (cantActual > cantNecesaria)
+                    {
+                        for (int i = cantNecesaria + 1; i <= cantActual; i++)
+                        {
+                            Mesa oMesaEliminada = TrabajarMesa.buscarMesaByPosicion(i);
+                            ObservableCollection<Pedido> listaPedidos = TrabajarPedido.buscarPedidosByMesa(oMesaEliminada.Mesa_Id);
+                            foreach (Pedido p in listaPedidos)
+                            {
+                                p.Mesa_Id = TrabajarMesa.buscarMesaByPosicion(cantNecesaria).Mesa_Id;
+                                TrabajarPedido.editar_Pedido(p);
+                            }
+                            TrabajarMesa.borrarMesa(i);
+                        }
+                    }
+                    else
+                    {
+                        if (cantActual < cantNecesaria)
+                        {
+                            for (int i = cantActual + 1; i <= cantNecesaria; i++)
+                            {
+                                Mesa oMesaNueva = new Mesa(i, 1);
+                                TrabajarMesa.agregarMesa(oMesaNueva);
+                            }
+                        }
+                    }
+                    btnVolver_Click(sender, e);
+
             }
             else
             {
-                for (int i = cantActual + 1; i <= cantNecesaria; i++)
-                {
-                    Mesa oMesaNueva = new Mesa(i, 1);
-                    TrabajarMesa.agregarMesa(oMesaNueva);
-                }
+                MessageBox.Show("Debe ingresar un número", "ERROR");
             }
-            btnVolver_Click(sender, e);
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)

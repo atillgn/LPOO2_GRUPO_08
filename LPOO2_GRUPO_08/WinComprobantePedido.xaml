@@ -23,11 +23,11 @@
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="336,79,0,0" Name="txbFecha" VerticalAlignment="Top" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="108,126,0,0" Name="txbMesa" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="310,126,0,0" Name="txbMozo" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
-        <ListView Name="lvItems" Margin="0,183,67,108" HorizontalAlignment="Right" Width="346">
+        <ListView Name="lvItems" Margin="0,183,41,108" HorizontalAlignment="Right" Width="399">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="55" Header="Cantidad" DisplayMemberBinding="{Binding Cantidad}"/>
-                    <GridViewColumn Width="140" Header="Descripción" DisplayMemberBinding="{Binding Articulo.Art_Descripcion}"/>
+                    <GridViewColumn Width="190" Header="Descripción" DisplayMemberBinding="{Binding Articulo.Art_Descripcion}"/>
                     <GridViewColumn Width="70" Header="Precio" DisplayMemberBinding="{Binding Precio}"/>
                     <GridViewColumn Width="70" Header="Subtotal" DisplayMemberBinding="{Binding Importe}"/>
                 </GridView>
