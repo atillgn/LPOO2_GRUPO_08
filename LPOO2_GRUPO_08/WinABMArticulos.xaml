@@ -26,16 +26,61 @@
             </StackPanel>
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
+            <Button HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Margin="10 0" Style="{StaticResource BtnLogin}" 
+                    Height="23" Name="btnVolver" 
+                    Width="60" Click="btnVolver_Click" TabIndex="6" ToolTip="Volver a menu principal">
+                <DockPanel>
+                    <Image Source="./Resources/volver.png" Width="12" Height="12" Margin="0 0 5 0"/>
+                    <TextBlock Text="Volver" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"/>
+                </DockPanel>
+            </Button>
             <Label  FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="ABM ARTÍCULOS" Width="145" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
         
         <DockPanel>
             <DockPanel Background="#403B51"  Height="40" DockPanel.Dock="Top">
-                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Nuevo" Height="23" Name="btnNuevo" Width="74" Margin="120, 5, 10, 5" Click="btnNuevo_Click" />
-                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Eliminar" Height="23" Name="btnEliminar" Width="74" Margin="10, 5" Click="btnEliminar_Click" />
-                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Modificar" Height="23" Name="btnModificar" Width="74" Margin="10, 5" Click="btnModificar_Click" />
-                <Button HorizontalAlignment="Left" Style="{StaticResource BtnLogin}" Content="Ver Artículos" Height="23"  Name="btnVerArticulos" Width="94"  Margin="10, 5" Click="btnVerArticulos_Click" />
+                <Button HorizontalAlignment="Left" 
+                        Style="{StaticResource BtnLogin}" 
+                        Height="23" 
+                        Name="btnNuevo" Width="74" 
+                        Margin="120, 5, 10, 5" Click="btnNuevo_Click" ToolTip="Agregar artículo">
+                        <DockPanel>
+                            <Image Source="./Resources/agregar.png" Width="12" Height="12" Margin="0 0 5 0"/>
+                            <TextBlock Text="Nuevo" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"/>
+                        </DockPanel>
+                </Button>
+                
+                <Button HorizontalAlignment="Left" 
+                        Style="{StaticResource BtnLogin}" 
+                        Height="23" Name="btnEliminar" 
+                        Width="74" Margin="10, 5" 
+                        Click="btnEliminar_Click" ToolTip="Eliminar artículo">
+                    <DockPanel>
+                        <Image Source="./Resources/eliminar.png" Width="12" Height="12" Margin="0 0 5 0"/>
+                        <TextBlock Text="Eliminar" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+                <Button HorizontalAlignment="Left" 
+                        Style="{StaticResource BtnLogin}" 
+                        Height="23" Name="btnModificar" 
+                        Width="74" Margin="10, 5" Click="btnModificar_Click" ToolTip="Modificar artículo">
+                    <DockPanel>
+                        <Image Source="./Resources/editar.png" Width="12" Height="12" Margin="0 0 5 0"/>
+                        <TextBlock Text="Modificar" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
+                <Button HorizontalAlignment="Left" 
+                        Style="{StaticResource BtnLogin}" 
+                        Height="23"  Name="btnVerArticulos" 
+                        Width="94"  Margin="10, 5" 
+                        Click="btnVerArticulos_Click" ToolTip="Ver listado de artículos">
+                    <DockPanel>
+                        <Image Source="./Resources/lista.png" Width="12" Height="12" Margin="0 0 5 0"/>
+                        <TextBlock Text="Ver Artículos" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
             </DockPanel>
 
             <DockPanel Background="#1D1A27" Width="365" Margin="0 15" Height="257">

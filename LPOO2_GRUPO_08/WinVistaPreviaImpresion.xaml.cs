@@ -79,6 +79,10 @@ namespace LPOO2_GRUPO_08
             var l = vistaColection.View.Cast<Articulo>().ToList();
             var c = new ObservableCollection<Articulo>(l);
             lvArticulos.ItemsSource = c;
+            if ((c.Count * 25) > 220)
+            {
+                lvArticulos.Height = c.Count * 25;
+            }
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)

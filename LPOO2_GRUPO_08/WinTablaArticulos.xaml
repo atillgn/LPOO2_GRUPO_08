@@ -35,8 +35,17 @@
             </StackPanel>
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" Click="btnVolver_Click" TabIndex="6" />
-            <Label FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="LISTA DE ARTÍCULOS" Width="178" Height="28" Name="lblTitulo" FontSize="16" />
+            <Button HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Margin="10 0" Style="{StaticResource BtnLogin}" 
+                    Height="23" Name="btnVolver" 
+                    Width="60" Click="btnVolver_Click" TabIndex="6" SnapsToDevicePixels="True" ToolTip="Ver lista a imprimir">
+                <DockPanel>
+                    <Image Source="./Resources/volver.png" Width="12" Height="12" Margin="0 0 5 0"/>
+                    <TextBlock Text="Volver" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"/>
+                </DockPanel>
+            </Button>
+            <Label FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="LISTA DE ARTÍCULOS" Width="178" Height="28" Name="lblTitulo" FontSize="16" ToolTip="Volver a ABM Artículos" />
         </DockPanel>
         <DockPanel>
             <DockPanel DockPanel.Dock="Top" Height="35">
@@ -49,7 +58,16 @@
                         </LinearGradientBrush>
                     </TextBox.BorderBrush>
                 </TextBox>
-                <Button HorizontalAlignment="Right" Margin="200 0 25 0" Style="{StaticResource BtnLogin}" Content="Vista previa impresión" Height="23" Name="btnVistaPrevia" Width="150" TabIndex="6" Click="btnVistaPrevia_Click" />
+                <Button HorizontalAlignment="Right" 
+                        Margin="200 0 25 0" Style="{StaticResource BtnLogin}" 
+                        Height="23" 
+                        Name="btnVistaPrevia" Width="150" TabIndex="6" 
+                        Click="btnVistaPrevia_Click">
+                    <DockPanel>
+                        <Image Source="./Resources/ver.png" Width="12" Height="12" Margin="0 0 5 0"/>
+                        <TextBlock Text="Vista Previa Impresión" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Button>
             </DockPanel>
 
 

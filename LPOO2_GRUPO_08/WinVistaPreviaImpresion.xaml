@@ -23,36 +23,56 @@
             </StackPanel>
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
-            <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0" Style="{StaticResource BtnLogin}" Content="Volver" Height="23" Name="btnVolver" Width="49" TabIndex="2" Click="btnVolver_Click" />
+            <Button HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Margin="10 0" Style="{StaticResource BtnLogin}" 
+                    Height="23" Name="btnVolver"
+                    Width="60" TabIndex="2" Click="btnVolver_Click" ToolTip="Volver a lista Artículos">
+                <DockPanel>
+                    <Image Source="./Resources/volver.png" Width="12" Height="12" Margin="0 0 5 0"/>
+                    <TextBlock Text="Volver" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"/>
+                </DockPanel>
+            </Button>
             <Label FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Vista Previa Impresión" Width="252" Height="28" Name="lblTitulo" FontSize="16" />
         </DockPanel>
-        <DockPanel DockPanel.Dock="Top" Height="320">
-            <FlowDocumentReader>
-                <FlowDocument Name="DocMain">
-                    <Paragraph  FontFamily="Segoe UI" FontSize="15" Margin="210,0,0,15" FontWeight="Bold">Listado de Artículos</Paragraph>
-                    <BlockUIContainer>
-                        <ListView Name="lvArticulos"
+        <DockPanel Name="panelImpresion" DockPanel.Dock="Top" Height="320">
+            <ScrollViewer Height="250" VerticalScrollBarVisibility="Auto">
+                <FlowDocumentReader>
+                    <FlowDocument Name="DocMain">
+                        <Paragraph  FontFamily="Segoe UI" FontSize="15" Margin="210,0,0,15" FontWeight="Bold">Listado de Artículos</Paragraph>
+                        <BlockUIContainer>
+                            <ListView Name="lvArticulos"
                                   Width="580"
                                   IsSynchronizedWithCurrentItem="True"
                                   FontFamily="Segoe UI" FontSize="12" Height="220">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Width="50" Header="Código" DisplayMemberBinding="{Binding Art_Codigo}"/>
-                                    <GridViewColumn Width="100" Header="Descripción" DisplayMemberBinding="{Binding Art_Descripcion}"/>
-                                    <GridViewColumn Width="70" Header="Precio" DisplayMemberBinding="{Binding Art_Precio}"/>
-                                    <GridViewColumn Width="50" Header="Stock" DisplayMemberBinding="{Binding Art_ManejaStock}"/>
-                                    <GridViewColumn Width="90" Header="Familia" DisplayMemberBinding="{Binding AFamilia.Fam_Descripcion}"/>
-                                    <GridViewColumn Width="120" Header="Unidad Medida" DisplayMemberBinding="{Binding AUnidadMedida.Um_Abrev}"/>
-                                    <GridViewColumn Width="90" Header="Categoría" DisplayMemberBinding="{Binding ACategoria.Cat_Descripcion}"/>
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
-                    </BlockUIContainer>
-                </FlowDocument>
-            </FlowDocumentReader>
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Width="50" Header="Código" DisplayMemberBinding="{Binding Art_Codigo}"/>
+                                        <GridViewColumn Width="100" Header="Descripción" DisplayMemberBinding="{Binding Art_Descripcion}"/>
+                                        <GridViewColumn Width="70" Header="Precio" DisplayMemberBinding="{Binding Art_Precio}"/>
+                                        <GridViewColumn Width="50" Header="Stock" DisplayMemberBinding="{Binding Art_ManejaStock}"/>
+                                        <GridViewColumn Width="90" Header="Familia" DisplayMemberBinding="{Binding AFamilia.Fam_Descripcion}"/>
+                                        <GridViewColumn Width="120" Header="Unidad Medida" DisplayMemberBinding="{Binding AUnidadMedida.Um_Abrev}"/>
+                                        <GridViewColumn Width="90" Header="Categoría" DisplayMemberBinding="{Binding ACategoria.Cat_Descripcion}"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </BlockUIContainer>
+                    </FlowDocument>
+                </FlowDocumentReader>
+            </ScrollViewer>
         </DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="40" Background="#1D1A27">
-            <Button Style="{StaticResource BtnLogin}" HorizontalAlignment="Center" Content="Imprimir" Height="23" Margin="0 5 0 0" Name="btnImprimir" VerticalAlignment="Top" Width="75" Click="btnImprimir_Click" TabIndex="1" />
+            <Button Style="{StaticResource BtnLogin}" 
+                    HorizontalAlignment="Center"
+                    Height="33" Margin="0 5 0 0" Name="btnImprimir" 
+                    VerticalAlignment="Top" Width="90" Click="btnImprimir_Click" 
+                    TabIndex="1" ToolTip="Imprimir">
+                <DockPanel>
+                    <Image Source="./Resources/impresora.png" Width="22" Height="20" Margin="0 0 5 0"/>
+                    <TextBlock Text="Imprimir" Foreground="White" FontFamily="Arial" VerticalAlignment="Center"/>
+                </DockPanel>
+            </Button>
         </DockPanel>
 </DockPanel>
 </Window>
