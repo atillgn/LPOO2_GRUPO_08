@@ -34,7 +34,7 @@
                         <ListView Name="lvArticulos"
                                   Width="580"
                                   IsSynchronizedWithCurrentItem="True"
-                                  FontFamily="Segoe UI" FontSize="12">
+                                  FontFamily="Segoe UI" FontSize="12" Height="220">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Width="50" Header="Código" DisplayMemberBinding="{Binding Art_Codigo}"/>

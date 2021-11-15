@@ -72,20 +72,33 @@ namespace LPOO2_GRUPO_08
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             Usuario user = (Usuario)lblUsuarios.SelectedItem;
-            MessageBoxResult result = MessageBox.Show("Seguro que desea eliminar a \"" + user.Usu_ApellidoNombre + "\" ?", "ELIMINAR", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            if (user.Usu_Id != 34)
             {
-                TrabajarUsuario.borrarUsuario(user.Usu_Id);
-                MessageBox.Show("USUARIO ELIMINADO CON ÉXITO");
-                btnDisabled(btnModificar);
-                btnDisabled(btnEliminar);
-                /*
-                btnModificar.IsEnabled = false;
-                btnEliminar.IsEnabled = false;*/
-                lblUsuarios.SelectedIndex = -1;
-                img.Source = null;
-                var UsuarioDelete = listaUsuarios.Single(i => i.Usu_Id == user.Usu_Id);
-                listaUsuarios.Remove(UsuarioDelete);
+                MessageBoxResult result = MessageBox.Show("Seguro que desea eliminar a \"" + user.Usu_ApellidoNombre + "\" ?", "ELIMINAR", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    if (user.Rol_Id == 2)
+                    {
+                        ObservableCollection<Pedido> listaPedidos = TrabajarPedido.buscarPedidosByMozo(user.Usu_Id);
+                        foreach (Pedido p in listaPedidos)
+                        {
+                            p.Usu_Id = 34;
+                            TrabajarPedido.editar_Pedido(p);
+                        }
+                    }
+                    TrabajarUsuario.borrarUsuario(user.Usu_Id);
+                    MessageBox.Show("USUARIO ELIMINADO CON ÉXITO");
+                    btnDisabled(btnModificar);
+                    btnDisabled(btnEliminar);
+                    lblUsuarios.SelectedIndex = -1;
+                    img.Source = null;
+                    var UsuarioDelete = listaUsuarios.Single(i => i.Usu_Id == user.Usu_Id);
+                    listaUsuarios.Remove(UsuarioDelete);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se puede eliminar el usuario administrador principal", "ERROR");
             }
         }
 
@@ -100,11 +113,6 @@ namespace LPOO2_GRUPO_08
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
-            /*img.Source = null;
-            lblUsuarios.SelectedIndex = -1;
-            /*
-            btnModificar.IsEnabled = false;
-            btnEliminar.IsEnabled = false;*/
             btnDisabled(btnModificar);
             btnDisabled(btnEliminar);
             if (UsuarioFilter != null)
@@ -121,9 +129,6 @@ namespace LPOO2_GRUPO_08
                 Usuario user = (Usuario)lblUsuarios.SelectedItem;
                 dialog.FileName = user.Usu_Img;
                 img.Source = new BitmapImage(new Uri(dialog.FileName));
-                /*
-                btnEliminar.IsEnabled = true;
-                btnModificar.IsEnabled = true;*/
                 btnEnable(btnEliminar);
                 btnEnable(btnModificar);
             }

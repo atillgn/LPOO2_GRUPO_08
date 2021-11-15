@@ -102,12 +102,12 @@
         </DockPanel>
         <DockPanel Background="#1D1A27" Margin="75 25" Height="216">
             <DockPanel DockPanel.Dock="Top" Height="144">
-                <ListView Name="lvFam" Width="176" DockPanel.Dock="Left" ItemsSource="{Binding Source={StaticResource listFam}}" HorizontalContentAlignment="Center" Height="143" SelectionChanged="ListView_SelectionChanged">
+                <ListView Name="lvFam" Width="209" DockPanel.Dock="Left" ItemsSource="{Binding Source={StaticResource listFam}}" HorizontalContentAlignment="Center" Height="143" SelectionChanged="ListView_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridView.Columns>
                                 <GridViewColumn Width="40" Header="ID" DisplayMemberBinding="{Binding Path=Fam_Id}"/>
-                                <GridViewColumn Width="120" Header="Descripcion" DisplayMemberBinding="{Binding Path=Fam_Descripcion}" />
+                                <GridViewColumn Width="155" Header="Descripcion" DisplayMemberBinding="{Binding Path=Fam_Descripcion}" />
                             </GridView.Columns>
                         </GridView>
                     </ListView.View>
